@@ -9,6 +9,7 @@ import (
 	"math"
 	"net/http"
 	"os"
+	"regexp"
 	"strings"
 	"time"
 
@@ -39,13 +40,38 @@ func downloadReadmeFile()  {
 	writer.Write(bytes)
 	writer.Flush()
 }
+var (
+	reCategory            = regexp.MustCompile(`(\s*)- \[(.*)\]\(#(.*)\)`)
+	reContainsLink        = regexp.MustCompile(`\* \[.*\]\(.*\)`)
+	reOnlyLink            = regexp.MustCompile(`\* \[.*\]\(.*\)$`)
+	reLinkWithDescription = regexp.MustCompile(`\* \[.*\]\(.*\) - \S.*[\.\!]`)
+)
 //解析awesome-go中的README.md文件
 func parseReadmeFile()  {
-	file, err := os.Open("data/readmeFiles/README.md")
+	input, err := ioutil.ReadFile("data/readmeFiles/README.md")
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer file.Close()
+	lines := strings.Split(string(input), "\n")
+	for _, line := range lines {
+		//分类
+		if line == "### Contents" {
+
+		}
+		//line = strings.Trim(line, " ")
+		/*containsLink = reContainsLink.MatchString(line)
+		if containsLink {
+			noDescription = reOnlyLink.MatchString(line)
+			if noDescription {
+				continue
+			}
+
+			matched = reLinkWithDescription.MatchString(line)
+			if !matched {
+				t.Errorf("expected entry to be in form of `* [link] - description.`, got '%s'", line)
+			}
+		}*/
+	}
 }
 //GoRepo github项目仓库信息结构体
 type GoRepo struct {
@@ -164,8 +190,13 @@ func GetRepoInfoAndSave() {
 
 }
 func main() {
-	GetRepoInfoAndSave()
-	
+	//GetRepoInfoAndSave()
+
+	//log.Println("%", strings.Trim("  x   ", " "), "%")
+	//log.Println("%", strings.TrimSpace("  x   "), "%")
+
+	log.Println(reCategory.MatchString("    - [Audio and Music](#audio-and-music)"))
+
 	//接口中的时间获取后转换有问题，后续需要解决
 	// createAt, _ := time.Parse(time.RFC3339, "2014-07-06T13:42:15Z")
 	// log.Println(createAt)
