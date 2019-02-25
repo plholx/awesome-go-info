@@ -165,6 +165,9 @@ func GetRepoInfoAndSave() {
 }
 func main() {
 	GetRepoInfoAndSave()
+	
+	//接口中的时间获取后转换有问题，后续需要解决
 	// createAt, _ := time.Parse(time.RFC3339, "2014-07-06T13:42:15Z")
 	// log.Println(createAt)
+	// log.Println(time.Now())
 }
