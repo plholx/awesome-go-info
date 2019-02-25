@@ -38,6 +38,10 @@ CREATE TABLE public.go_repo
     add_time time with time zone DEFAULT CURRENT_TIMESTAMP,
     modify_time time with time zone DEFAULT CURRENT_TIMESTAMP,
     repo boolean DEFAULT true,
+    category boolean DEFAULT true,
+    name character varying(50) COLLATE pg_catalog."default",
+    description character varying(1000) COLLATE pg_catalog."default",
+    homepage character varying(500) COLLATE pg_catalog."default",
     CONSTRAINT go_repo_pkey PRIMARY KEY (id)
 )
 WITH (
@@ -89,3 +93,15 @@ COMMENT ON COLUMN public.go_repo.modify_time
 
 COMMENT ON COLUMN public.go_repo.repo
     IS '是否是一个项目';
+
+COMMENT ON COLUMN public.go_repo.category
+    IS '是否是一类目';
+
+COMMENT ON COLUMN public.go_repo.name
+    IS '类目或github仓库亦或某官网名称';
+
+COMMENT ON COLUMN public.go_repo.description
+    IS '描述';
+
+COMMENT ON COLUMN public.go_repo.homepage
+    IS '官网主页地址';

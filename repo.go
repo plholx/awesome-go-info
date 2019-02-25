@@ -66,6 +66,10 @@ type GoRepo struct {
 	AddTime time.Time `json:"add_time,omitempty"`
 	ModifyTime time.Time `json:"modify_time,omitempty"`
 	Repo bool `json:"repo,omitempty"`
+	Category bool `json:"category,omitempty"`
+	Name string `json:"name,omitempty"`
+	Description string `json:"description,omitempty"`
+	Homepage string `json:"homepage,omitempty"`
 }
 
 var db *sql.DB
@@ -83,13 +87,13 @@ func InsertGoRepo(goRepo *GoRepo)  {
 	//goRepo := new(GoRepo)
 	db := GetDB()
 	sqlStr := `insert into bookmark 
-				(id, parent_id, repo_name, repo_full_name, repo_owner, repo_html_url, repo_description, repo_created_at, repo_pushed_at, repo_homepage, repo_size, repo_forks_count, repo_stargazers_count, repo_subscribers_count, repo_open_issues_count, repo_license_name, repo_license_spdx_id, repo_license_url, add_time, modify_time, repo) 
+				(id, parent_id, repo_name, repo_full_name, repo_owner, repo_html_url, repo_description, repo_created_at, repo_pushed_at, repo_homepage, repo_size, repo_forks_count, repo_stargazers_count, repo_subscribers_count, repo_open_issues_count, repo_license_name, repo_license_spdx_id, repo_license_url, add_time, modify_time, repo, category, name, description, homepage) 
 				values 
-				(DEFAULT, $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) 
+				(DEFAULT, $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) 
 				RETURNING id`
 	stmt, _ := db.Prepare(sqlStr)
 	defer stmt.Close()
-	stmt.QueryRow(goRepo.ParentId, goRepo.RepoName, goRepo.RepoFullName, goRepo.RepoOwner, goRepo.RepoHtmlURL, goRepo.RepoDescription, goRepo.RepoCreatedAt, goRepo.RepoPushedAt, goRepo.RepoHomepage, goRepo.RepoSize, goRepo.RepoForksCount, goRepo.RepoStargazersCount, goRepo.RepoSubscribersCount, goRepo.RepoOpenIssuesCount, goRepo.RepoLicenseName, goRepo.RepoLicenseSpdxId, goRepo.RepoLicenseURL, goRepo.AddTime, goRepo.ModifyTime, goRepo.Repo).Scan(goRepo.Id)
+	stmt.QueryRow(goRepo.ParentId, goRepo.RepoName, goRepo.RepoFullName, goRepo.RepoOwner, goRepo.RepoHtmlURL, goRepo.RepoDescription, goRepo.RepoCreatedAt, goRepo.RepoPushedAt, goRepo.RepoHomepage, goRepo.RepoSize, goRepo.RepoForksCount, goRepo.RepoStargazersCount, goRepo.RepoSubscribersCount, goRepo.RepoOpenIssuesCount, goRepo.RepoLicenseName, goRepo.RepoLicenseSpdxId, goRepo.RepoLicenseURL, goRepo.AddTime, goRepo.ModifyTime, goRepo.Repo, goRepo.Category, goRepo.Name, goRepo.Description, goRepo.Homepage).Scan(goRepo.Id)
 }
 func main() {
 	downloadReadmeFile()
