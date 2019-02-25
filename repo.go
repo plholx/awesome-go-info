@@ -41,10 +41,13 @@ func downloadReadmeFile()  {
 	writer.Flush()
 }
 var (
-	reCategory            = regexp.MustCompile(`(\s*)- \[(.*)\]\(#(.*)\)`)
+	reCategoryLi          = regexp.MustCompile(`(\s*)- \[(.*)\]\(#(.*)\)`)
+	reCategory            = regexp.MustCompile(`#+ (.+)`)
+	reCategoryDescription = regexp.MustCompile(`\*.+\*`)
 	reContainsLink        = regexp.MustCompile(`\* \[.*\]\(.*\)`)
-	reOnlyLink            = regexp.MustCompile(`\* \[.*\]\(.*\)$`)
-	reLinkWithDescription = regexp.MustCompile(`\* \[.*\]\(.*\) - \S.*[\.\!]`)
+	reOnlyLink            = regexp.MustCompile(`(\s*)\* \[(.*)\]\((.+)\)`)
+	reLinkWithDescription = regexp.MustCompile(`(\s*)\* \[(.*)\]\((.+)\) - (\S.*[\.\!])`)
+	reLittleCategory      = regexp.MustCompile(`(\s*)\* (.*)`)
 )
 //解析awesome-go中的README.md文件
 func parseReadmeFile()  {
@@ -195,7 +198,10 @@ func main() {
 	//log.Println("%", strings.Trim("  x   ", " "), "%")
 	//log.Println("%", strings.TrimSpace("  x   "), "%")
 
-	log.Println(reCategory.MatchString("    - [Audio and Music](#audio-and-music)"))
+	log.Println(reCategoryLi.MatchString("    - [Audio and Music](#audio-and-music)"))
+	log.Println(reOnlyLink.MatchString("* [gopher-stickers](https://github.com/tenntenn/gopher-stickers)"))
+	log.Println(reLinkWithDescription.MatchString("* [mix](https://github.com/go-mix/mix) - Sequence-based Go-native audio mixer for music apps."))
+	log.Println(reLittleCategory.MatchString("* Testing Frameworks"))
 
 	//接口中的时间获取后转换有问题，后续需要解决
 	// createAt, _ := time.Parse(time.RFC3339, "2014-07-06T13:42:15Z")
