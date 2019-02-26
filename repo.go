@@ -58,6 +58,7 @@ func parseReadmeFile()  {
 	}
 	lines := strings.Split(string(input), "\n")
 	categoryIds := make(map[int]int64)
+	var tmpCategoryId int64 = 0
 	name := ""
 	for _, line := range lines {
 		if reCategoryLi.MatchString(line) {//分类目录
@@ -80,11 +81,18 @@ func parseReadmeFile()  {
 			}
 			categoryIds[spaceCount-4] = goRepo.Id
 		} else if reCategory.MatchString(line) {//遇到分类
-			// subMatchs := reCategory.FindStringSubmatch(line)
-			// log.Println(subMatchs[1])
+			subMatchs := reCategory.FindStringSubmatch(line)
+			name = subMatchs[1]
+			goRepo, e := GetGoRepo(name, false, true)
+			if e != nil {
+				log.Printf("分类%s不存在", name)
+				continue
+			}
+			tmpCategoryId = goRepo.Id
 		} else if reCategoryDescription.MatchString(line) {//分类描述
-			// subMatchs := reCategoryDescription.FindStringSubmatch(line)
-			// log.Println(subMatchs)
+			subMatchs := reCategoryDescription.FindStringSubmatch(line)
+			description := subMatchs[2]
+			UpdateGoRepoDescription(description, tmpCategoryId)
 		} else if reLittleCategory.MatchString(line) {//小分类
 			// subMatchs := reLittleCategory.FindStringSubmatch(line)
 			// log.Println(len(subMatchs[1]), subMatchs[2])
@@ -158,6 +166,13 @@ func UpdateGoRepoParentId(parentId int64, name string, repo bool, category bool)
 	stmt, _ := db.Prepare(sqlStr)
 	defer stmt.Close()
 	stmt.Exec(parentId, name, repo, category)
+}
+func UpdateGoRepoDescription(description string, id int64)  {
+	db := GetDB()
+	sqlStr := `update go_repo set Description = $1, modify_time = CURRENT_TIMESTAMP where id = $2`
+	stmt, _ := db.Prepare(sqlStr)
+	defer stmt.Close()
+	stmt.Exec(description, id)
 }
 func GetGoRepo(name string, repo bool, category bool) (goRepo *GoRepo,err error) {
 	db := GetDB()
