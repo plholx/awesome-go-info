@@ -126,7 +126,6 @@ func GetDB() (*sql.DB) {
 
 //保存goRepo
 func SaveGoRepo(goRepo *GoRepo)  {
-	//goRepo := new(GoRepo)
 	db := GetDB()
 	sqlStr := `insert into go_repo 
 				(id, parent_id, repo_name, repo_full_name, repo_owner, repo_html_url, repo_description, repo_created_at, repo_pushed_at, repo_homepage, repo_size, repo_forks_count, repo_stargazers_count, repo_subscribers_count, repo_open_issues_count, repo_license_name, repo_license_spdx_id, repo_license_url, repo, category, name, description, homepage) 
@@ -136,6 +135,15 @@ func SaveGoRepo(goRepo *GoRepo)  {
 	stmt, _ := db.Prepare(sqlStr)
 	defer stmt.Close()
 	stmt.QueryRow(goRepo.ParentId, goRepo.RepoName, goRepo.RepoFullName, goRepo.RepoOwner, goRepo.RepoHtmlURL, goRepo.RepoDescription, goRepo.RepoCreatedAt, goRepo.RepoPushedAt, goRepo.RepoHomepage, goRepo.RepoSize, goRepo.RepoForksCount, goRepo.RepoStargazersCount, goRepo.RepoSubscribersCount, goRepo.RepoOpenIssuesCount, goRepo.RepoLicenseName, goRepo.RepoLicenseSpdxId, goRepo.RepoLicenseURL, goRepo.Repo, goRepo.Category, goRepo.Name, goRepo.Description, goRepo.Homepage).Scan(goRepo.Id)
+}
+func GetGoRepo(name string, repo bool, category bool) (goRepo *GoRepo,err error) {
+	db := GetDB()
+	sqlStr := `select name from go_repo where name = $1 and repo = $2 and category = $3`
+	stmt, _ := db.Prepare(sqlStr)
+	defer stmt.Close()
+	goRepo = new(GoRepo)
+	err = stmt.QueryRow(name, repo, category).Scan(&goRepo.Name)
+	return
 }
 //获取github仓库信息并保存
 func GetRepoInfoAndSave() {
@@ -165,7 +173,7 @@ func GetRepoInfoAndSave() {
 			RepoOpenIssuesCount:int64(repoMap["open_issues_count"].(float64)), 
 			Repo:true, 
 			Category:false, 
-			Name:repoMap["name"].(string), 
+			Name:repoMap["full_name"].(string), 
 			Description:repoMap["description"].(string), 
 			Homepage:repoMap["homepage"].(string),
 		}
@@ -202,7 +210,11 @@ func GetRepoInfoAndSave() {
 
 }
 func main() {
-	parseReadmeFile()
+	goRepo, err := GetGoRepo("awesome-go2", true, false)
+	if err != nil {
+		log.Println(err)
+	}
+	log.Println(goRepo)
 
 	//log.Println("%", strings.Trim("  x   ", " "), "%")
 	//log.Println("%", strings.TrimSpace("  x   "), "%")
