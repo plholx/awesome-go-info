@@ -57,12 +57,28 @@ func parseReadmeFile()  {
 		log.Fatal(err)
 	}
 	lines := strings.Split(string(input), "\n")
-	// categoryId := 0
+	categoryIds := make(map[int]int64)
+	name := ""
 	for _, line := range lines {
-		
 		if reCategoryLi.MatchString(line) {//分类目录
-			// subMatchs := reCategoryLi.FindStringSubmatch(line)
+			subMatchs := reCategoryLi.FindStringSubmatch(line)
 			// log.Println(len(subMatchs[1]), subMatchs[2])
+			name = subMatchs[2]
+			spaceCount := len(subMatchs[1])
+
+			goRepo, e := GetGoRepo(name, false, true)
+			if e != nil {
+				goRepo = &GoRepo{
+					ParentId: categoryIds[spaceCount-8],
+					Repo: false,
+					Category: true,
+					Name: name,
+				}
+				SaveGoRepo(goRepo)
+			} else {
+				UpdateGoRepoParentId(categoryIds[spaceCount-8], name, false, true)
+			}
+			categoryIds[spaceCount-4] = goRepo.Id
 		} else if reCategory.MatchString(line) {//遇到分类
 			// subMatchs := reCategory.FindStringSubmatch(line)
 			// log.Println(subMatchs[1])
@@ -134,15 +150,22 @@ func SaveGoRepo(goRepo *GoRepo)  {
 				RETURNING id`
 	stmt, _ := db.Prepare(sqlStr)
 	defer stmt.Close()
-	stmt.QueryRow(goRepo.ParentId, goRepo.RepoName, goRepo.RepoFullName, goRepo.RepoOwner, goRepo.RepoHtmlURL, goRepo.RepoDescription, goRepo.RepoCreatedAt, goRepo.RepoPushedAt, goRepo.RepoHomepage, goRepo.RepoSize, goRepo.RepoForksCount, goRepo.RepoStargazersCount, goRepo.RepoSubscribersCount, goRepo.RepoOpenIssuesCount, goRepo.RepoLicenseName, goRepo.RepoLicenseSpdxId, goRepo.RepoLicenseURL, goRepo.Repo, goRepo.Category, goRepo.Name, goRepo.Description, goRepo.Homepage).Scan(goRepo.Id)
+	stmt.QueryRow(goRepo.ParentId, goRepo.RepoName, goRepo.RepoFullName, goRepo.RepoOwner, goRepo.RepoHtmlURL, goRepo.RepoDescription, goRepo.RepoCreatedAt, goRepo.RepoPushedAt, goRepo.RepoHomepage, goRepo.RepoSize, goRepo.RepoForksCount, goRepo.RepoStargazersCount, goRepo.RepoSubscribersCount, goRepo.RepoOpenIssuesCount, goRepo.RepoLicenseName, goRepo.RepoLicenseSpdxId, goRepo.RepoLicenseURL, goRepo.Repo, goRepo.Category, goRepo.Name, goRepo.Description, goRepo.Homepage).Scan(&goRepo.Id)
+}
+func UpdateGoRepoParentId(parentId int64, name string, repo bool, category bool)  {
+	db := GetDB()
+	sqlStr := `update go_repo set parent_id = $1, modify_time = CURRENT_TIMESTAMP where name = $2 and repo = $3 and category = $4`
+	stmt, _ := db.Prepare(sqlStr)
+	defer stmt.Close()
+	stmt.Exec(parentId, name, repo, category)
 }
 func GetGoRepo(name string, repo bool, category bool) (goRepo *GoRepo,err error) {
 	db := GetDB()
-	sqlStr := `select name from go_repo where name = $1 and repo = $2 and category = $3`
+	sqlStr := `select id, name from go_repo where name = $1 and repo = $2 and category = $3`
 	stmt, _ := db.Prepare(sqlStr)
 	defer stmt.Close()
 	goRepo = new(GoRepo)
-	err = stmt.QueryRow(name, repo, category).Scan(&goRepo.Name)
+	err = stmt.QueryRow(name, repo, category).Scan(&goRepo.Id, &goRepo.Name)
 	return
 }
 //获取github仓库信息并保存
@@ -210,11 +233,13 @@ func GetRepoInfoAndSave() {
 
 }
 func main() {
-	goRepo, err := GetGoRepo("awesome-go2", true, false)
-	if err != nil {
-		log.Println(err)
-	}
-	log.Println(goRepo)
+	parseReadmeFile()
+
+	//goRepo, err := GetGoRepo("awesome-go2", true, false)
+	//if err != nil {
+	//	log.Println(err)
+	//}
+	//log.Println(goRepo)
 
 	//log.Println("%", strings.Trim("  x   ", " "), "%")
 	//log.Println("%", strings.TrimSpace("  x   "), "%")
