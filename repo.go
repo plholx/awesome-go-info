@@ -19,6 +19,7 @@ import (
 const (
 	sourceFileURL = "https://raw.githubusercontent.com/avelino/awesome-go/master/README.md"
 	githubReposAPI = "https://api.github.com/repos/:owner/:repo"
+	githubDomain = "https://github.com"
 )
 //下载awesome-go中的README.md文件
 func downloadReadmeFile()  {
@@ -43,11 +44,11 @@ func downloadReadmeFile()  {
 var (
 	reCategoryLi          = regexp.MustCompile(`(\s*)- \[(.*)\]\(#(.*)\)`)
 	reCategory            = regexp.MustCompile(`#+ (.+)`)
-	reCategoryDescription = regexp.MustCompile(`\*.+\*`)
+	reCategoryDescription = regexp.MustCompile(`(\s*)\*(.*)\*$`)
 	reContainsLink        = regexp.MustCompile(`\* \[.*\]\(.*\)`)
-	reOnlyLink            = regexp.MustCompile(`(\s*)\* \[(.*)\]\((.+)\)`)
-	reLinkWithDescription = regexp.MustCompile(`(\s*)\* \[(.*)\]\((.+)\) - (\S.*[\.\!])`)
-	reLittleCategory      = regexp.MustCompile(`(\s*)\* (.*)`)
+	reOnlyLink            = regexp.MustCompile(`(\s*)\* \[(.*)\]\((.+)\)$`)
+	reLinkWithDescription = regexp.MustCompile(`(\s*)\* \[(.*?)\]\((.+?)\) - (\S.*[\.\!])`)
+	reLittleCategory      = regexp.MustCompile(`(\s*)\* ([a-zA-Z\s]*)$`)
 )
 //解析awesome-go中的README.md文件
 func parseReadmeFile()  {
@@ -56,24 +57,32 @@ func parseReadmeFile()  {
 		log.Fatal(err)
 	}
 	lines := strings.Split(string(input), "\n")
+	// categoryId := 0
 	for _, line := range lines {
-		//分类
-		if line == "### Contents" {
-
+		
+		if reCategoryLi.MatchString(line) {//分类目录
+			// subMatchs := reCategoryLi.FindStringSubmatch(line)
+			// log.Println(len(subMatchs[1]), subMatchs[2])
+		} else if reCategory.MatchString(line) {//遇到分类
+			// subMatchs := reCategory.FindStringSubmatch(line)
+			// log.Println(subMatchs[1])
+		} else if reCategoryDescription.MatchString(line) {//分类描述
+			// subMatchs := reCategoryDescription.FindStringSubmatch(line)
+			// log.Println(subMatchs)
+		} else if reLittleCategory.MatchString(line) {//小分类
+			// subMatchs := reLittleCategory.FindStringSubmatch(line)
+			// log.Println(len(subMatchs[1]), subMatchs[2])
+		} else if reContainsLink.MatchString(line) && strings.HasPrefix(line, githubDomain) {//含有链接,且为GitHub仓库
+			// log.Println(line)
+			if reOnlyLink.MatchString(line){
+				// log.Println(line)
+				// subMatchs := reOnlyLink.FindStringSubmatch(line)
+			} else if reLinkWithDescription.MatchString(line) {
+				// log.Println(line)
+				subMatchs := reLinkWithDescription.FindStringSubmatch(line)
+				log.Println(subMatchs[2], "%", subMatchs[3])
+			}
 		}
-		//line = strings.Trim(line, " ")
-		/*containsLink = reContainsLink.MatchString(line)
-		if containsLink {
-			noDescription = reOnlyLink.MatchString(line)
-			if noDescription {
-				continue
-			}
-
-			matched = reLinkWithDescription.MatchString(line)
-			if !matched {
-				t.Errorf("expected entry to be in form of `* [link] - description.`, got '%s'", line)
-			}
-		}*/
 	}
 }
 //GoRepo github项目仓库信息结构体
@@ -193,18 +202,27 @@ func GetRepoInfoAndSave() {
 
 }
 func main() {
-	//GetRepoInfoAndSave()
+	parseReadmeFile()
 
 	//log.Println("%", strings.Trim("  x   ", " "), "%")
 	//log.Println("%", strings.TrimSpace("  x   "), "%")
 
-	log.Println(reCategoryLi.MatchString("    - [Audio and Music](#audio-and-music)"))
-	log.Println(reOnlyLink.MatchString("* [gopher-stickers](https://github.com/tenntenn/gopher-stickers)"))
-	log.Println(reLinkWithDescription.MatchString("* [mix](https://github.com/go-mix/mix) - Sequence-based Go-native audio mixer for music apps."))
-	log.Println(reLittleCategory.MatchString("* Testing Frameworks"))
+	// log.Println(reCategoryLi.MatchString("    - [Audio and Music](#audio-and-music)"))
+	// log.Println(reOnlyLink.MatchString("* [gopher-stickers](https://github.com/tenntenn/gopher-stickers)"))
+	// log.Println(reLinkWithDescription.MatchString("* [mix](https://github.com/go-mix/mix) - Sequence-based Go-native audio mixer for music apps."))
+	// log.Println(reLittleCategory.MatchString(`* [gmf](https://github.com/3d0c/gmf) - Go bindings for FFmpeg av\* libraries.`))
 
 	//接口中的时间获取后转换有问题，后续需要解决
 	// createAt, _ := time.Parse(time.RFC3339, "2014-07-06T13:42:15Z")
 	// log.Println(createAt)
 	// log.Println(time.Now())
+
+	//reCategoryLi          = regexp.MustCompile(`(\s*)- \[(.*)\]\(#(.*)\)`)
+	// line := "    - [Audio and Music](#audio-and-music)"
+	// if reCategoryLi.MatchString(line) {
+	// 	subMatchs := reCategoryLi.FindStringSubmatch(line)
+	// 	log.Println(subMatchs)
+		
+	// 	// log.Println(subMatchs[1][1])
+	// }
 }
