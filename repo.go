@@ -129,6 +129,7 @@ func parseReadmeFile()  {
 				subMatchs := reGitHubURL.FindStringSubmatch(githubRepoLink)
 				repoOwner, repoName := subMatchs[1], subMatchs[2]
 				name = repoOwner + "/" + repoName
+				log.Println("开始请求仓库信息", name)
 				repo, err := GetRepoInfo(repoOwner, repoName)
 				if err != nil {
 					log.Println(err)
@@ -197,7 +198,10 @@ func SaveGoRepo(goRepo *GoRepo)  {
 				RETURNING id`
 	stmt, _ := db.Prepare(sqlStr)
 	defer stmt.Close()
-	stmt.QueryRow(goRepo.ParentId, goRepo.RepoName, goRepo.RepoFullName, goRepo.RepoOwner, goRepo.RepoHtmlURL, goRepo.RepoDescription, goRepo.RepoCreatedAt, goRepo.RepoPushedAt, goRepo.RepoHomepage, goRepo.RepoSize, goRepo.RepoForksCount, goRepo.RepoStargazersCount, goRepo.RepoSubscribersCount, goRepo.RepoOpenIssuesCount, goRepo.RepoLicenseName, goRepo.RepoLicenseSpdxId, goRepo.RepoLicenseURL, goRepo.Repo, goRepo.Category, goRepo.Name, goRepo.Description, goRepo.Homepage).Scan(&goRepo.Id)
+	err := stmt.QueryRow(goRepo.ParentId, goRepo.RepoName, goRepo.RepoFullName, goRepo.RepoOwner, goRepo.RepoHtmlURL, goRepo.RepoDescription, goRepo.RepoCreatedAt, goRepo.RepoPushedAt, goRepo.RepoHomepage, goRepo.RepoSize, goRepo.RepoForksCount, goRepo.RepoStargazersCount, goRepo.RepoSubscribersCount, goRepo.RepoOpenIssuesCount, goRepo.RepoLicenseName, goRepo.RepoLicenseSpdxId, goRepo.RepoLicenseURL, goRepo.Repo, goRepo.Category, goRepo.Name, goRepo.Description, goRepo.Homepage).Scan(&goRepo.Id)
+	if err != nil {
+		log.Println("插入仓库信息报错：", err)
+	}
 }
 func UpdateGoRepoParentId(parentId int64, name string, repo bool, category bool)  {
 	db := GetDB()
@@ -305,10 +309,10 @@ func GetRepoInfo(repoOwner, repoName string) (repo *GoRepo, err error) {
 				repo.RepoLicenseName = licenseName
 			}
 			if licenseSpdxId, ok := licenseMap["spdx_id"].(string); ok {
-				repo.RepoLicenseName = licenseSpdxId
+				repo.RepoLicenseSpdxId = licenseSpdxId
 			}
 			if licenseURL, ok := licenseMap["url"].(string); ok {
-				repo.RepoLicenseName = licenseURL
+				repo.RepoLicenseURL = licenseURL
 			}
 		}
 		//日期时间信息
