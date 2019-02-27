@@ -21,6 +21,7 @@ import (
 const (
 	sourceFileURL = "https://raw.githubusercontent.com/avelino/awesome-go/master/README.md"
 	githubReposAPI = "https://api.github.com/repos/:owner/:repo?access_token=OAUTH-TOKEN"
+	githubRateLimitAPI = "https://api.github.com/rate_limit?access_token=OAUTH-TOKEN"
 	githubDomain = "https://github.com"
 )
 //下载awesome-go中的README.md文件
@@ -331,7 +332,11 @@ func GetRepoInfo(repoOwner, repoName string) (repo *GoRepo, err error) {
 	}
 	return
 }
+//控制是否可以进行GitHub的API调用
+func ControlGitHubAPIReq()  {
+	//通过访问rate_limit API，校验access_token是否有效，及通过剩余次数控制API的访问时机
 
+}
 var accessToken = flag.String("t", "", "GitHub API access_token, 必须输入")
 
 func main() {
