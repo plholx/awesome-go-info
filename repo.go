@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"database/sql"
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"math"
@@ -49,6 +50,7 @@ var (
 	reOnlyLink            = regexp.MustCompile(`(\s*)\* \[(.*)\]\((.+)\)$`)
 	reLinkWithDescription = regexp.MustCompile(`(\s*)\* \[(.*?)\]\((.+?)\) - (\S.*[\.\!])`)
 	reLittleCategory      = regexp.MustCompile(`(\s*)\* ([a-zA-Z\s]*)$`)
+	reGitHubURL           = regexp.MustCompile(`https://github.com/(.+?)/(.+?)\b`)
 )
 //解析awesome-go中的README.md文件
 func parseReadmeFile()  {
@@ -59,6 +61,7 @@ func parseReadmeFile()  {
 	lines := strings.Split(string(input), "\n")
 	categoryIds := make(map[int]int64)
 	var tmpCategoryId int64 = 0
+	var linkCategoryId int64 = 0
 	name := ""
 	for _, line := range lines {
 		if reCategoryLi.MatchString(line) {//分类目录
@@ -89,22 +92,58 @@ func parseReadmeFile()  {
 				continue
 			}
 			tmpCategoryId = goRepo.Id
+			linkCategoryId = tmpCategoryId
 		} else if reCategoryDescription.MatchString(line) {//分类描述
 			subMatchs := reCategoryDescription.FindStringSubmatch(line)
 			description := subMatchs[2]
 			UpdateGoRepoDescription(description, tmpCategoryId)
 		} else if reLittleCategory.MatchString(line) {//小分类
-			// subMatchs := reLittleCategory.FindStringSubmatch(line)
-			// log.Println(len(subMatchs[1]), subMatchs[2])
-		} else if reContainsLink.MatchString(line) && strings.HasPrefix(line, githubDomain) {//含有链接,且为GitHub仓库
-			// log.Println(line)
+			subMatchs := reLittleCategory.FindStringSubmatch(line)
+			name = subMatchs[2]
+			goRepo, e := GetGoRepo(name, false, true)
+			if e != nil {
+				goRepo = &GoRepo{
+					ParentId: tmpCategoryId,
+					Repo: false,
+					Category: true,
+					Name: name,
+				}
+				SaveGoRepo(goRepo)
+			} else {
+				UpdateGoRepoParentId(tmpCategoryId, name, false, true)
+			}
+			linkCategoryId = goRepo.Id
+		} else if reContainsLink.MatchString(line) && strings.Contains(line, githubDomain) {//含有链接,且为GitHub仓库
+			log.Println(linkCategoryId)
+			githubRepoLink := ""
+			repoDescription := ""
 			if reOnlyLink.MatchString(line){
-				// log.Println(line)
-				// subMatchs := reOnlyLink.FindStringSubmatch(line)
+				subMatchs := reOnlyLink.FindStringSubmatch(line)
+				githubRepoLink = subMatchs(3)
 			} else if reLinkWithDescription.MatchString(line) {
-				// log.Println(line)
 				subMatchs := reLinkWithDescription.FindStringSubmatch(line)
-				log.Println(subMatchs[2], "%", subMatchs[3])
+				githubRepoLink = subMatchs(3)
+				repoDescription = subMatchs(4)
+			}
+			if githubRepoLink != "" {
+				subMatchs := reGitHubURL.FindStringSubmatch(githubRepoLink)
+				repoOwner, repoName := subMatchs[1], subMatchs[2]
+				name = repoOwner + "/" + repoName
+				repo, err := GetRepoInfo(repoOwner, repoName)
+				if err != nil {
+					log.Println(err)
+					continue
+				}
+				goRepo, e := GetGoRepo(name, true, false)
+				if e != nil {
+					repo.ParentId = linkCategoryId
+					if repoDescription != "" {
+						repo.Description = repoDescription
+					}
+					SaveGoRepo(repo)
+				} else {
+					UpdateGoRepoGithubInfo(repo)
+				}
 			}
 		}
 	}
@@ -169,12 +208,40 @@ func UpdateGoRepoParentId(parentId int64, name string, repo bool, category bool)
 }
 func UpdateGoRepoDescription(description string, id int64)  {
 	db := GetDB()
-	sqlStr := `update go_repo set Description = $1, modify_time = CURRENT_TIMESTAMP where id = $2`
+	sqlStr := `update go_repo set description = $1, modify_time = CURRENT_TIMESTAMP where id = $2`
 	stmt, _ := db.Prepare(sqlStr)
 	defer stmt.Close()
 	stmt.Exec(description, id)
 }
-func GetGoRepo(name string, repo bool, category bool) (goRepo *GoRepo,err error) {
+// 更新仓库github信息
+func UpdateGoRepoGithubInfo(repo *GoRepo)  {
+	db := GetDB()
+	sqlStr := `update go_repo set 
+				modify_time = CURRENT_TIMESTAMP,
+				repo_html_url = $1,
+				repo_description = $2,
+				repo_pushed_at = $3,
+				repo_homepage = $4,
+				repo_size = $5,
+				repo_forks_count = $6,
+				repo_stargazers_count = $7,
+				repo_subscribers_count = $8,
+				repo_open_issues_count = $9,
+				repo_license_name = $10,
+				repo_license_spdx_id = $11,
+				repo_license_url = $12,
+				name = $13,
+				description = $14,
+				homepage = $15
+				where id = $16`
+	stmt, _ := db.Prepare(sqlStr)
+	defer stmt.Close()
+	stmt.Exec(repo.RepoHtmlURL, repo.RepoDescription, repo.RepoPushedAt, repo.RepoHomepage, repo.RepoSize, 
+			repo.RepoForksCount, repo.RepoStargazersCount, repo.RepoSubscribersCount,
+			repo.RepoOpenIssuesCount, repo.RepoLicenseName, repo.RepoLicenseSpdxId,
+			repo.RepoLicenseURL, repo.Name, repo.Description, repo.Homepage, repo.Id)
+}
+func GetGoRepo(name string, repo bool, category bool) (goRepo *GoRepo, err error) {
 	db := GetDB()
 	sqlStr := `select id, name from go_repo where name = $1 and repo = $2 and category = $3`
 	stmt, _ := db.Prepare(sqlStr)
@@ -183,23 +250,29 @@ func GetGoRepo(name string, repo bool, category bool) (goRepo *GoRepo,err error)
 	err = stmt.QueryRow(name, repo, category).Scan(&goRepo.Id, &goRepo.Name)
 	return
 }
-//获取github仓库信息并保存
-func GetRepoInfoAndSave() {
-	apiURL := strings.Replace(githubReposAPI, ":owner/:repo", "avelino/awesome-go", -1)
+//获取github仓库信息
+func GetRepoInfo(repoOwner, repoName string) (repo *GoRepo, err error) {
+	repoFullName := repoOwner + "/" + repoName
+	apiURL := strings.Replace(githubReposAPI, ":owner/:repo", repoFullName, -1)
 	res, err := http.Get(apiURL)
 	if err != nil {
-		log.Fatal(err)
+		return
 	}
 	defer res.Body.Close()
-	bytes, e := ioutil.ReadAll(res.Body)
-	if e != nil {
-		log.Fatal(err)
+	bytes, err := ioutil.ReadAll(res.Body)
+	if err != nil {
+		return 
 	}
 	var v interface{}
-	json.Unmarshal(bytes, &v)
+	err = json.Unmarshal(bytes, &v)
+	if err != nil {
+		return
+	}
 	if repoMap, ok := v.(map[string]interface{}); ok {
-		repo := &GoRepo{
-			ParentId:0, 
+		if fullName, ok := repoMap["full_name"].(string); !ok || fullName == "" {
+			return repo, fmt.Errorf("从GitHub获取到%s仓库信息失败", repoFullName)
+		}
+		repo = &GoRepo{
 			RepoName:repoMap["name"].(string), 
 			RepoFullName:repoMap["full_name"].(string), 
 			RepoHtmlURL:repoMap["html_url"].(string), 
@@ -243,12 +316,13 @@ func GetRepoInfoAndSave() {
 			size := math.RoundToEven(sizeFloat64);
 			repo.RepoSize = int64(size)
 		}
-		SaveGoRepo(repo)
 	}
-
+	return
 }
 func main() {
-	parseReadmeFile()
+	// repo, err := GetRepoInfo("avelino", "awesome-go")
+	// log.Println(repo)
+	// log.Println(err)
 
 	//goRepo, err := GetGoRepo("awesome-go2", true, false)
 	//if err != nil {
@@ -263,6 +337,8 @@ func main() {
 	// log.Println(reOnlyLink.MatchString("* [gopher-stickers](https://github.com/tenntenn/gopher-stickers)"))
 	// log.Println(reLinkWithDescription.MatchString("* [mix](https://github.com/go-mix/mix) - Sequence-based Go-native audio mixer for music apps."))
 	// log.Println(reLittleCategory.MatchString(`* [gmf](https://github.com/3d0c/gmf) - Go bindings for FFmpeg av\* libraries.`))
+	// subMatchs := reGitHubURL.FindStringSubmatch("https://github.com/rakyll/portmidi?")
+	// log.Println(subMatchs[1], "%", subMatchs[2])
 
 	//接口中的时间获取后转换有问题，后续需要解决
 	// createAt, _ := time.Parse(time.RFC3339, "2014-07-06T13:42:15Z")
