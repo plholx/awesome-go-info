@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"database/sql"
 	"encoding/json"
+	"flag"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -19,7 +20,7 @@ import (
 
 const (
 	sourceFileURL = "https://raw.githubusercontent.com/avelino/awesome-go/master/README.md"
-	githubReposAPI = "https://api.github.com/repos/:owner/:repo"
+	githubReposAPI = "https://api.github.com/repos/:owner/:repo?access_token=OAUTH-TOKEN"
 	githubDomain = "https://github.com"
 )
 //下载awesome-go中的README.md文件
@@ -253,6 +254,7 @@ func GetGoRepo(name string, repo bool, category bool) (goRepo *GoRepo, err error
 func GetRepoInfo(repoOwner, repoName string) (repo *GoRepo, err error) {
 	repoFullName := repoOwner + "/" + repoName
 	apiURL := strings.Replace(githubReposAPI, ":owner/:repo", repoFullName, -1)
+	apiURL = strings.Replace(apiURL, "OAUTH-TOKEN", *accessToken, -1)
 	res, err := http.Get(apiURL)
 	if err != nil {
 		return
@@ -329,7 +331,15 @@ func GetRepoInfo(repoOwner, repoName string) (repo *GoRepo, err error) {
 	}
 	return
 }
+
+var accessToken = flag.String("t", "", "GitHub API access_token, 必须输入")
+
 func main() {
+	flag.Parse() // Scans the arg list and sets up flags
+	if *accessToken == "" {
+		log.Fatal("GitHub API access_token为空")
+	}
+
 	parseReadmeFile()
 
 	// repo, err := GetRepoInfo("avelino", "awesome-go")
