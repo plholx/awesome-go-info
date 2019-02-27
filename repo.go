@@ -66,7 +66,6 @@ func parseReadmeFile()  {
 	for _, line := range lines {
 		if reCategoryLi.MatchString(line) {//分类目录
 			subMatchs := reCategoryLi.FindStringSubmatch(line)
-			// log.Println(len(subMatchs[1]), subMatchs[2])
 			name = subMatchs[2]
 			spaceCount := len(subMatchs[1])
 
@@ -114,16 +113,15 @@ func parseReadmeFile()  {
 			}
 			linkCategoryId = goRepo.Id
 		} else if reContainsLink.MatchString(line) && strings.Contains(line, githubDomain) {//含有链接,且为GitHub仓库
-			log.Println(linkCategoryId)
 			githubRepoLink := ""
 			repoDescription := ""
 			if reOnlyLink.MatchString(line){
 				subMatchs := reOnlyLink.FindStringSubmatch(line)
-				githubRepoLink = subMatchs(3)
+				githubRepoLink = subMatchs[3]
 			} else if reLinkWithDescription.MatchString(line) {
 				subMatchs := reLinkWithDescription.FindStringSubmatch(line)
-				githubRepoLink = subMatchs(3)
-				repoDescription = subMatchs(4)
+				githubRepoLink = subMatchs[3]
+				repoDescription = subMatchs[4]
 			}
 			if githubRepoLink != "" {
 				subMatchs := reGitHubURL.FindStringSubmatch(githubRepoLink)
@@ -134,15 +132,15 @@ func parseReadmeFile()  {
 					log.Println(err)
 					continue
 				}
+				repo.ParentId = linkCategoryId
 				goRepo, e := GetGoRepo(name, true, false)
 				if e != nil {
-					repo.ParentId = linkCategoryId
 					if repoDescription != "" {
 						repo.Description = repoDescription
 					}
 					SaveGoRepo(repo)
 				} else {
-					UpdateGoRepoGithubInfo(repo)
+					UpdateGoRepoGithubInfo(repo, goRepo.Id)
 				}
 			}
 		}
@@ -214,7 +212,7 @@ func UpdateGoRepoDescription(description string, id int64)  {
 	stmt.Exec(description, id)
 }
 // 更新仓库github信息
-func UpdateGoRepoGithubInfo(repo *GoRepo)  {
+func UpdateGoRepoGithubInfo(repo *GoRepo, id int64)  {
 	db := GetDB()
 	sqlStr := `update go_repo set 
 				modify_time = CURRENT_TIMESTAMP,
@@ -232,14 +230,15 @@ func UpdateGoRepoGithubInfo(repo *GoRepo)  {
 				repo_license_url = $12,
 				name = $13,
 				description = $14,
-				homepage = $15
-				where id = $16`
+				homepage = $15,
+				parent_id = $16
+				where id = $17`
 	stmt, _ := db.Prepare(sqlStr)
 	defer stmt.Close()
 	stmt.Exec(repo.RepoHtmlURL, repo.RepoDescription, repo.RepoPushedAt, repo.RepoHomepage, repo.RepoSize, 
 			repo.RepoForksCount, repo.RepoStargazersCount, repo.RepoSubscribersCount,
 			repo.RepoOpenIssuesCount, repo.RepoLicenseName, repo.RepoLicenseSpdxId,
-			repo.RepoLicenseURL, repo.Name, repo.Description, repo.Homepage, repo.Id)
+			repo.RepoLicenseURL, repo.Name, repo.Description, repo.Homepage, repo.ParentId, id)
 }
 func GetGoRepo(name string, repo bool, category bool) (goRepo *GoRepo, err error) {
 	db := GetDB()
@@ -270,14 +269,12 @@ func GetRepoInfo(repoOwner, repoName string) (repo *GoRepo, err error) {
 	}
 	if repoMap, ok := v.(map[string]interface{}); ok {
 		if fullName, ok := repoMap["full_name"].(string); !ok || fullName == "" {
-			return repo, fmt.Errorf("从GitHub获取到%s仓库信息失败", repoFullName)
+			return repo, fmt.Errorf("从GitHub获取%s仓库信息失败", repoFullName)
 		}
 		repo = &GoRepo{
 			RepoName:repoMap["name"].(string), 
 			RepoFullName:repoMap["full_name"].(string), 
 			RepoHtmlURL:repoMap["html_url"].(string), 
-			RepoDescription:repoMap["description"].(string), 
-			RepoHomepage:repoMap["homepage"].(string), 
 			RepoForksCount:int64(repoMap["forks_count"].(float64)), 
 			RepoStargazersCount:int64(repoMap["stargazers_count"].(float64)), 
 			RepoSubscribersCount:int64(repoMap["subscribers_count"].(float64)), 
@@ -285,8 +282,15 @@ func GetRepoInfo(repoOwner, repoName string) (repo *GoRepo, err error) {
 			Repo:true, 
 			Category:false, 
 			Name:repoMap["full_name"].(string), 
-			Description:repoMap["description"].(string), 
-			Homepage:repoMap["homepage"].(string),
+		}
+		//可能不存在的一些信息，需要进行判断
+		if homepage, ok := repoMap["homepage"].(string); ok {
+			repo.RepoHomepage = homepage
+			repo.Homepage = homepage
+		}
+		if description, ok := repoMap["description"].(string); ok {
+			repo.RepoDescription = description
+			repo.Description = description
 		}
 		//作者信息
 		if ownerMap, ok := repoMap["owner"].(map[string]interface{}); ok {
@@ -294,9 +298,15 @@ func GetRepoInfo(repoOwner, repoName string) (repo *GoRepo, err error) {
 		}
 		//证书信息
 		if licenseMap, ok := repoMap["license"].(map[string]interface{}); ok {
-			repo.RepoLicenseName = licenseMap["name"].(string)
-			repo.RepoLicenseSpdxId = licenseMap["spdx_id"].(string)
-			repo.RepoLicenseURL = licenseMap["url"].(string)
+			if licenseName, ok := licenseMap["name"].(string); ok {
+				repo.RepoLicenseName = licenseName
+			}
+			if licenseSpdxId, ok := licenseMap["spdx_id"].(string); ok {
+				repo.RepoLicenseName = licenseSpdxId
+			}
+			if licenseURL, ok := licenseMap["url"].(string); ok {
+				repo.RepoLicenseName = licenseURL
+			}
 		}
 		//日期时间信息
 		if createAtStr, ok := repoMap["created_at"].(string); ok {
@@ -320,6 +330,8 @@ func GetRepoInfo(repoOwner, repoName string) (repo *GoRepo, err error) {
 	return
 }
 func main() {
+	parseReadmeFile()
+
 	// repo, err := GetRepoInfo("avelino", "awesome-go")
 	// log.Println(repo)
 	// log.Println(err)
