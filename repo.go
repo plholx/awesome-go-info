@@ -335,7 +335,24 @@ func GetRepoInfo(repoOwner, repoName string) (repo *GoRepo, err error) {
 //控制是否可以进行GitHub的API调用
 func ControlGitHubAPIReq()  {
 	//通过访问rate_limit API，校验access_token是否有效，及通过剩余次数控制API的访问时机
-
+	apiURL := strings.Replace(githubRateLimitAPI, "OAUTH-TOKEN", *accessToken, -1)
+	res, err := http.Get(apiURL)
+	if err != nil {
+		return
+	}
+	defer res.Body.Close()
+	bytes, err := ioutil.ReadAll(res.Body)
+	if err != nil {
+		return
+	}
+	var v interface{}
+	err = json.Unmarshal(bytes, &v)
+	if err != nil {
+		return
+	}
+	if rateLimitMap, ok := v.(map[string]interface{}); ok {
+		log.Println(rateLimitMap)
+	}
 }
 var accessToken = flag.String("t", "", "GitHub API access_token, 必须输入")
 
