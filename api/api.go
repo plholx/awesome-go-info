@@ -20,6 +20,9 @@ const (
 	githubRateLimitAPI = "https://api.github.com/rate_limit?access_token=OAUTH-TOKEN"
 	githubDomain = "https://github.com"
 	README_PATH = "data/readmeFiles/README-FORMAT_DATE.md"
+
+	README_TEMPLATES_PATH = "tmpl/tmpl.md"
+	README_OUTEPUT_PATH = "README.md"
 )
 
 var (
@@ -292,7 +295,7 @@ func GitHubAPIReqControl(accessToken string) (ok bool, err error) {
 }
 //GenerateMd 生成README.md文件
 func GenerateMd()  {
-	repos, err := GetRepoTree(true)
+	repos, err := GetRepoTree(false)
 	if err != nil {
 		log.Println(err)
 		return
