@@ -52,7 +52,7 @@ var (
 	reOnlyLink            = regexp.MustCompile(`(\s*)\* \[(.*)\]\((.+)\)$`)
 	reLinkWithDescription = regexp.MustCompile(`(\s*)\* \[(.*?)\]\((.+?)\) - (\S.*[\.\!])`)
 	reLittleCategory      = regexp.MustCompile(`(\s*)\* ([a-zA-Z\s]*)$`)
-	reGitHubURL           = regexp.MustCompile(`https://github.com/(.+?)/(.+?)\b`)
+	reGitHubURL           = regexp.MustCompile(`https://github.com/(.+?)/([a-zA-Z0-9_\-]+).*$`)
 )
 //解析awesome-go中的README.md文件
 func parseReadmeFile()  {
@@ -64,6 +64,7 @@ func parseReadmeFile()  {
 	categoryIds := make(map[int]int64)
 	var tmpCategoryId int64 = 0
 	var linkCategoryId int64 = 0
+	var count int64 = 0
 	name := ""
 	for _, line := range lines {
 		if reCategoryLi.MatchString(line) {//分类目录
@@ -129,7 +130,17 @@ func parseReadmeFile()  {
 				subMatchs := reGitHubURL.FindStringSubmatch(githubRepoLink)
 				repoOwner, repoName := subMatchs[1], subMatchs[2]
 				name = repoOwner + "/" + repoName
-				log.Println("开始请求仓库信息", name)
+				ok, err := GitHubAPIReqControl()
+				if err != nil {
+					log.Println(err)
+					continue
+				}
+				if !ok {
+					log.Println("API请求速率限制")
+					continue
+				}
+				count++
+				log.Println(count, " 开始请求仓库信息", name)
 				repo, err := GetRepoInfo(repoOwner, repoName)
 				if err != nil {
 					log.Println(err)
@@ -337,7 +348,7 @@ func GetRepoInfo(repoOwner, repoName string) (repo *GoRepo, err error) {
 	return
 }
 //控制是否可以进行GitHub的API调用
-func ControlGitHubAPIReq()  {
+func GitHubAPIReqControl() (ok bool, err error) {
 	//通过访问rate_limit API，校验access_token是否有效，及通过剩余次数控制API的访问时机
 	apiURL := strings.Replace(githubRateLimitAPI, "OAUTH-TOKEN", *accessToken, -1)
 	res, err := http.Get(apiURL)
@@ -355,8 +366,25 @@ func ControlGitHubAPIReq()  {
 		return
 	}
 	if rateLimitMap, ok := v.(map[string]interface{}); ok {
-		log.Println(rateLimitMap)
+		//resources信息
+		if resourcesMap, ok := rateLimitMap["resources"].(map[string]interface{}); ok {
+			if coreMap, ok := resourcesMap["core"].(map[string]interface{}); ok {
+				var remaining float64
+				var limit float64
+				if remainingFloat64, ok := coreMap["remaining"].(float64); ok {
+					remaining = math.RoundToEven(remainingFloat64);
+				}
+				if limitFloat64, ok := coreMap["limit"].(float64); ok {
+					limit = math.RoundToEven(limitFloat64);
+				}
+				if remaining > 0 && limit > 0 {
+					time.Sleep(3600*1e9/time.Duration(limit))
+					return true, nil
+				}
+			}
+		}
 	}
+	return
 }
 var accessToken = flag.String("t", "", "GitHub API access_token, 必须输入")
 
@@ -367,6 +395,15 @@ func main() {
 	}
 
 	parseReadmeFile()
+
+	// ok, err := GitHubAPIReqControl()
+	// log.Println(ok, err)
+
+	// var limit float64=5000
+	// var sleepTime time.Duration = 3600*1e9/time.Duration(limit)
+	// log.Println(time.Duration(limit))
+	// log.Println(sleepTime)
+	// time.Sleep(sleepTime)
 
 	// repo, err := GetRepoInfo("avelino", "awesome-go")
 	// log.Println(repo)
@@ -383,9 +420,12 @@ func main() {
 
 	// log.Println(reCategoryLi.MatchString("    - [Audio and Music](#audio-and-music)"))
 	// log.Println(reOnlyLink.MatchString("* [gopher-stickers](https://github.com/tenntenn/gopher-stickers)"))
-	// log.Println(reLinkWithDescription.MatchString("* [mix](https://github.com/go-mix/mix) - Sequence-based Go-native audio mixer for music apps."))
+	// log.Println(reLinkWithDescription.MatchString("* [go-ataman](https://github.com/workanator/go-ataman) - Go library for rendering ANSI colored text templates in terminals."))
 	// log.Println(reLittleCategory.MatchString(`* [gmf](https://github.com/3d0c/gmf) - Go bindings for FFmpeg av\* libraries.`))
 	// subMatchs := reGitHubURL.FindStringSubmatch("https://github.com/rakyll/portmidi?")
+	
+	// re := regexp.MustCompile(`https://github.com/(.+?)/([a-zA-Z0-9_\-]+).*$`)
+	// subMatchs := re.FindStringSubmatch("https://github.com/workanator/go-ataman?a")
 	// log.Println(subMatchs[1], "%", subMatchs[2])
 
 	//接口中的时间获取后转换有问题，后续需要解决
