@@ -1,6 +1,9 @@
 package main
 
 import (
+	"flag"
+	"log"
+
 	"awesome-go-data/api"
 )
 
@@ -11,5 +14,6 @@ func main() {
 	if *accessToken == "" {
 		log.Fatal("GitHub API access_token为空")
 	}
-	downloadReadmeFile()
+
+	api.DownloadReadmeFile()
 }

@@ -2,9 +2,7 @@ package api
 
 import (
 	"bufio"
-	"database/sql"
 	"encoding/json"
-	"flag"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -14,8 +12,6 @@ import (
 	"regexp"
 	"strings"
 	"time"
-
-	_ "github.com/lib/pq"
 )
 
 const (
@@ -25,7 +21,7 @@ const (
 	githubDomain = "https://github.com"
 )
 //下载awesome-go中的README.md文件
-func downloadReadmeFile()  {
+func DownloadReadmeFile()  {
 	res, err := http.Get(sourceFileURL)
 	if err != nil {
 		log.Fatal(err)
