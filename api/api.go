@@ -30,7 +30,7 @@ var (
 	reOnlyLink            = regexp.MustCompile(`(\s*)\* \[(.*)\]\((.+)\)$`)
 	reLinkWithDescription = regexp.MustCompile(`(\s*)\* \[(.*?)\]\((.+?)\) - (\S.*[\.\!])`)
 	reLittleCategory      = regexp.MustCompile(`(\s*)\* ([a-zA-Z\s]*)$`)
-	reGitHubURL           = regexp.MustCompile(`https://github.com/(.+?)/([a-zA-Z0-9_\-]+).*$`)
+	reGitHubURL           = regexp.MustCompile(`https://github.com/(.+?)/([a-zA-Z0-9_\-\.]+).*$`)
 )
 
 //下载awesome-go中的README.md文件
@@ -289,4 +289,15 @@ func GitHubAPIReqControl(accessToken string) (ok bool, err error) {
 		}
 	}
 	return
+}
+//GenerateMd 生成README.md文件
+func GenerateMd()  {
+	repos, err := GetRepoTree(true)
+	if err != nil {
+		log.Println(err)
+		return
+	}
+	for _, repo := range repos {
+		log.Println(repo.Name, repo.Id, repo.ParentId, repo.Repo)
+	}
 }

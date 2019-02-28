@@ -31,4 +31,5 @@ type GoRepo struct {
 	Name string `json:"name,omitempty"`
 	Description string `json:"description,omitempty"`
 	Homepage string `json:"homepage,omitempty"`
+	Depth int64 `json:"depth,omitempty"`
 }
