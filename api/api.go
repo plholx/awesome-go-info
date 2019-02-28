@@ -19,6 +19,7 @@ const (
 	githubReposAPI = "https://api.github.com/repos/:owner/:repo?access_token=OAUTH-TOKEN"
 	githubRateLimitAPI = "https://api.github.com/rate_limit?access_token=OAUTH-TOKEN"
 	githubDomain = "https://github.com"
+	README_PATH = "data/readmeFiles/README-FORMAT_DATE.md"
 )
 
 var (
@@ -33,7 +34,14 @@ var (
 )
 
 //下载awesome-go中的README.md文件
-func DownloadReadmeFile()  {
+func DownloadReadmeFile() (readmeFilePath string) {
+	readmeFilePath = strings.Replace(README_PATH, "FORMAT_DATE", time.Now().Format("20060102"), -1)
+	_, err := os.Stat(readmeFilePath)
+	//当天的README.md文件已下载就不再重复下载
+	if err == nil || os.IsExist(err) {
+		log.Println(readmeFilePath, "文件已存在")
+		return
+	}
 	res, err := http.Get(sourceFileURL)
 	if err != nil {
 		log.Fatal(err)
@@ -43,7 +51,7 @@ func DownloadReadmeFile()  {
 	if e != nil {
 		log.Fatal(err)
 	}
-	outputFile, outputError := os.OpenFile("data/readmeFiles/README.md", os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0666)
+	outputFile, outputError := os.OpenFile(readmeFilePath, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0666)
 	if outputError != nil {
 		log.Fatal(outputError)
 	}
@@ -51,11 +59,12 @@ func DownloadReadmeFile()  {
 	writer := bufio.NewWriter(outputFile)
 	writer.Write(bytes)
 	writer.Flush()
+	return 
 }
 
-//解析awesome-go中的README.md文件
-func parseReadmeFile(accessToken string)  {
-	input, err := ioutil.ReadFile("data/readmeFiles/README.md")
+//ParseReadmeFile 解析awesome-go中的README.md文件,并存入数据库中
+func ParseReadmeFile(accessToken string, readmeFilePath string)  {
+	input, err := ioutil.ReadFile(readmeFilePath)
 	if err != nil {
 		log.Fatal(err)
 	}

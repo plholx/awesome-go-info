@@ -16,7 +16,7 @@ func GetDB() (*sql.DB) {
 	}
 	return db
 }
-
+//更新go_repo表parent_id
 func UpdateGoRepoParentId(parentId int64, name string, repo bool, category bool)  {
 	db := GetDB()
 	sqlStr := `update go_repo set parent_id = $1, modify_time = CURRENT_TIMESTAMP where name = $2 and repo = $3 and category = $4`
@@ -24,6 +24,7 @@ func UpdateGoRepoParentId(parentId int64, name string, repo bool, category bool)
 	defer stmt.Close()
 	stmt.Exec(parentId, name, repo, category)
 }
+//更新go_repo表description
 func UpdateGoRepoDescription(description string, id int64)  {
 	db := GetDB()
 	sqlStr := `update go_repo set description = $1, modify_time = CURRENT_TIMESTAMP where id = $2`
@@ -31,8 +32,7 @@ func UpdateGoRepoDescription(description string, id int64)  {
 	defer stmt.Close()
 	stmt.Exec(description, id)
 }
-
-// 更新仓库github信息
+// 更新仓库github仓库相关信息
 func UpdateGoRepoGithubInfo(repo *GoRepo, id int64)  {
 	db := GetDB()
 	sqlStr := `update go_repo set 
@@ -61,6 +61,7 @@ func UpdateGoRepoGithubInfo(repo *GoRepo, id int64)  {
 			repo.RepoOpenIssuesCount, repo.RepoLicenseName, repo.RepoLicenseSpdxId,
 			repo.RepoLicenseURL, repo.Name, repo.Description, repo.Homepage, repo.ParentId, id)
 }
+//GetGoRepo 获取go_repo表数据
 func GetGoRepo(name string, repo bool, category bool) (goRepo *GoRepo, err error) {
 	db := GetDB()
 	sqlStr := `select id, name from go_repo where name = $1 and repo = $2 and category = $3`
@@ -71,7 +72,7 @@ func GetGoRepo(name string, repo bool, category bool) (goRepo *GoRepo, err error
 	return
 }
 
-//保存goRepo
+//SaveGoRepo go_repo表插入数据
 func SaveGoRepo(goRepo *GoRepo)  {
 	db := GetDB()
 	sqlStr := `insert into go_repo 

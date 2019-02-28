@@ -14,6 +14,8 @@ func main() {
 	if *accessToken == "" {
 		log.Fatal("GitHub API access_token为空")
 	}
-
-	api.DownloadReadmeFile()
+	//获取avelino/awesome-go项目中最新的README.md文件
+	readmeFilePath := api.DownloadReadmeFile()
+	//解析awesome-go中的README.md文件,并存入数据库中
+	ParseReadmeFile(*accessToken, readmeFilePath)
 }
