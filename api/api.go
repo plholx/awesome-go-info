@@ -11,6 +11,7 @@ import (
 	"os"
 	"regexp"
 	"strings"
+	"text/template"
 	"time"
 )
 
@@ -293,6 +294,19 @@ func GitHubAPIReqControl(accessToken string) (ok bool, err error) {
 	}
 	return
 }
+
+type data struct {
+	Catagorys []GoRepo
+	GoRepos []GoRepo
+}
+
+func GetSpace(count int64) (s string) {
+	//for i:=int64(0); i<count; i++ {
+	//	s += "    "
+	//}
+	return "***"
+}
+
 //GenerateMd 生成README.md文件
 func GenerateMd()  {
 	repos, err := GetRepoTree(false)
@@ -300,7 +314,23 @@ func GenerateMd()  {
 		log.Println(err)
 		return
 	}
-	for _, repo := range repos {
-		log.Println(repo.Name, repo.Id, repo.ParentId, repo.Repo)
+	//for _, repo := range repos {
+	//	log.Println(repo.Name, repo.Id, repo.ParentId, repo.Repo)
+	//}
+
+	t := template.Must(template.ParseFiles(README_TEMPLATES_PATH))
+	f, _ := os.Create(README_OUTEPUT_PATH)
+	data := &data{
+		Catagorys: repos,
 	}
+	t.Execute(f, data)
+
+	//funcMap := template.FuncMap{"GetSpace":GetSpace,}
+	//t := template.New(README_OUTEPUT_PATH).Funcs(funcMap)
+	//t = template.Must(t.ParseFiles(README_TEMPLATES_PATH))
+	//f, _ := os.Create(README_OUTEPUT_PATH)
+	//data := &data{
+	//	Catagorys: repos,
+	//}
+	//t.ExecuteTemplate(f, README_OUTEPUT_PATH, data)
 }
