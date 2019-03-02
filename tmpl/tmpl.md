@@ -12,7 +12,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
             {{- "\n*"}}{{.Description}}*
         {{- end}}
         {{- if .WithReposTable}}
-            {{- "\n\n|"}} Go Repo    | Stars      | Watchers   | Created_at | Latest_commit | Description |
+            {{- "\n\n|"}} Go_repository    | Stars      | Watchers   | Created_at | Latest_commit | Description |
             {{- "\n|"}} :--------- | ---------:| ---------:|:---------:|:---------:| ---------:|
         {{- end}}
     {{- else if .Repo}}
