@@ -93,6 +93,18 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 
 
 # Awesome Go
+
+        
+*Libraries for manipulating audio.*
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
+| [EasyMIDI](https://github.com/algoGuy/EasyMIDI) | 17 | 3 | 2018-02-20 04:18:09 | 2018-03-22 13:16:54 |
+| [flac](https://github.com/eaburns/flac) | 81 | 5 | 2013-08-21 01:48:58 | 2017-10-04 04:06:22 |
+| [flac](https://github.com/mewkiz/flac) | 92 | 6 | 2012-11-02 04:13:58 | 2019-02-22 23:13:57 |
+| [gaad](https://github.com/Comcast/gaad) | 50 | 10 | 2016-07-11 22:19:16 | 2018-02-21 05:08:16 |
+| [go-sox](https://github.com/krig/go-sox) | 87 | 8 | 2013-10-08 22:11:04 | 2018-06-21 02:14:36 |
+| [go_mediainfo](https://github.com/zhulik/go_mediainfo) | 21 | 1 | 2015-12-14 06:23:23 | 2015-12-25 04:40:36 |
+| [gosamplerate](https://github.com/dh1tw/gosamplerate) | 8 | 1 | 2016-11-21 05:19:31 | 2018-06-04 07:37:17 |
         
 
 ## Audio and Music
