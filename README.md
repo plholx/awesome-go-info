@@ -96,6 +96,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 
         
 *Libraries for manipulating audio.*
+
 | Go Repo    | Stars      | Watchers   | Created At | Pushed At |
 | :--------- | ---------:| ---------:|:---------:|:---------:|
 | [EasyMIDI](https://github.com/algoGuy/EasyMIDI) | 17 | 3 | 2018-02-20 04:18:09 | 2018-03-22 13:16:54 |
@@ -110,6 +111,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 ## Audio and Music
         
 *Libraries for manipulating audio.*
+
 | Go Repo    | Stars      | Watchers   | Created At | Pushed At |
 | :--------- | ---------:| ---------:|:---------:|:---------:|
 | [EasyMIDI](https://github.com/algoGuy/EasyMIDI) | 17 | 3 | 2018-02-20 04:18:09 | 2018-03-22 13:16:54 |
