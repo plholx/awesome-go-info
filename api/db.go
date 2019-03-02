@@ -132,7 +132,7 @@ func GetRepoTree(all bool) (repos []GoRepo, err error) {
 		}
 		tmpRepo.Spaces = getSpace(tmpRepo.Depth-1)
 		tmpRepo.TitleMarks = getTitleMarks(tmpRepo.Depth)
-		tmpRepo.RepoCreatedAtStr = tmpRepo.RepoCreatedAt.Format("2006-01-02 15:04:05")
+		tmpRepo.RepoCreatedAtStr = tmpRepo.RepoCreatedAt.Format("2006-01-02")
 		tmpRepo.RepoPushedAtStr = tmpRepo.RepoPushedAt.Format("2006-01-02 15:04:05")
 		repos = append(repos, *tmpRepo)
 		if i > 0 && repos[i-1].Category && tmpRepo.Repo {
