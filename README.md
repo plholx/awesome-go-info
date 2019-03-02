@@ -93,31 +93,12 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 
 
 # Awesome Go
-
-        
-*Libraries for manipulating audio.*
-
-| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
-| :--------- | ---------:| ---------:|:---------:|:---------:|
-| [EasyMIDI](https://github.com/algoGuy/EasyMIDI) | 17 | 3 | 2018-02-20 04:18:09 | 2018-03-22 13:16:54 |
-| [flac](https://github.com/eaburns/flac) | 81 | 5 | 2013-08-21 01:48:58 | 2017-10-04 04:06:22 |
-| [flac](https://github.com/mewkiz/flac) | 92 | 6 | 2012-11-02 04:13:58 | 2019-02-22 23:13:57 |
-| [gaad](https://github.com/Comcast/gaad) | 50 | 10 | 2016-07-11 22:19:16 | 2018-02-21 05:08:16 |
-| [go-sox](https://github.com/krig/go-sox) | 87 | 8 | 2013-10-08 22:11:04 | 2018-06-21 02:14:36 |
-| [go_mediainfo](https://github.com/zhulik/go_mediainfo) | 21 | 1 | 2015-12-14 06:23:23 | 2015-12-25 04:40:36 |
-| [gosamplerate](https://github.com/dh1tw/gosamplerate) | 8 | 1 | 2016-11-21 05:19:31 | 2018-06-04 07:37:17 |
         
 
 ## Audio and Music
         
 *Libraries for manipulating audio.*
 
-| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
-| :--------- | ---------:| ---------:|:---------:|:---------:|
-| [EasyMIDI](https://github.com/algoGuy/EasyMIDI) | 17 | 3 | 2018-02-20 04:18:09 | 2018-03-22 13:16:54 |
-| [flac](https://github.com/eaburns/flac) | 81 | 5 | 2013-08-21 01:48:58 | 2017-10-04 04:06:22 |
-        
-*Libraries for manipulating audio.*
 | Go Repo    | Stars      | Watchers   | Created At | Pushed At |
 | :--------- | ---------:| ---------:|:---------:|:---------:|
 | [EasyMIDI](https://github.com/algoGuy/EasyMIDI) | 17 | 3 | 2018-02-20 04:18:09 | 2018-03-22 13:16:54 |
@@ -142,6 +123,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 ## Authentication and OAuth
         
 *Libraries for implementing authentications schemes.*
+
 | Go Repo    | Stars      | Watchers   | Created At | Pushed At |
 | :--------- | ---------:| ---------:|:---------:|:---------:|
 | [authboss](https://github.com/volatiletech/authboss) | 1733 | 38 | 2015-01-03 13:12:02 | 2019-02-07 12:11:42 |
@@ -173,6 +155,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 ## Bot Building
         
 *Libraries for building and working with bots.*
+
 | Go Repo    | Stars      | Watchers   | Created At | Pushed At |
 | :--------- | ---------:| ---------:|:---------:|:---------:|
 | [bot](https://github.com/go-chat-bot/bot) | 412 | 34 | 2015-09-23 00:41:13 | 2019-02-19 19:36:50 |
@@ -192,6 +175,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 ## Command Line
         
 *Libraries for building Console Applications and Console User Interfaces.*
+
 | Go Repo    | Stars      | Watchers   | Created At | Pushed At |
 | :--------- | ---------:| ---------:|:---------:|:---------:|
 | [argparse](https://github.com/akamensky/argparse) | 74 | 5 | 2017-11-24 14:42:20 | 2019-01-15 17:47:22 |
@@ -256,6 +240,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 ## Configuration
         
 *Libraries for configuration parsing.*
+
 | Go Repo    | Stars      | Watchers   | Created At | Pushed At |
 | :--------- | ---------:| ---------:|:---------:|:---------:|
 | [config](https://github.com/olebedev/config) | 191 | 8 | 2014-04-21 23:09:39 | 2018-09-10 23:57:18 |
@@ -287,6 +272,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 ## Continuous Integration
         
 *Tools for help with continuous integration.*
+
 | Go Repo    | Stars      | Watchers   | Created At | Pushed At |
 | :--------- | ---------:| ---------:|:---------:|:---------:|
 | [drone](https://github.com/drone/drone) | 17332 | 584 | 2014-02-07 15:54:44 | 2019-03-01 22:27:32 |
@@ -299,6 +285,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 ## CSS Preprocessors
         
 *Libraries for preprocessing CSS files.*
+
 | Go Repo    | Stars      | Watchers   | Created At | Pushed At |
 | :--------- | ---------:| ---------:|:---------:|:---------:|
 | [gcss](https://github.com/yosssi/gcss) | 408 | 16 | 2014-09-04 22:38:20 | 2014-10-12 22:07:10 |
@@ -307,6 +294,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 ## Data Structures
         
 *Generic datastructures and algorithms in Go.*
+
 | Go Repo    | Stars      | Watchers   | Created At | Pushed At |
 | :--------- | ---------:| ---------:|:---------:|:---------:|
 | [algorithms](https://github.com/shady831213/algorithms) | 154 | 6 | 2018-01-31 17:27:56 | 2019-01-08 14:12:30 |
@@ -358,6 +346,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 ## Database
         
 *SQL query builder, libraries for building and using SQL.*
+
 | Go Repo    | Stars      | Watchers   | Created At | Pushed At |
 | :--------- | ---------:| ---------:|:---------:|:---------:|
 | [badger](https://github.com/dgraph-io/badger) | 5374 | 219 | 2017-01-26 13:09:49 | 2019-03-02 03:36:11 |
@@ -430,6 +419,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 ## Database Drivers
         
 *Libraries for connecting and operating databases.*
+
 | Go Repo    | Stars      | Watchers   | Created At | Pushed At |
 | :--------- | ---------:| ---------:|:---------:|:---------:|
 
@@ -488,6 +478,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 ## Date and Time
         
 *Libraries for working with dates and times.*
+
 | Go Repo    | Stars      | Watchers   | Created At | Pushed At |
 | :--------- | ---------:| ---------:|:---------:|:---------:|
 | [carbon](https://github.com/uniplaces/carbon) | 305 | 38 | 2016-08-03 18:55:52 | 2019-01-16 20:02:42 |
@@ -510,6 +501,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 ## Distributed Systems
         
 *Packages that help with building Distributed Systems.*
+
 | Go Repo    | Stars      | Watchers   | Created At | Pushed At |
 | :--------- | ---------:| ---------:|:---------:|:---------:|
 | [celeriac.v1](https://github.com/svcavallar/celeriac.v1) | 47 | 3 | 2015-10-10 15:27:33 | 2018-12-08 13:38:42 |
@@ -548,6 +540,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 ## Email
         
 *Libraries and tools that implement email creation and sending.*
+
 | Go Repo    | Stars      | Watchers   | Created At | Pushed At |
 | :--------- | ---------:| ---------:|:---------:|:---------:|
 | [douceur](https://github.com/aymerick/douceur) | 141 | 4 | 2015-04-09 18:21:26 | 2018-03-23 05:03:08 |
@@ -565,6 +558,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 ## Embeddable Scripting Languages
         
 *Embedding other languages inside your go code.*
+
 | Go Repo    | Stars      | Watchers   | Created At | Pushed At |
 | :--------- | ---------:| ---------:|:---------:|:---------:|
 | [agora](https://github.com/mna/agora) | 318 | 22 | 2013-06-19 10:16:30 | 2015-01-26 01:12:45 |
@@ -587,6 +581,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 ## Error Handling
         
 *Libraries for handling errors.*
+
 | Go Repo    | Stars      | Watchers   | Created At | Pushed At |
 | :--------- | ---------:| ---------:|:---------:|:---------:|
 | [errors](https://github.com/pkg/errors) | 4159 | 91 | 2015-12-27 20:05:38 | 2019-02-27 08:00:54 |
@@ -598,6 +593,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 ## Files
         
 *Libraries for  handling files and file systems.*
+
 | Go Repo    | Stars      | Watchers   | Created At | Pushed At |
 | :--------- | ---------:| ---------:|:---------:|:---------:|
 | [afero](https://github.com/spf13/afero) | 1935 | 83 | 2014-10-28 22:19:05 | 2019-03-02 10:20:19 |
@@ -613,6 +609,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 ## Financial
         
 *Packages for accounting and finance.*
+
 | Go Repo    | Stars      | Watchers   | Created At | Pushed At |
 | :--------- | ---------:| ---------:|:---------:|:---------:|
 | [accounting](https://github.com/leekchan/accounting) | 441 | 12 | 2015-08-10 21:23:56 | 2019-01-31 14:20:31 |
@@ -629,6 +626,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 ## Forms
         
 *Libraries for working with forms.*
+
 | Go Repo    | Stars      | Watchers   | Created At | Pushed At |
 | :--------- | ---------:| ---------:|:---------:|:---------:|
 | [bind](https://github.com/robfig/bind) | 23 | 2 | 2014-08-06 08:13:10 | 2014-08-17 01:03:51 |
@@ -643,6 +641,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 ## Functional
         
 *Packages to support functional programming in Go.*
+
 | Go Repo    | Stars      | Watchers   | Created At | Pushed At |
 | :--------- | ---------:| ---------:|:---------:|:---------:|
 | [fpGo](https://github.com/TeaEntityLab/fpGo) | 69 | 1 | 2018-05-24 17:08:45 | 2018-07-19 13:51:53 |
@@ -652,6 +651,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 ## Game Development
         
 *Awesome game development libraries.*
+
 | Go Repo    | Stars      | Watchers   | Created At | Pushed At |
 | :--------- | ---------:| ---------:|:---------:|:---------:|
 | [engine](https://github.com/azul3d/engine) | 406 | 23 | 2016-02-29 12:54:44 | 2018-06-25 06:16:41 |
@@ -677,6 +677,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 ## Generation and Generics
         
 *Tools to enhance the language with features like generics via code generation.*
+
 | Go Repo    | Stars      | Watchers   | Created At | Pushed At |
 | :--------- | ---------:| ---------:|:---------:|:---------:|
 | [efaceconv](https://github.com/t0pep0/efaceconv) | 39 | 4 | 2016-11-18 19:38:54 | 2017-10-12 15:16:32 |
@@ -693,6 +694,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 ## Geographic
         
 *Geographic tools and servers*
+
 | Go Repo    | Stars      | Watchers   | Created At | Pushed At |
 | :--------- | ---------:| ---------:|:---------:|:---------:|
 | [geocache](https://github.com/melihmucuk/geocache) | 95 | 5 | 2016-06-21 18:48:34 | 2016-06-22 00:53:18 |
@@ -706,6 +708,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 ## Go Compilers
         
 *Tools for compiling Go to other languages.*
+
 | Go Repo    | Stars      | Watchers   | Created At | Pushed At |
 | :--------- | ---------:| ---------:|:---------:|:---------:|
 | [c4go](https://github.com/Konstantin8105/c4go) | 61 | 7 | 2018-03-28 14:24:57 | 2019-03-01 18:52:53 |
@@ -717,6 +720,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 ## Goroutines
         
 *Tools for managing and working with Goroutines.*
+
 | Go Repo    | Stars      | Watchers   | Created At | Pushed At |
 | :--------- | ---------:| ---------:|:---------:|:---------:|
 | [ants](https://github.com/panjf2000/ants) | 1357 | 54 | 2018-05-19 09:13:38 | 2019-02-24 09:53:29 |
@@ -744,6 +748,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 ## GUI
         
 *Interaction*
+
 | Go Repo    | Stars      | Watchers   | Created At | Pushed At |
 | :--------- | ---------:| ---------:|:---------:|:---------:|
 | [app](https://github.com/maxence-charriere/app) | 2748 | 106 | 2016-10-12 08:31:33 | 2019-03-01 10:09:46 |
@@ -764,12 +769,14 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 ## Hardware
         
 *Libraries, tools, and tutorials for interacting with hardware.*
+
 | Go Repo    | Stars      | Watchers   | Created At | Pushed At |
 | :--------- | ---------:| ---------:|:---------:|:---------:|
 
 ## Images
         
 *Libraries for programming devices of the IoT.*
+
 | Go Repo    | Stars      | Watchers   | Created At | Pushed At |
 | :--------- | ---------:| ---------:|:---------:|:---------:|
 | [bild](https://github.com/anthonynsimon/bild) | 1930 | 55 | 2016-08-01 23:54:29 | 2018-10-05 06:01:15 |
@@ -821,6 +828,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 ## Job Scheduler
         
 *Libraries for scheduling jobs.*
+
 | Go Repo    | Stars      | Watchers   | Created At | Pushed At |
 | :--------- | ---------:| ---------:|:---------:|:---------:|
 | [clockwork](https://github.com/whiteShtef/clockwork) | 48 | 1 | 2018-04-24 01:43:09 | 2019-02-13 08:01:41 |
@@ -834,6 +842,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 ## JSON
         
 *Libraries for working with JSON.*
+
 | Go Repo    | Stars      | Watchers   | Created At | Pushed At |
 | :--------- | ---------:| ---------:|:---------:|:---------:|
 | [gjson](https://github.com/tidwall/gjson) | 4077 | 111 | 2016-08-11 11:08:47 | 2019-02-17 10:21:13 |
@@ -851,6 +860,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 ## Logging
         
 *Libraries for generating and working with log files.*
+
 | Go Repo    | Stars      | Watchers   | Created At | Pushed At |
 | :--------- | ---------:| ---------:|:---------:|:---------:|
 | [gone](https://github.com/One-com/gone) | 24 | 7 | 2016-09-05 17:39:11 | 2019-02-08 20:52:36 |
@@ -896,6 +906,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 ## Machine Learning
         
 *Libraries for Machine Learning.*
+
 | Go Repo    | Stars      | Watchers   | Created At | Pushed At |
 | :--------- | ---------:| ---------:|:---------:|:---------:|
 | [bayesian](https://github.com/jbrukh/bayesian) | 596 | 30 | 2011-11-23 12:17:00 | 2019-02-18 12:38:19 |
