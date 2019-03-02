@@ -95,6 +95,9 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 # Awesome Go
         
 
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
+
 ## Audio and Music
         
 *Libraries for manipulating audio.*
@@ -425,6 +428,9 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 
 ### Relational Databases
         
+
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
 | [calcite-avatica-go](https://github.com/apache/calcite-avatica-go) | 22 | 16 | 2017-08-08 15:00:08 | 2019-01-08 07:50:24 |
 | [bgc](https://github.com/viant/bgc) | 10 | 9 | 2016-06-14 04:24:26 | 2019-01-30 03:42:30 |
 | [firebirdsql](https://github.com/nakagami/firebirdsql) | 94 | 14 | 2013-08-27 21:09:14 | 2019-03-02 10:01:54 |
@@ -440,6 +446,9 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 
 ### NoSQL Databases
         
+
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
 | [aerospike-client-go](https://github.com/aerospike/aerospike-client-go) | 288 | 39 | 2014-07-26 10:56:21 | 2019-02-21 21:56:25 |
 | [arangolite](https://github.com/solher/arangolite) | 64 | 5 | 2015-10-05 01:27:34 | 2017-09-10 17:40:18 |
 | [asc](https://github.com/viant/asc) | 4 | 10 | 2016-06-14 04:22:31 | 2018-11-13 12:21:38 |
@@ -825,6 +834,9 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 ## IoT
         
 
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
+
 ## Job Scheduler
         
 *Libraries for scheduling jobs.*
@@ -938,152 +950,305 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 ## Messaging
         
 
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
+
 ## Microsoft Office
         
+
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
 
 ### Microsoft Excel
         
 
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
+
 ## Miscellaneous
         
+
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
 
 ### Dependency Injection
         
 
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
+
 ### Strings
         
+
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
 
 ## Natural Language Processing
         
 
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
+
 ## Networking
         
+
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
 
 ### HTTP Clients
         
 
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
+
 ## OpenGL
         
+
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
 
 ## ORM
         
 
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
+
 ## Package Management
         
+
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
 
 ## Query Language
         
 
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
+
 ## Resource Embedding
         
+
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
 
 ## Science and Data Analysis
         
 
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
+
 ## Security
         
+
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
 
 ## Serialization
         
 
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
+
 ## Template Engines
         
+
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
 
 ## Testing
         
 
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
+
 ## Text Processing
         
+
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
 
 ## Third-party APIs
         
 
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
+
 ## Utilities
         
+
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
 
 ## UUID
         
 
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
+
 ## Validation
         
+
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
 
 ## Version Control
         
 
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
+
 ## Video
         
+
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
 
 ## Web Frameworks
         
 
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
+
 ### Middlewares
         
+
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
 
 #### Actual middlewares
         
 
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
+
 #### Libraries for creating HTTP middlewares
         
+
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
 
 ### Routers
         
 
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
+
 ## Windows
         
+
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
 
 ## XML
         
 
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
+
 # Tools
         
+
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
 
 ## Code Analysis
         
 
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
+
 ## Editor Plugins
         
+
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
 
 ## Go Generate Tools
         
 
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
+
 ## Go Tools
         
+
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
 
 ## Software Packages
         
 
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
+
 ### DevOps Tools
         
+
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
 
 ### Other Software
         
 
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
+
 # Server Applications
         
+
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
 
 # Resources
         
 
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
+
 ## Benchmarks
         
+
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
 
 ## Conferences
         
 
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
+
 ## E-Books
         
+
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
 
 ## Gophers
         
 
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
+
 ## Meetups
         
+
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
 
 ## Twitter
         
 
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
+
 ## Websites
         
 
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
+
 ### Tutorials
         
+
+| Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+| :--------- | ---------:| ---------:|:---------:|:---------:|
