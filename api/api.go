@@ -84,7 +84,7 @@ func ParseReadmeFile(accessToken string, readmeFilePath string)  {
 		if reCategoryLi.MatchString(line) {//分类目录
 			subMatchs := reCategoryLi.FindStringSubmatch(line)
 			name = subMatchs[2]
-			categoryHtmlId := subMatchs[2]
+			categoryHtmlId := subMatchs[3]
 			spaceCount := len(subMatchs[1])
 
 			goRepo, e := GetGoRepoByCategoryHtmlId(categoryHtmlId)
@@ -94,6 +94,7 @@ func ParseReadmeFile(accessToken string, readmeFilePath string)  {
 					Repo: false,
 					Category: true,
 					Name: name,
+					CategoryHtmlId: categoryHtmlId,
 				}
 				SaveGoRepo(goRepo)
 			} else {
@@ -175,6 +176,7 @@ func ParseReadmeFile(accessToken string, readmeFilePath string)  {
 				} else {
 					UpdateGoRepoGithubInfo(repo, goRepo.Id)
 				}
+				log.Print("请求完成。")
 			}
 		}
 	}
