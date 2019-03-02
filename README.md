@@ -98,7 +98,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
         
 *Libraries for manipulating audio.*
 
-| Go Repo    | Stars      | Watchers   | Created-At | Latest-commit | Description |
+| Go Repo    | Stars      | Watchers   | Created_At | Latest_commit | Description |
 | :--------- | ---------:| ---------:|:---------:|:---------:| ---------:|
 | [EasyMIDI](https://github.com/algoGuy/EasyMIDI) | 17 | 3 | 2018-02-20 | 11 months ago | EasyMidi is a simple and reliable library for working with standard midi file (SMF) |
 | [flac](https://github.com/eaburns/flac) | 81 | 5 | 2013-08-21 | 1 year ago | A Free Lossless Audio Codec decoder in Go |
@@ -123,7 +123,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
         
 *Libraries for implementing authentications schemes.*
 
-| Go Repo    | Stars      | Watchers   | Created-At | Latest-commit | Description |
+| Go Repo    | Stars      | Watchers   | Created_At | Latest_commit | Description |
 | :--------- | ---------:| ---------:|:---------:|:---------:| ---------:|
 | [authboss](https://github.com/volatiletech/authboss) | 1734 | 38 | 2015-01-03 | 3 weeks ago | Modular authentication system for the web. It tries to remove as much boilerplate and "hard things" as possible so that each time you start a new web project in Go, you can plug it in, configure, and start building your app without having to build an authentication system each time. |
 | [branca](https://github.com/hako/branca) | 50 | 5 | 2018-01-09 | 6 months ago | Golang implementation of Branca Tokens. |
@@ -155,7 +155,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
         
 *Libraries for building and working with bots.*
 
-| Go Repo    | Stars      | Watchers   | Created-At | Latest-commit | Description |
+| Go Repo    | Stars      | Watchers   | Created_At | Latest_commit | Description |
 | :--------- | ---------:| ---------:|:---------:|:---------:| ---------:|
 | [bot](https://github.com/go-chat-bot/bot) | 412 | 34 | 2015-09-23 | 1 week ago | IRC, Slack & Telegram bot written in Go. |
 | [go-sarah](https://github.com/oklahomer/go-sarah) | 111 | 3 | 2016-11-06 | 7 months ago | Framework to build bot for desired chat services including LINE, Slack, Gitter and more. |
@@ -175,7 +175,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
         
 *Libraries for building Console Applications and Console User Interfaces.*
 
-| Go Repo    | Stars      | Watchers   | Created-At | Latest-commit | Description |
+| Go Repo    | Stars      | Watchers   | Created_At | Latest_commit | Description |
 | :--------- | ---------:| ---------:|:---------:|:---------:| ---------:|
 | [argparse](https://github.com/akamensky/argparse) | 74 | 5 | 2017-11-24 | 1 month ago | Command line argument parser inspired by Python's argparse module. |
 | [argv](https://github.com/cosiner/argv) | 11 | 1 | 2017-01-22 | 1 month ago | Go library to split command line string as arguments array using the bash syntax. |
@@ -240,7 +240,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
         
 *Libraries for configuration parsing.*
 
-| Go Repo    | Stars      | Watchers   | Created-At | Latest-commit | Description |
+| Go Repo    | Stars      | Watchers   | Created_At | Latest_commit | Description |
 | :--------- | ---------:| ---------:|:---------:|:---------:| ---------:|
 | [config](https://github.com/olebedev/config) | 191 | 8 | 2014-04-21 | 5 months ago | JSON or YAML configuration wrapper with environment variables and flags parsing. |
 | [configure](https://github.com/paked/configure) | 43 | 3 | 2015-06-14 | 1 week ago | Provides configuration through multiple sources, including JSON, flags and environment variables. |
@@ -273,7 +273,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
         
 *Tools for help with continuous integration.*
 
-| Go Repo    | Stars      | Watchers   | Created-At | Latest-commit | Description |
+| Go Repo    | Stars      | Watchers   | Created_At | Latest_commit | Description |
 | :--------- | ---------:| ---------:|:---------:|:---------:| ---------:|
 | [drone](https://github.com/drone/drone) | 17336 | 584 | 2014-02-07 | 1 day ago | Drone is a Continuous Integration platform built on Docker, written in Go. |
 | [duci](https://github.com/duck8823/duci) | 30 | 3 | 2018-04-01 | 9 hours ago | A simple ci server no needs domain specific languages. |
@@ -286,7 +286,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
         
 *Libraries for preprocessing CSS files.*
 
-| Go Repo    | Stars      | Watchers   | Created-At | Latest-commit | Description |
+| Go Repo    | Stars      | Watchers   | Created_At | Latest_commit | Description |
 | :--------- | ---------:| ---------:|:---------:|:---------:| ---------:|
 | [gcss](https://github.com/yosssi/gcss) | 408 | 16 | 2014-09-04 | 4 years ago | Pure Go CSS Preprocessor. |
 | [go-libsass](https://github.com/wellington/go-libsass) | 116 | 4 | 2015-04-19 | 2 weeks ago | Go wrapper to the 100% Sass compatible libsass project. |
@@ -295,7 +295,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
         
 *Generic datastructures and algorithms in Go.*
 
-| Go Repo    | Stars      | Watchers   | Created-At | Latest-commit | Description |
+| Go Repo    | Stars      | Watchers   | Created_At | Latest_commit | Description |
 | :--------- | ---------:| ---------:|:---------:|:---------:| ---------:|
 | [algorithms](https://github.com/shady831213/algorithms) | 154 | 6 | 2018-01-31 | 1 month ago | Algorithms and data structures.CLRS study. |
 | [binpacker](https://github.com/zhuangsirui/binpacker) | 110 | 10 | 2016-02-02 | 8 months ago | Binary packer and unpacker helps user build custom binary stream. |
@@ -347,7 +347,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
         
 *SQL query builder, libraries for building and using SQL.*
 
-| Go Repo    | Stars      | Watchers   | Created-At | Latest-commit | Description |
+| Go Repo    | Stars      | Watchers   | Created_At | Latest_commit | Description |
 | :--------- | ---------:| ---------:|:---------:|:---------:| ---------:|
 | [badger](https://github.com/dgraph-io/badger) | 5376 | 219 | 2017-01-26 | 7 hours ago | Fast key-value store in Go. |
 | [bigcache](https://github.com/allegro/bigcache) | 1878 | 64 | 2016-03-23 | 1 week ago | Efficient key/value cache for gigabytes of data. |
