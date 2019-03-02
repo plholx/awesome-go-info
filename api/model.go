@@ -39,4 +39,5 @@ type GoRepo struct {
 	RepoCreatedAtStr string `json:"repo_created_at_str,omitempty"`
 	RepoPushedAtStr string `json:"repo_pushed_at_str,omitempty"`
 	WithReposTable bool `json:"with_repos_table,omitempty`
+	TimeSince string `json:"time_since,omitempty"`
 }
