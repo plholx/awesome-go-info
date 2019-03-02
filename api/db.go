@@ -111,6 +111,7 @@ func GetRepoTree(all bool) (repos []GoRepo, err error) {
 		log.Println(err)
 		return
 	}
+	var i int64 = 0
 	for rows.Next() {
 		tmpRepo := new(GoRepo)
 		scan := rows.Scan(&tmpRepo.Id, &tmpRepo.ParentId, &tmpRepo.RepoName, &tmpRepo.RepoFullName, &tmpRepo.RepoOwner, &tmpRepo.RepoHtmlURL, &tmpRepo.RepoDescription, &tmpRepo.RepoCreatedAt, &tmpRepo.RepoPushedAt, &tmpRepo.RepoHomepage, &tmpRepo.RepoSize, &tmpRepo.RepoForksCount, &tmpRepo.RepoStargazersCount, &tmpRepo.RepoSubscribersCount, &tmpRepo.RepoOpenIssuesCount, &tmpRepo.RepoLicenseName, &tmpRepo.RepoLicenseSpdxId, &tmpRepo.RepoLicenseURL, &tmpRepo.Repo, &tmpRepo.Category, &tmpRepo.Name, &tmpRepo.Description, &tmpRepo.Homepage, &tmpRepo.Depth)
@@ -124,6 +125,10 @@ func GetRepoTree(all bool) (repos []GoRepo, err error) {
 		tmpRepo.RepoCreatedAtStr = tmpRepo.RepoCreatedAt.Format("2006-01-02 15:04:05")
 		tmpRepo.RepoPushedAtStr = tmpRepo.RepoPushedAt.Format("2006-01-02 15:04:05")
 		repos = append(repos, *tmpRepo)
+		if i > 0 && repos[i-1].Category && tmpRepo.Repo {
+			repos[i-1].WithReposTable = true
+		}
+		i ++
 	}
 	return
 }

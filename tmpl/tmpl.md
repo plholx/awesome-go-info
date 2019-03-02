@@ -11,8 +11,10 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
         {{if .Description}}
             {{- "\n*"}}{{.Description}}*
         {{- end}}
-        {{- "\n\n|"}} Go Repo    | Stars      | Watchers   | Created At | Pushed At |
-        {{- "\n|"}} :--------- | ---------:| ---------:|:---------:|:---------:|
+        {{- if .WithReposTable}}
+            {{- "\n\n|"}} Go Repo    | Stars      | Watchers   | Created At | Pushed At |
+            {{- "\n|"}} :--------- | ---------:| ---------:|:---------:|:---------:|
+        {{- end}}
     {{- else if .Repo}}
          {{- "\n|"}} [{{.RepoName}}]({{.RepoHtmlURL -}}) | {{.RepoStargazersCount}} | {{.RepoSubscribersCount}} | {{.RepoCreatedAtStr}} | {{.RepoPushedAtStr}} |
     {{- end}}

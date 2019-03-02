@@ -38,4 +38,5 @@ type GoRepo struct {
 	CategoryHtmlId string `json:"category_html_id,omitempty"`
 	RepoCreatedAtStr string `json:"repo_created_at_str,omitempty"`
 	RepoPushedAtStr string `json:"repo_pushed_at_str,omitempty"`
+	WithReposTable bool `json:"with_repos_table,omitempty`
 }
