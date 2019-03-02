@@ -117,7 +117,22 @@ func GetRepoTree(all bool) (repos []GoRepo, err error) {
 			log.Println(scan)
 			continue
 		}
+		tmpRepo.Spaces = getSpace(tmpRepo.Depth-1)
+		tmpRepo.TitleMarks = getTitleMarks(tmpRepo.Depth)
 		repos = append(repos, *tmpRepo)
 	}
 	return
+}
+
+func getSpace(count int64) (s string) {
+	for i:=int64(0); i<count; i++ {
+		s += "    "
+	}
+	return s
+}
+func getTitleMarks(count int64) (s string) {
+	for i:=int64(0); i<count; i++ {
+		s += "#"
+	}
+	return s
 }
