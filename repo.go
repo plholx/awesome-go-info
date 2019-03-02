@@ -1,10 +1,9 @@
 package main
 
 import (
+	"awesome-go-data/api"
 	"flag"
 	"log"
-
-	"awesome-go-data/api"
 )
 
 var accessToken = flag.String("t", "", "GitHub API access_token, 必须输入")

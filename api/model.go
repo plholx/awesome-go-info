@@ -35,4 +35,5 @@ type GoRepo struct {
 	Depth int64 `json:"depth,omitempty"`
 	Spaces string `json:"spaces,omitempty"`
 	TitleMarks string `json:"title_marks,omitempty"`
+	CategoryHtmlId string `json:"category_html_id,omitempty"`
 }

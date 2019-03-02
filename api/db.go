@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	_ "github.com/lib/pq"
 	"log"
+	"strings"
 )
 
 var db *sql.DB
@@ -119,6 +120,7 @@ func GetRepoTree(all bool) (repos []GoRepo, err error) {
 		}
 		tmpRepo.Spaces = getSpace(tmpRepo.Depth-1)
 		tmpRepo.TitleMarks = getTitleMarks(tmpRepo.Depth)
+		tmpRepo.CategoryHtmlId = getCategoryHtmlId(tmpRepo.Name)
 		repos = append(repos, *tmpRepo)
 	}
 	return
@@ -135,4 +137,9 @@ func getTitleMarks(count int64) (s string) {
 		s += "#"
 	}
 	return s
+}
+func getCategoryHtmlId(name string) string {
+	name = strings.Replace(name, " ", "-", -1)
+	name = strings.ToLower(name)
+	return name
 }
