@@ -42,6 +42,7 @@ CREATE TABLE public.go_repo
     name character varying(50) COLLATE pg_catalog."default",
     description character varying(1000) COLLATE pg_catalog."default",
     homepage character varying(500) COLLATE pg_catalog."default",
+    category_html_id character varying(100) COLLATE pg_catalog."default",
     CONSTRAINT go_repo_pkey PRIMARY KEY (id)
 )
 WITH (
@@ -105,3 +106,6 @@ COMMENT ON COLUMN public.go_repo.description
 
 COMMENT ON COLUMN public.go_repo.homepage
     IS '官网主页地址';
+
+COMMENT ON COLUMN public.go_repo.category_html_id
+IS '源README.md文件中类别的锚点id';

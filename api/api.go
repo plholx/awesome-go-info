@@ -35,6 +35,8 @@ var (
 	reLinkWithDescription = regexp.MustCompile(`(\s*)\* \[(.*?)\]\((.+?)\) - (\S.*[\.\!])`)
 	reLittleCategory      = regexp.MustCompile(`(\s*)\* ([a-zA-Z\s]*)$`)
 	reGitHubURL           = regexp.MustCompile(`https://github.com/(.+?)/([a-zA-Z0-9_\-\.]+).*$`)
+
+	reSpecialCharacters   = regexp.MustCompile(`[^a-zA-Z0-9_\-\.]+`)
 )
 
 //下载awesome-go中的README.md文件
@@ -82,9 +84,10 @@ func ParseReadmeFile(accessToken string, readmeFilePath string)  {
 		if reCategoryLi.MatchString(line) {//分类目录
 			subMatchs := reCategoryLi.FindStringSubmatch(line)
 			name = subMatchs[2]
+			categoryHtmlId := subMatchs[2]
 			spaceCount := len(subMatchs[1])
 
-			goRepo, e := GetGoRepo(name, false, true)
+			goRepo, e := GetGoRepoByCategoryHtmlId(categoryHtmlId)
 			if e != nil {
 				goRepo = &GoRepo{
 					ParentId: categoryIds[spaceCount-8],
@@ -94,13 +97,15 @@ func ParseReadmeFile(accessToken string, readmeFilePath string)  {
 				}
 				SaveGoRepo(goRepo)
 			} else {
-				UpdateGoRepoParentId(categoryIds[spaceCount-8], name, false, true)
+				ModifyGoRepoParentIdByCategoryHtmlId(categoryIds[spaceCount-8], categoryHtmlId)
 			}
 			categoryIds[spaceCount-4] = goRepo.Id
 		} else if reCategory.MatchString(line) {//遇到分类
 			subMatchs := reCategory.FindStringSubmatch(line)
 			name = subMatchs[1]
-			goRepo, e := GetGoRepo(name, false, true)
+			categoryHtmlId := getCategoryHtmlId(name)
+
+			goRepo, e := GetGoRepoByCategoryHtmlId(categoryHtmlId)
 			if e != nil {
 				log.Printf("分类%s不存在", name)
 				continue
@@ -114,17 +119,19 @@ func ParseReadmeFile(accessToken string, readmeFilePath string)  {
 		} else if reLittleCategory.MatchString(line) {//小分类
 			subMatchs := reLittleCategory.FindStringSubmatch(line)
 			name = subMatchs[2]
-			goRepo, e := GetGoRepo(name, false, true)
+			categoryHtmlId := getCategoryHtmlId(name)
+			goRepo, e := GetGoRepoByCategoryHtmlId(categoryHtmlId)
 			if e != nil {
 				goRepo = &GoRepo{
 					ParentId: tmpCategoryId,
 					Repo: false,
 					Category: true,
 					Name: name,
+					CategoryHtmlId: categoryHtmlId,
 				}
 				SaveGoRepo(goRepo)
 			} else {
-				UpdateGoRepoParentId(tmpCategoryId, name, false, true)
+				ModifyGoRepoParentIdByCategoryHtmlId(tmpCategoryId, categoryHtmlId)
 			}
 			linkCategoryId = goRepo.Id
 		} else if reContainsLink.MatchString(line) && strings.Contains(line, githubDomain) {//含有链接,且为GitHub仓库
@@ -322,4 +329,10 @@ func GenerateMd()  {
 		GoRepos: allRepos,
 	}
 	t.Execute(f, data)
+}
+
+func getCategoryHtmlId(categoryName string) (id string) {
+	id = reSpecialCharacters.ReplaceAllString(categoryName, "-")
+	id = strings.Trim(id, "-")
+	return strings.ToLower(id)
 }

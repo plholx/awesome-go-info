@@ -4,7 +4,6 @@ import (
 	"database/sql"
 	_ "github.com/lib/pq"
 	"log"
-	"strings"
 )
 
 var db *sql.DB
@@ -16,14 +15,7 @@ func GetDB() (*sql.DB) {
 	}
 	return db
 }
-//更新go_repo表parent_id
-func UpdateGoRepoParentId(parentId int64, name string, repo bool, category bool)  {
-	db := GetDB()
-	sqlStr := `update go_repo set parent_id = $1, modify_time = CURRENT_TIMESTAMP where name = $2 and repo = $3 and category = $4`
-	stmt, _ := db.Prepare(sqlStr)
-	defer stmt.Close()
-	stmt.Exec(parentId, name, repo, category)
-}
+
 //更新go_repo表description
 func UpdateGoRepoDescription(description string, id int64)  {
 	db := GetDB()
@@ -72,17 +64,36 @@ func GetGoRepo(name string, repo bool, category bool) (goRepo *GoRepo, err error
 	return
 }
 
+//GetGoRepo 根据CategoryHtmlId获取go_repo表分类数据(类别以锚点id为唯一标识)
+func GetGoRepoByCategoryHtmlId(categoryHtmlId string) (goRepo *GoRepo, err error) {
+	db := GetDB()
+	sqlStr := `select id, name from go_repo where category_html_id = $1 and category = true`
+	stmt, _ := db.Prepare(sqlStr)
+	defer stmt.Close()
+	goRepo = new(GoRepo)
+	err = stmt.QueryRow(categoryHtmlId).Scan(&goRepo.Id, &goRepo.Name)
+	return
+}
+//更新go_repo表parent_id
+func ModifyGoRepoParentIdByCategoryHtmlId(parentId int64, categoryHtmlId string)  {
+	db := GetDB()
+	sqlStr := `update go_repo set parent_id = $1, modify_time = CURRENT_TIMESTAMP where category_html_id = $2 and category = true`
+	stmt, _ := db.Prepare(sqlStr)
+	defer stmt.Close()
+	stmt.Exec(parentId, categoryHtmlId)
+}
+
 //SaveGoRepo go_repo表插入数据
 func SaveGoRepo(goRepo *GoRepo)  {
 	db := GetDB()
 	sqlStr := `insert into go_repo 
-				(id, parent_id, repo_name, repo_full_name, repo_owner, repo_html_url, repo_description, repo_created_at, repo_pushed_at, repo_homepage, repo_size, repo_forks_count, repo_stargazers_count, repo_subscribers_count, repo_open_issues_count, repo_license_name, repo_license_spdx_id, repo_license_url, repo, category, name, description, homepage) 
+				(id, parent_id, repo_name, repo_full_name, repo_owner, repo_html_url, repo_description, repo_created_at, repo_pushed_at, repo_homepage, repo_size, repo_forks_count, repo_stargazers_count, repo_subscribers_count, repo_open_issues_count, repo_license_name, repo_license_spdx_id, repo_license_url, repo, category, name, description, homepage, category_html_id) 
 				values 
-				(DEFAULT, $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22) 
+				(DEFAULT, $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23) 
 				RETURNING id`
 	stmt, _ := db.Prepare(sqlStr)
 	defer stmt.Close()
-	err := stmt.QueryRow(goRepo.ParentId, goRepo.RepoName, goRepo.RepoFullName, goRepo.RepoOwner, goRepo.RepoHtmlURL, goRepo.RepoDescription, goRepo.RepoCreatedAt, goRepo.RepoPushedAt, goRepo.RepoHomepage, goRepo.RepoSize, goRepo.RepoForksCount, goRepo.RepoStargazersCount, goRepo.RepoSubscribersCount, goRepo.RepoOpenIssuesCount, goRepo.RepoLicenseName, goRepo.RepoLicenseSpdxId, goRepo.RepoLicenseURL, goRepo.Repo, goRepo.Category, goRepo.Name, goRepo.Description, goRepo.Homepage).Scan(&goRepo.Id)
+	err := stmt.QueryRow(goRepo.ParentId, goRepo.RepoName, goRepo.RepoFullName, goRepo.RepoOwner, goRepo.RepoHtmlURL, goRepo.RepoDescription, goRepo.RepoCreatedAt, goRepo.RepoPushedAt, goRepo.RepoHomepage, goRepo.RepoSize, goRepo.RepoForksCount, goRepo.RepoStargazersCount, goRepo.RepoSubscribersCount, goRepo.RepoOpenIssuesCount, goRepo.RepoLicenseName, goRepo.RepoLicenseSpdxId, goRepo.RepoLicenseURL, goRepo.Repo, goRepo.Category, goRepo.Name, goRepo.Description, goRepo.Homepage, goRepo.CategoryHtmlId).Scan(&goRepo.Id)
 	if err != nil {
 		log.Println("插入仓库信息报错：", err)
 	}
@@ -121,7 +132,6 @@ func GetRepoTree(all bool) (repos []GoRepo, err error) {
 		}
 		tmpRepo.Spaces = getSpace(tmpRepo.Depth-1)
 		tmpRepo.TitleMarks = getTitleMarks(tmpRepo.Depth)
-		tmpRepo.CategoryHtmlId = getCategoryHtmlId(tmpRepo.Name)
 		tmpRepo.RepoCreatedAtStr = tmpRepo.RepoCreatedAt.Format("2006-01-02 15:04:05")
 		tmpRepo.RepoPushedAtStr = tmpRepo.RepoPushedAt.Format("2006-01-02 15:04:05")
 		repos = append(repos, *tmpRepo)
@@ -144,9 +154,4 @@ func getTitleMarks(count int64) (s string) {
 		s += "#"
 	}
 	return s
-}
-func getCategoryHtmlId(name string) string {
-	name = strings.Replace(name, " ", "-", -1)
-	name = strings.ToLower(name)
-	return name
 }
