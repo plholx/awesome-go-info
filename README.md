@@ -160,13 +160,13 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 | [go-sarah](https://github.com/oklahomer/go-sarah) | 111 | 3 | 2016-11-06 | 7 months ago | Framework to build bot for desired chat services including LINE, Slack, Gitter and more. |
 | [go-tgbot](https://github.com/olebedev/go-tgbot) | 80 | 7 | 2016-12-11 | 8 months ago | Pure Golang Telegram Bot API wrapper, generated from swagger file, session-based router and middleware. |
 | [golang-crypto-trading-bot](https://github.com/saniales/golang-crypto-trading-bot) | 147 | 19 | 2017-05-15 | 2 weeks ago | A golang implementation of a console-based trading bot for cryptocurrency exchanges. |
-| [govkbot](https://github.com/nikepan/govkbot) | 19 | 2 | 2016-07-12 | 2 hours ago | Simple Go [VK](https://vk.com) bot library. |
+| [govkbot](https://github.com/nikepan/govkbot) | 19 | 2 | 2016-07-12 | 3 hours ago | Simple Go [VK](https://vk.com) bot library. |
 | [hanu](https://github.com/sbstjn/hanu) | 90 | 6 | 2016-09-16 | 5 months ago | Framework for writing Slack bots. |
 | [margelet](https://github.com/zhulik/margelet) | 51 | 5 | 2015-11-21 | 2 years ago | Framework for building Telegram bots. |
 | [micha](https://github.com/onrik/micha) | 9 | 3 | 2016-04-14 | 1 year ago | Go Library for Telegram bot api. |
 | [slacker](https://github.com/shomali11/slacker) | 256 | 13 | 2017-05-20 | 1 week ago | Easy to use framework to create Slack bots. |
 | [tbot](https://github.com/yanzay/tbot) | 184 | 8 | 2015-09-12 | 2 months ago | Telegram bot server with API similar to net/http. |
-| [telebot](https://github.com/tucnak/telebot) | 825 | 34 | 2015-06-26 | 7 hours ago | Telegram bot framework written in Go. |
+| [telebot](https://github.com/tucnak/telebot) | 825 | 34 | 2015-06-26 | 8 hours ago | Telegram bot framework written in Go. |
 | [telegram-bot-api](https://github.com/go-telegram-bot-api/telegram-bot-api) | 1385 | 56 | 2015-06-25 | 1 day ago | Simple and clean Telegram bot client. |
 | [tenyks](https://github.com/kyleterry/tenyks) | 166 | 14 | 2012-08-26 | 2 years ago | Service oriented IRC bot using Redis and JSON for messaging. |
 
@@ -192,7 +192,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 | [go-arg](https://github.com/alexflint/go-arg) | 571 | 15 | 2015-11-01 | 2 months ago | Struct-based argument parsing in Go. |
 | [go-commander](https://github.com/yitsushi/go-commander) | 8 | 1 | 2016-10-10 | 5 days ago | Go library to simplify CLI workflow. |
 | [go-flags](https://github.com/jessevdk/go-flags) | 1290 | 28 | 2012-08-31 | 6 days ago | go command line option parser. |
-| [go-getoptions](https://github.com/DavidGamba/go-getoptions) | 5 | 1 | 2015-12-18 | 15 hours ago | Go option parser inspired on the flexibility of Perl’s GetOpt::Long. |
+| [go-getoptions](https://github.com/DavidGamba/go-getoptions) | 5 | 1 | 2015-12-18 | 16 hours ago | Go option parser inspired on the flexibility of Perl’s GetOpt::Long. |
 | [gocmd](https://github.com/devfacet/gocmd) | 28 | 3 | 2018-01-08 | 5 months ago | Go library for building command line applications. |
 | [hiboot](https://github.com/hidevopsio/hiboot) | 59 | 6 | 2018-03-16 | 5 days ago | cli application framework with auto configuration and dependency injection. |
 | [kingpin](https://github.com/alecthomas/kingpin) | 2297 | 54 | 2014-05-15 | 1 month ago | Command line and flag parser supporting sub commands. |
@@ -228,7 +228,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 | [simpletable](https://github.com/alexeyco/simpletable) | 121 | 2 | 2017-03-29 | 1 week ago | Simple tables in terminal with Go. |
 | [tabular](https://github.com/InVisionApp/tabular) | 23 | 3 | 2018-04-24 | 9 months ago | Print ASCII tables from command line utilities without the need to pass large sets of data to the API. |
 | [termbox-go](https://github.com/nsf/termbox-go) | 3289 | 103 | 2012-01-13 | 2 weeks ago | Termbox is a library for creating cross-platform text-based interfaces. |
-| [termdash](https://github.com/mum4k/termdash) | 81 | 6 | 2018-03-24 | 4 hours ago | Go terminal dashboard based on **termbox-go** and inspired by [termui](https://github.com/gizak/termui). |
+| [termdash](https://github.com/mum4k/termdash) | 81 | 6 | 2018-03-24 | 5 hours ago | Go terminal dashboard based on **termbox-go** and inspired by [termui](https://github.com/gizak/termui). |
 | [termtables](https://github.com/apcera/termtables) | 203 | 68 | 2012-12-06 | 1 year ago | Go port of the Ruby library [terminal-tables](https://github.com/tj/terminal-table) for simple ASCII table generation as well as providing markdown and HTML output. |
 | [termui](https://github.com/gizak/termui) | 8358 | 275 | 2015-02-03 | 1 day ago | Go terminal dashboard based on **termbox-go** and inspired by [blessed-contrib](https://github.com/yaronn/blessed-contrib). |
 | [uilive](https://github.com/gosuri/uilive) | 723 | 11 | 2015-11-16 | 2 months ago | Library for updating terminal output in realtime. |
@@ -245,7 +245,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 | [configure](https://github.com/paked/configure) | 43 | 3 | 2015-06-14 | 1 week ago | Provides configuration through multiple sources, including JSON, flags and environment variables. |
 | [confita](https://github.com/heetch/confita) | 208 | 25 | 2017-12-21 | 2 weeks ago | Load configuration in cascade from multiple backends into a struct. |
 | [conflate](https://github.com/the4thamigo-uk/conflate) | 3 | 0 | 2018-02-02 | 3 weeks ago | Library/tool to merge multiple JSON/YAML/TOML files from arbitrary URLs, validation against a JSON schema, and application of default values defined in the schema. |
-| [env](https://github.com/caarlos0/env) | 698 | 16 | 2015-07-28 | 16 hours ago | Parse environment variables to Go structs (with defaults). |
+| [env](https://github.com/caarlos0/env) | 698 | 16 | 2015-07-28 | 17 hours ago | Parse environment variables to Go structs (with defaults). |
 | [envcfg](https://github.com/tomazk/envcfg) | 89 | 1 | 2014-11-29 | 1 year ago | Un-marshaling environment variables to Go structs. |
 | [envconf](https://github.com/ian-kent/envconf) | 7 | 1 | 2014-10-26 | 4 years ago | Configuration from environment. |
 | [envconfig](https://github.com/vrischmann/envconfig) | 136 | 4 | 2015-04-22 | 2 months ago | Read your configuration from environment variables. |
@@ -265,7 +265,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 | [mini](https://github.com/sasbury/mini) | 19 | 2 | 2015-04-30 | 2 months ago | Golang package for parsing ini-style configuration files. |
 | [sprbox](https://github.com/oblq/sprbox) | 3 | 2 | 2018-07-17 | 4 months ago | Build-environment aware toolbox factory and agnostic config parser (YAML, TOML, JSON and Environment vars). |
 | [store](https://github.com/tucnak/store) | 239 | 5 | 2015-10-04 | 1 year ago | Lightweight configuration manager for Go. |
-| [viper](https://github.com/spf13/viper) | 7657 | 165 | 2014-04-02 | 1 day ago | Go configuration with fangs. |
+| [viper](https://github.com/spf13/viper) | 7657 | 165 | 2014-04-02 | 2 days ago | Go configuration with fangs. |
 | [xdg](https://github.com/OpenPeeDeeP/xdg) | 19 | 3 | 2017-07-20 | 1 week ago | Cross platform package that follows the [XDG Standard](https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html). |
 
 ## Continuous Integration
@@ -275,7 +275,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 | Go_repository    | Stars      | Watchers   | Created_at | Latest_commit | Description |
 | :--------- | ---------:| ---------:|:---------:|:---------:| ---------:|
 | [drone](https://github.com/drone/drone) | 17344 | 584 | 2014-02-07 | 1 day ago | Drone is a Continuous Integration platform built on Docker, written in Go. |
-| [duci](https://github.com/duck8823/duci) | 30 | 3 | 2018-04-01 | 3 hours ago | A simple ci server no needs domain specific languages. |
+| [duci](https://github.com/duck8823/duci) | 30 | 3 | 2018-04-01 | 4 hours ago | A simple ci server no needs domain specific languages. |
 | [gomason](https://github.com/nikogura/gomason) | 20 | 0 | 2017-11-18 | 3 weeks ago | Test, Build, Sign, and Publish your go binaries from a clean workspace. |
 | [goveralls](https://github.com/mattn/goveralls) | 540 | 16 | 2013-04-17 | 4 weeks ago | Go integration for Coveralls.io continuous code coverage tracking system. |
 | [overalls](https://github.com/go-playground/overalls) | 94 | 4 | 2015-07-30 | 6 months ago | Multi-Package go project coverprofile for tools like goveralls. |
@@ -306,7 +306,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 | [concurrent-writer](https://github.com/free/concurrent-writer) | 15 | 4 | 2017-09-18 | 1 year ago | Highly concurrent drop-in replacement for `bufio.Writer`. |
 | [conjungo](https://github.com/InVisionApp/conjungo) | 57 | 14 | 2016-12-30 | 2 weeks ago | A small, powerful and flexible merge library. |
 | [count-min-log](https://github.com/seiflotfy/count-min-log) | 40 | 4 | 2015-08-17 | 2 years ago | Go implementation Count-Min-Log sketch: Approximately counting with approximate counters (Like Count-Min sketch but using less memory). |
-| [cuckoofilter](https://github.com/seiflotfy/cuckoofilter) | 443 | 17 | 2015-06-29 | 14 hours ago | Cuckoo filter: a good alternative to a counting bloom filter implemented in Go. |
+| [cuckoofilter](https://github.com/seiflotfy/cuckoofilter) | 443 | 17 | 2015-06-29 | 15 hours ago | Cuckoo filter: a good alternative to a counting bloom filter implemented in Go. |
 | [deque](https://github.com/edwingeng/deque) | 1 | 1 | 2019-02-01 | 2 weeks ago | A highly optimized double-ended queue. |
 | [deque](https://github.com/gammazero/deque) | 32 | 4 | 2018-04-24 | 1 month ago | Fast ring-buffer deque (double-ended queue). |
 | [encoding](https://github.com/zentures/encoding) | 92 | 7 | 2013-09-21 | 1 year ago | Integer Compression Libraries for Go. |
@@ -317,7 +317,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 | [go-mcache](https://github.com/OrlovEvgeny/go-mcache) | 23 | 2 | 2018-04-15 | 3 months ago | Fast in-memory key:value store/cache library. Pointer caches. |
 | [go-rquad](https://github.com/arl/go-rquad) | 94 | 3 | 2016-09-13 | 8 months ago | Region quadtrees with efficient point location and neighbour finding. |
 | [goconcurrentqueue](https://github.com/enriquebris/goconcurrentqueue) | 2 | 1 | 2019-01-11 | 1 month ago | Concurrent FIFO queue. |
-| [gods](https://github.com/emirpasic/gods) | 5346 | 254 | 2015-03-04 | 12 hours ago | Go Data Structures. Containers, Sets, Lists, Stacks, Maps, BidiMaps, Trees, HashSet etc. |
+| [gods](https://github.com/emirpasic/gods) | 5346 | 254 | 2015-03-04 | 13 hours ago | Go Data Structures. Containers, Sets, Lists, Stacks, Maps, BidiMaps, Trees, HashSet etc. |
 | [golang-set](https://github.com/deckarep/golang-set) | 975 | 27 | 2013-07-04 | 5 months ago | Thread-Safe and Non-Thread-Safe high-performance sets for Go. |
 | [goset](https://github.com/zoumo/goset) | 12 | 1 | 2017-08-25 | 1 year ago | A useful Set collection implementation for Go. |
 | [goskiplist](https://github.com/ryszard/goskiplist) | 178 | 12 | 2012-05-09 | 2 years ago | Skip list implementation in Go. |
@@ -339,7 +339,7 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 | [skiplist](https://github.com/gansidui/skiplist) | 58 | 7 | 2014-11-19 | 4 years ago | Skiplist implementation in Go. |
 | [timedmap](https://github.com/zekroTJA/timedmap) | 0 | 1 | 2019-01-30 | 1 week ago | Map with expiring key-value pairs. |
 | [trie](https://github.com/derekparker/trie) | 360 | 20 | 2014-03-07 | 9 months ago | Trie implementation in Go. |
-| [ttlcache](https://github.com/ReneKroon/ttlcache) | 78 | 7 | 2014-12-13 | 5 days ago | In-memory LRU string-interface{} map with expiration for golang. |
+| [ttlcache](https://github.com/ReneKroon/ttlcache) | 78 | 7 | 2014-12-13 | 6 days ago | In-memory LRU string-interface{} map with expiration for golang. |
 | [bloom](https://github.com/willf/bloom) | 586 | 30 | 2011-05-21 | 2 days ago | Go package implementing Bloom filters. |
 
 ## Database
@@ -354,10 +354,10 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 | [buntdb](https://github.com/tidwall/buntdb) | 2262 | 93 | 2016-07-20 | 4 weeks ago | Fast, embeddable, in-memory key/value database for Go with custom indexing and spatial support. |
 | [cache2go](https://github.com/muesli/cache2go) | 812 | 57 | 2013-11-11 | 4 months ago | In-memory key:value cache which supports automatic invalidation based on timeouts. |
 | [clusteredBigCache](https://github.com/oaStuff/clusteredBigCache) | 25 | 5 | 2017-12-18 | 1 year ago | BigCache with clustering support and individual item expiration. |
-| [cockroach](https://github.com/cockroachdb/cockroach) | 15523 | 693 | 2014-02-06 | 7 hours ago | Scalable, Geo-Replicated, Transactional Datastore. |
+| [cockroach](https://github.com/cockroachdb/cockroach) | 15523 | 693 | 2014-02-06 | 8 hours ago | Scalable, Geo-Replicated, Transactional Datastore. |
 | [couchcache](https://github.com/codingsince1985/couchcache) | 39 | 3 | 2015-04-05 | 1 year ago | RESTful caching micro-service backed by Couchbase server. |
 | [CovenantSQL](https://github.com/CovenantSQL/CovenantSQL) | 525 | 45 | 2018-04-11 | 2 days ago | CovenantSQL is a SQL database on blockchain. |
-| [dgraph](https://github.com/dgraph-io/dgraph) | 8702 | 329 | 2015-08-25 | 6 hours ago | Scalable, Distributed, Low Latency, High Throughput Graph Database. |
+| [dgraph](https://github.com/dgraph-io/dgraph) | 8702 | 329 | 2015-08-25 | 7 hours ago | Scalable, Distributed, Low Latency, High Throughput Graph Database. |
 | [diskv](https://github.com/peterbourgon/diskv) | 695 | 29 | 2012-03-22 | 6 months ago | Home-grown disk-backed key-value store. |
 | [eliasdb](https://github.com/krotik/eliasdb) | 503 | 23 | 2016-08-13 | 2 weeks ago | Dependency-free, transactional graph database with REST API, phrase search and SQL-like query language. |
 | [fastcache](https://github.com/VictoriaMetrics/fastcache) | 348 | 12 | 2018-11-23 | 6 days ago | fast thread-safe inmemory cache for big number of entries. Minimizes GC overhead. |
