@@ -74,6 +74,7 @@ func ParseReadmeFile(accessToken string, readmeFilePath string)  {
 	if err != nil {
 		log.Fatal(err)
 	}
+
 	lines := strings.Split(string(input), "\n")
 	categoryIds := make(map[int]int64)
 	var tmpCategoryId int64 = 0
@@ -87,54 +88,54 @@ func ParseReadmeFile(accessToken string, readmeFilePath string)  {
 			categoryHtmlId := subMatchs[3]
 			spaceCount := len(subMatchs[1])
 
-			goRepo, e := GetGoRepoByCategoryHtmlId(categoryHtmlId)
+			agi, e := GetAGIByCategoryHtmlId(categoryHtmlId)
 			if e != nil {
-				goRepo = &GoRepo{
+				agi = &AGI{
 					ParentId: categoryIds[spaceCount-8],
 					Repo: false,
 					Category: true,
 					Name: name,
 					CategoryHtmlId: categoryHtmlId,
 				}
-				SaveGoRepo(goRepo)
+				SaveAGI(agi)
 			} else {
-				ModifyGoRepoParentIdByCategoryHtmlId(categoryIds[spaceCount-8], categoryHtmlId)
+				ModifyAGIParentIdByCategoryHtmlId(categoryIds[spaceCount-8], categoryHtmlId)
 			}
-			categoryIds[spaceCount-4] = goRepo.Id
+			categoryIds[spaceCount-4] = agi.Id
 		} else if reCategory.MatchString(line) {//遇到分类
 			subMatchs := reCategory.FindStringSubmatch(line)
 			name = subMatchs[1]
 			categoryHtmlId := getCategoryHtmlId(name)
 
-			goRepo, e := GetGoRepoByCategoryHtmlId(categoryHtmlId)
+			agi, e := GetAGIByCategoryHtmlId(categoryHtmlId)
 			if e != nil {
 				log.Printf("分类%s不存在", name)
 				continue
 			}
-			tmpCategoryId = goRepo.Id
+			tmpCategoryId = agi.Id
 			linkCategoryId = tmpCategoryId
 		} else if reCategoryDescription.MatchString(line) {//分类描述
 			subMatchs := reCategoryDescription.FindStringSubmatch(line)
 			description := subMatchs[2]
-			UpdateGoRepoDescription(description, tmpCategoryId)
+			UpdateAGIDescription(description, tmpCategoryId)
 		} else if reLittleCategory.MatchString(line) {//小分类
 			subMatchs := reLittleCategory.FindStringSubmatch(line)
 			name = subMatchs[2]
 			categoryHtmlId := getCategoryHtmlId(name)
-			goRepo, e := GetGoRepoByCategoryHtmlId(categoryHtmlId)
+			agi, e := GetAGIByCategoryHtmlId(categoryHtmlId)
 			if e != nil {
-				goRepo = &GoRepo{
+				agi = &AGI{
 					ParentId: tmpCategoryId,
 					Repo: false,
 					Category: true,
 					Name: name,
 					CategoryHtmlId: categoryHtmlId,
 				}
-				SaveGoRepo(goRepo)
+				SaveAGI(agi)
 			} else {
-				ModifyGoRepoParentIdByCategoryHtmlId(tmpCategoryId, categoryHtmlId)
+				ModifyAGIParentIdByCategoryHtmlId(tmpCategoryId, categoryHtmlId)
 			}
-			linkCategoryId = goRepo.Id
+			linkCategoryId = agi.Id
 		} else if reContainsLink.MatchString(line) && strings.Contains(line, githubDomain) {//含有链接,且为GitHub仓库
 			githubRepoLink := ""
 			repoDescription := ""
@@ -161,20 +162,20 @@ func ParseReadmeFile(accessToken string, readmeFilePath string)  {
 				}
 				count++
 				log.Println(count, " 开始请求仓库信息", name)
-				repo, err := GetRepoInfo(repoOwner, repoName, accessToken)
+				tmpAGI, err := GetRepoInfo(repoOwner, repoName, accessToken)
 				if err != nil {
 					log.Println(err)
 					continue
 				}
-				repo.ParentId = linkCategoryId
-				goRepo, e := GetGoRepo(name, true, false)
+				tmpAGI.ParentId = linkCategoryId
+				agi, e := GetAGI(name, true, false)
 				if e != nil {
 					if repoDescription != "" {
-						repo.Description = repoDescription
+						tmpAGI.Description = repoDescription
 					}
-					SaveGoRepo(repo)
+					SaveAGI(tmpAGI)
 				} else {
-					UpdateGoRepoGithubInfo(repo, goRepo.Id)
+					UpdateAGIGithubInfo(tmpAGI, agi.Id)
 				}
 				log.Print("请求完成。")
 			}
@@ -184,7 +185,7 @@ func ParseReadmeFile(accessToken string, readmeFilePath string)  {
 
 
 //获取github仓库信息
-func GetRepoInfo(repoOwner, repoName, accessToken string) (repo *GoRepo, err error) {
+func GetRepoInfo(repoOwner, repoName, accessToken string) (agi *AGI, err error) {
 	repoFullName := repoOwner + "/" + repoName
 	apiURL := strings.Replace(githubReposAPI, ":owner/:repo", repoFullName, -1)
 	apiURL = strings.Replace(apiURL, "OAUTH-TOKEN", accessToken, -1)
@@ -204,9 +205,9 @@ func GetRepoInfo(repoOwner, repoName, accessToken string) (repo *GoRepo, err err
 	}
 	if repoMap, ok := v.(map[string]interface{}); ok {
 		if fullName, ok := repoMap["full_name"].(string); !ok || fullName == "" {
-			return repo, fmt.Errorf("从GitHub获取%s仓库信息失败", repoFullName)
+			return agi, fmt.Errorf("从GitHub获取%s仓库信息失败", repoFullName)
 		}
-		repo = &GoRepo{
+		agi = &AGI{
 			RepoName:repoMap["name"].(string), 
 			RepoFullName:repoMap["full_name"].(string), 
 			RepoHtmlURL:repoMap["html_url"].(string), 
@@ -220,46 +221,46 @@ func GetRepoInfo(repoOwner, repoName, accessToken string) (repo *GoRepo, err err
 		}
 		//可能不存在的一些信息，需要进行判断
 		if homepage, ok := repoMap["homepage"].(string); ok {
-			repo.RepoHomepage = homepage
-			repo.Homepage = homepage
+			agi.RepoHomepage = homepage
+			agi.Homepage = homepage
 		}
 		if description, ok := repoMap["description"].(string); ok {
-			repo.RepoDescription = description
-			repo.Description = description
+			agi.RepoDescription = description
+			agi.Description = description
 		}
 		//作者信息
 		if ownerMap, ok := repoMap["owner"].(map[string]interface{}); ok {
-			repo.RepoOwner = ownerMap["login"].(string)
+			agi.RepoOwner = ownerMap["login"].(string)
 		}
 		//证书信息
 		if licenseMap, ok := repoMap["license"].(map[string]interface{}); ok {
 			if licenseName, ok := licenseMap["name"].(string); ok {
-				repo.RepoLicenseName = licenseName
+				agi.RepoLicenseName = licenseName
 			}
 			if licenseSpdxId, ok := licenseMap["spdx_id"].(string); ok {
-				repo.RepoLicenseSpdxId = licenseSpdxId
+				agi.RepoLicenseSpdxId = licenseSpdxId
 			}
 			if licenseURL, ok := licenseMap["url"].(string); ok {
-				repo.RepoLicenseURL = licenseURL
+				agi.RepoLicenseURL = licenseURL
 			}
 		}
 		//日期时间信息
 		if createAtStr, ok := repoMap["created_at"].(string); ok {
 			createAt, err := time.Parse(time.RFC3339, createAtStr)
 			if err == nil {
-				repo.RepoCreatedAt = createAt
+				agi.RepoCreatedAt = createAt
 			}
 		}
 		if pushedAtStr, ok := repoMap["pushed_at"].(string); ok {
 			pushedAt, err := time.Parse(time.RFC3339, pushedAtStr)
 			if err == nil {
-				repo.RepoPushedAt = pushedAt
+				agi.RepoPushedAt = pushedAt
 			}
 		}
 		//size可能带小数
 		if sizeFloat64, ok := repoMap["size"].(float64); ok {
 			size := math.RoundToEven(sizeFloat64);
-			repo.RepoSize = int64(size)
+			agi.RepoSize = int64(size)
 		}
 	}
 	return
@@ -305,20 +306,20 @@ func GitHubAPIReqControl(accessToken string) (ok bool, err error) {
 }
 
 type data struct {
-	Catagorys []GoRepo
-	GoRepos []GoRepo
+	Catagorys []AGI
+	GoRepos []AGI
 }
 
 
 
 //GenerateMd 生成README.md文件
 func GenerateMd()  {
-	repos, err := GetRepoTree(false)
+	agis, err := GetAGITree(false)
 	if err != nil {
 		log.Println(err)
 		return
 	}
-	allRepos, err := GetRepoTree(true)
+	allAGIs, err := GetAGITree(true)
 	if err != nil {
 		log.Println(err)
 		return
@@ -327,8 +328,8 @@ func GenerateMd()  {
 	t := template.Must(template.ParseFiles(README_TEMPLATES_PATH))
 	f, _ := os.Create(README_OUTEPUT_PATH)
 	data := &data{
-		Catagorys: repos,
-		GoRepos: allRepos,
+		Catagorys: agis,
+		GoRepos: allAGIs,
 	}
 	t.Execute(f, data)
 }

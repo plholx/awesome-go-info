@@ -4,8 +4,8 @@ import (
 	"time"
 )
 
-//GoRepo github项目仓库信息结构体
-type GoRepo struct {
+//awesome_go_info表对应结构体
+type AGI struct {
 	Id int64 `json:"id,omitempty"`
 	ParentId int64 `json:"parent_id,omitempty"`
 	RepoName string `json:"repo_name,omitempty"`

@@ -13,7 +13,6 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
     - [Data Structures](#data-structures)
     - [Database](#database)
     - [Database Drivers](#database-drivers)
-        - [Relational Databases](#relational-databases)
     - [Date and Time](#date-and-time)
     - [Distributed Systems](#distributed-systems)
     - [Email](#email)
@@ -100,20 +99,20 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 
 | Go_repository    | Stars      | Watchers   | Created_at | Latest_commit | Description |
 | :--------- | ---------:| ---------:|:---------:|:---------:| ---------:|
-| [EasyMIDI](https://github.com/algoGuy/EasyMIDI) | 17 | 3 | 2018-02-20 | 11 months ago | EasyMidi is a simple and reliable library for working with standard midi file (SMF) |
-| [flac](https://github.com/eaburns/flac) | 81 | 5 | 2013-08-21 | 1 year ago | A Free Lossless Audio Codec decoder in Go |
+| [EasyMIDI](https://github.com/algoGuy/EasyMIDI) | 17 | 3 | 2018-02-20 | 11 months ago | EasyMidi is a simple and reliable library for working with standard midi file (SMF). |
+| [flac](https://github.com/eaburns/flac) | 81 | 5 | 2013-08-21 | 1 year ago | No-frills native Go FLAC decoder that decodes FLAC files into byte slices. |
 | [flac](https://github.com/mewkiz/flac) | 92 | 6 | 2012-11-02 | 1 week ago | Native Go FLAC encoder/decoder with support for FLAC streams. |
 | [gaad](https://github.com/Comcast/gaad) | 50 | 10 | 2016-07-11 | 1 year ago | Native Go AAC bitstream parser. |
 | [go-sox](https://github.com/krig/go-sox) | 87 | 8 | 2013-10-08 | 8 months ago | libsox bindings for go. |
-| [go_mediainfo](https://github.com/zhulik/go_mediainfo) | 21 | 1 | 2015-12-14 | 3 years ago | libmediainfo bindings for go. |
+| [go_mediainfo](https://github.com/zhulik/go_mediainfo) | 22 | 1 | 2015-12-14 | 3 years ago | libmediainfo bindings for go. |
 | [gosamplerate](https://github.com/dh1tw/gosamplerate) | 8 | 1 | 2016-11-21 | 9 months ago | libsamplerate bindings for go. |
 | [id3v2](https://github.com/bogem/id3v2) | 90 | 5 | 2016-05-16 | 3 weeks ago | Fast and stable ID3 parsing and writing library for Go. |
 | [malgo](https://github.com/gen2brain/malgo) | 55 | 4 | 2017-11-10 | 4 weeks ago | Mini audio library. |
-| [minimp3](https://github.com/tosone/minimp3) | 19 | 2 | 2018-01-26 | 11 hours ago | Lightweight MP3 decoder library. |
+| [minimp3](https://github.com/tosone/minimp3) | 19 | 2 | 2018-01-26 | 1 day ago | Lightweight MP3 decoder library. |
 | [mix](https://github.com/go-mix/mix) | 90 | 3 | 2016-01-03 | 1 year ago | Sequence-based Go-native audio mixer for music apps. |
 | [mp3](https://github.com/tcolgate/mp3) | 85 | 1 | 2015-02-27 | 1 year ago | Native Go MP3 decoder. |
 | [music-theory](https://github.com/go-music-theory/music-theory) | 233 | 10 | 2016-03-17 | 8 months ago | Music theory models in Go. |
-| [portaudio](https://github.com/gordonklaus/portaudio) | 261 | 9 | 2015-09-16 | 6 months ago | Go bindings for the PortAudio audio I/O library. |
+| [portaudio](https://github.com/gordonklaus/portaudio) | 262 | 9 | 2015-09-16 | 6 months ago | Go bindings for the PortAudio audio I/O library. |
 | [portmidi](https://github.com/rakyll/portmidi) | 187 | 6 | 2013-11-10 | 1 year ago | Go bindings for PortMidi. |
 | [go-taglib](https://github.com/wtolson/go-taglib) | 64 | 6 | 2012-11-20 | 7 months ago | Go bindings for taglib. |
 | [vorbis](https://github.com/mccoyst/vorbis) | 21 | 3 | 2013-07-12 | 1 year ago | "Native" Go Vorbis decoder (uses CGO, but has no dependencies). |
@@ -125,11 +124,11 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 
 | Go_repository    | Stars      | Watchers   | Created_at | Latest_commit | Description |
 | :--------- | ---------:| ---------:|:---------:|:---------:| ---------:|
-| [authboss](https://github.com/volatiletech/authboss) | 1734 | 38 | 2015-01-03 | 3 weeks ago | Modular authentication system for the web. It tries to remove as much boilerplate and "hard things" as possible so that each time you start a new web project in Go, you can plug it in, configure, and start building your app without having to build an authentication system each time. |
+| [authboss](https://github.com/volatiletech/authboss) | 1737 | 38 | 2015-01-03 | 3 weeks ago | Modular authentication system for the web. It tries to remove as much boilerplate and "hard things" as possible so that each time you start a new web project in Go, you can plug it in, configure, and start building your app without having to build an authentication system each time. |
 | [branca](https://github.com/hako/branca) | 50 | 5 | 2018-01-09 | 6 months ago | Golang implementation of Branca Tokens. |
-| [casbin](https://github.com/casbin/casbin) | 3849 | 140 | 2017-04-08 | 2 weeks ago | Authorization library that supports access control models like ACL, RBAC, ABAC. |
+| [casbin](https://github.com/casbin/casbin) | 3854 | 140 | 2017-04-08 | 2 weeks ago | Authorization library that supports access control models like ACL, RBAC, ABAC. |
 | [cookiestxt](https://github.com/mengzhuo/cookiestxt) | 2 | 1 | 2017-10-09 | 1 year ago | provides parser of cookies.txt file format. |
-| [go-jose](https://github.com/square/go-jose) | 1014 | 61 | 2014-11-15 | 3 days ago | Fairly complete implementation of the JOSE working group's JSON Web Token, JSON Web Signatures, and JSON Web Encryption specs. |
+| [go-jose](https://github.com/square/go-jose) | 1015 | 61 | 2014-11-15 | 4 days ago | Fairly complete implementation of the JOSE working group's JSON Web Token, JSON Web Signatures, and JSON Web Encryption specs. |
 | [go-oauth2-server](https://github.com/RichardKnop/go-oauth2-server) | 1115 | 71 | 2015-11-01 | 1 week ago | Standalone, specification-compliant,  OAuth2 server written in Golang. |
 | [gologin](https://github.com/dghubble/gologin) | 960 | 27 | 2015-06-23 | 2 weeks ago | chainable handlers for login with OAuth1 and OAuth2 authentication providers. |
 | [gorbac](https://github.com/mikespook/gorbac) | 828 | 55 | 2013-12-26 | 1 month ago | provides a lightweight role-based access control (RBAC) implementation in Golang. |
@@ -138,12 +137,12 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 | [jwt](https://github.com/robbert229/jwt) | 60 | 6 | 2016-06-06 | 3 months ago | Clean and easy to use implementation of JSON Web Tokens (JWT). |
 | [jwt](https://github.com/pascaldekloe/jwt) | 38 | 2 | 2018-03-21 | 1 month ago | Lightweight JSON Web Token (JWT) library. |
 | [jwt-auth](https://github.com/adam-hanna/jwt-auth) | 144 | 9 | 2016-07-06 | 1 month ago | JWT middleware for Golang http servers with many configuration options. |
-| [jwt-go](https://github.com/dgrijalva/jwt-go) | 5011 | 130 | 2012-04-18 | 1 week ago | Golang implementation of JSON Web Tokens (JWT). |
-| [loginsrv](https://github.com/tarent/loginsrv) | 734 | 45 | 2016-11-11 | 4 hours ago | JWT login microservice with plugable backends such as OAuth2 (Github), htpasswd, osiam. |
-| [oauth2](https://github.com/golang/oauth2) | 2108 | 92 | 2014-04-14 | 3 days ago | Successor of goauth2. Generic OAuth 2.0 package that comes with JWT, Google APIs, Compute Engine and App Engine support. |
+| [jwt-go](https://github.com/dgrijalva/jwt-go) | 5014 | 130 | 2012-04-18 | 1 week ago | Golang implementation of JSON Web Tokens (JWT). |
+| [loginsrv](https://github.com/tarent/loginsrv) | 734 | 45 | 2016-11-11 | 1 day ago | JWT login microservice with plugable backends such as OAuth2 (Github), htpasswd, osiam. |
+| [oauth2](https://github.com/golang/oauth2) | 2109 | 92 | 2014-04-14 | 4 days ago | Successor of goauth2. Generic OAuth 2.0 package that comes with JWT, Google APIs, Compute Engine and App Engine support. |
 | [osin](https://github.com/openshift/osin) | 1507 | 69 | 2013-09-11 | 4 months ago | Golang OAuth2 server library. |
 | [paseto](https://github.com/o1egl/paseto) | 194 | 9 | 2018-01-23 | 3 months ago | Golang implementation of Platform-Agnostic Security Tokens (PASETO). |
-| [permissions2](https://github.com/xyproto/permissions2) | 297 | 12 | 2014-11-19 | 1 week ago | Library for keeping track of users, login states and permissions. Uses secure cookies and bcrypt. |
+| [permissions2](https://github.com/xyproto/permissions2) | 298 | 12 | 2014-11-19 | 1 week ago | Library for keeping track of users, login states and permissions. Uses secure cookies and bcrypt. |
 | [rbac](https://github.com/zpatrick/rbac) | 20 | 3 | 2018-08-02 | 6 months ago | Minimalistic RBAC package for Go applications. |
 | [securecookie](https://github.com/chmike/securecookie) | 26 | 4 | 2017-09-03 | 6 months ago | Efficient secure cookie encoding/decoding. |
 | [session](https://github.com/icza/session) | 82 | 6 | 2016-02-08 | 5 months ago | Go session management for web servers (including support for Google App Engine - GAE). |
@@ -161,14 +160,14 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 | [go-sarah](https://github.com/oklahomer/go-sarah) | 111 | 3 | 2016-11-06 | 7 months ago | Framework to build bot for desired chat services including LINE, Slack, Gitter and more. |
 | [go-tgbot](https://github.com/olebedev/go-tgbot) | 80 | 7 | 2016-12-11 | 8 months ago | Pure Golang Telegram Bot API wrapper, generated from swagger file, session-based router and middleware. |
 | [golang-crypto-trading-bot](https://github.com/saniales/golang-crypto-trading-bot) | 147 | 19 | 2017-05-15 | 2 weeks ago | A golang implementation of a console-based trading bot for cryptocurrency exchanges. |
-| [govkbot](https://github.com/nikepan/govkbot) | 19 | 2 | 2016-07-12 | 20 hours ago | Simple Go [VK](https://vk.com) bot library. |
+| [govkbot](https://github.com/nikepan/govkbot) | 19 | 2 | 2016-07-12 | 2 hours ago | Simple Go [VK](https://vk.com) bot library. |
 | [hanu](https://github.com/sbstjn/hanu) | 90 | 6 | 2016-09-16 | 5 months ago | Framework for writing Slack bots. |
 | [margelet](https://github.com/zhulik/margelet) | 51 | 5 | 2015-11-21 | 2 years ago | Framework for building Telegram bots. |
 | [micha](https://github.com/onrik/micha) | 9 | 3 | 2016-04-14 | 1 year ago | Go Library for Telegram bot api. |
 | [slacker](https://github.com/shomali11/slacker) | 256 | 13 | 2017-05-20 | 1 week ago | Easy to use framework to create Slack bots. |
-| [tbot](https://github.com/yanzay/tbot) | 185 | 8 | 2015-09-12 | 2 months ago | Telegram bot server with API similar to net/http. |
-| [telebot](https://github.com/tucnak/telebot) | 824 | 34 | 2015-06-26 | 3 days ago | Telegram bot framework written in Go. |
-| [telegram-bot-api](https://github.com/go-telegram-bot-api/telegram-bot-api) | 1386 | 56 | 2015-06-25 | 22 hours ago | Simple and clean Telegram bot client. |
+| [tbot](https://github.com/yanzay/tbot) | 184 | 8 | 2015-09-12 | 2 months ago | Telegram bot server with API similar to net/http. |
+| [telebot](https://github.com/tucnak/telebot) | 825 | 34 | 2015-06-26 | 7 hours ago | Telegram bot framework written in Go. |
+| [telegram-bot-api](https://github.com/go-telegram-bot-api/telegram-bot-api) | 1385 | 56 | 2015-06-25 | 1 day ago | Simple and clean Telegram bot client. |
 | [tenyks](https://github.com/kyleterry/tenyks) | 166 | 14 | 2012-08-26 | 2 years ago | Service oriented IRC bot using Redis and JSON for messaging. |
 
 ## Command Line
@@ -179,38 +178,38 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 | :--------- | ---------:| ---------:|:---------:|:---------:| ---------:|
 | [argparse](https://github.com/akamensky/argparse) | 74 | 5 | 2017-11-24 | 1 month ago | Command line argument parser inspired by Python's argparse module. |
 | [argv](https://github.com/cosiner/argv) | 11 | 1 | 2017-01-22 | 1 month ago | Go library to split command line string as arguments array using the bash syntax. |
-| [cli](https://github.com/mkideal/cli) | 427 | 20 | 2016-02-27 | 2 days ago | Feature-rich and easy to use command-line package based on golang struct tags. |
-| [cli](https://github.com/teris-io/cli) | 43 | 1 | 2017-05-25 | 7 months ago | Simple and complete API for building command line interfaces in Go. |
+| [cli](https://github.com/mkideal/cli) | 426 | 20 | 2016-02-27 | 3 days ago | Feature-rich and easy to use command-line package based on golang struct tags. |
+| [cli](https://github.com/teris-io/cli) | 43 | 1 | 2017-05-25 | 8 months ago | Simple and complete API for building command line interfaces in Go. |
 | [gcli](https://github.com/tcnksm/gcli) | 856 | 25 | 2014-06-19 | 1 year ago | The easy way to start building Golang command line applications. |
-| [cobra](https://github.com/spf13/cobra) | 10749 | 255 | 2013-09-04 | 1 week ago | Commander for modern Go CLI interactions. |
-| [commandeer](https://github.com/jaffee/commandeer) | 70 | 4 | 2017-10-12 | 22 hours ago | Dev-friendly CLI apps: sets up flags, defaults, and usage based on struct fields and tags. |
-| [complete](https://github.com/posener/complete) | 540 | 12 | 2017-05-06 | 1 week ago | Write bash completions in Go + Go command bash completion. |
-| [docopt.go](https://github.com/docopt/docopt.go) | 1035 | 36 | 2013-08-26 | 5 months ago | Command-line arguments parser that will make you smile. |
+| [cobra](https://github.com/spf13/cobra) | 10761 | 255 | 2013-09-04 | 1 week ago | Commander for modern Go CLI interactions. |
+| [commandeer](https://github.com/jaffee/commandeer) | 70 | 4 | 2017-10-12 | 1 day ago | Dev-friendly CLI apps: sets up flags, defaults, and usage based on struct fields and tags. |
+| [complete](https://github.com/posener/complete) | 541 | 12 | 2017-05-06 | 1 week ago | Write bash completions in Go + Go command bash completion. |
+| [docopt.go](https://github.com/docopt/docopt.go) | 1036 | 36 | 2013-08-26 | 5 months ago | Command-line arguments parser that will make you smile. |
 | [env](https://github.com/codingconcepts/env) | 37 | 1 | 2017-06-15 | 4 months ago | Tag-based environment configuration for structs. |
 | [flag](https://github.com/cosiner/flag) | 90 | 5 | 2016-10-06 | 1 week ago | Simple but powerful command line option parsing library for Go supporting subcommand. |
 | [flaggy](https://github.com/integrii/flaggy) | 410 | 11 | 2018-03-05 | 1 week ago | A robust and idiomatic flags package with excellent subcommand support. |
 | [flagvar](https://github.com/sgreben/flagvar) | 26 | 1 | 2018-05-19 | 4 months ago | A collection of flag argument types for Go's standard `flag` package. |
 | [go-arg](https://github.com/alexflint/go-arg) | 571 | 15 | 2015-11-01 | 2 months ago | Struct-based argument parsing in Go. |
-| [go-commander](https://github.com/yitsushi/go-commander) | 8 | 1 | 2016-10-10 | 4 days ago | Go library to simplify CLI workflow. |
-| [go-flags](https://github.com/jessevdk/go-flags) | 1290 | 28 | 2012-08-31 | 5 days ago | go command line option parser. |
-| [go-getoptions](https://github.com/DavidGamba/go-getoptions) | 5 | 1 | 2015-12-18 | 1 week ago | Go option parser inspired on the flexibility of Perl’s GetOpt::Long. |
+| [go-commander](https://github.com/yitsushi/go-commander) | 8 | 1 | 2016-10-10 | 5 days ago | Go library to simplify CLI workflow. |
+| [go-flags](https://github.com/jessevdk/go-flags) | 1290 | 28 | 2012-08-31 | 6 days ago | go command line option parser. |
+| [go-getoptions](https://github.com/DavidGamba/go-getoptions) | 5 | 1 | 2015-12-18 | 15 hours ago | Go option parser inspired on the flexibility of Perl’s GetOpt::Long. |
 | [gocmd](https://github.com/devfacet/gocmd) | 28 | 3 | 2018-01-08 | 5 months ago | Go library for building command line applications. |
-| [hiboot](https://github.com/hidevopsio/hiboot) | 59 | 6 | 2018-03-16 | 4 days ago | cli application framework with auto configuration and dependency injection. |
-| [kingpin](https://github.com/alecthomas/kingpin) | 2296 | 54 | 2014-05-15 | 1 month ago | Command line and flag parser supporting sub commands. |
-| [liner](https://github.com/peterh/liner) | 520 | 22 | 2012-08-16 | 2 weeks ago | Go readline-like library for command-line interfaces. |
+| [hiboot](https://github.com/hidevopsio/hiboot) | 59 | 6 | 2018-03-16 | 5 days ago | cli application framework with auto configuration and dependency injection. |
+| [kingpin](https://github.com/alecthomas/kingpin) | 2297 | 54 | 2014-05-15 | 1 month ago | Command line and flag parser supporting sub commands. |
+| [liner](https://github.com/peterh/liner) | 521 | 22 | 2012-08-16 | 2 weeks ago | Go readline-like library for command-line interfaces. |
 | [cli](https://github.com/mitchellh/cli) | 925 | 25 | 2013-11-03 | 3 months ago | Go library for implementing command-line interfaces. |
-| [mow.cli](https://github.com/jawher/mow.cli) | 590 | 19 | 2014-12-19 | 4 days ago | Go library for building CLI applications with sophisticated flag and argument parsing and validation. |
-| [pflag](https://github.com/spf13/pflag) | 623 | 24 | 2013-08-30 | 2 weeks ago | Drop-in replacement for Go's flag package, implementing POSIX/GNU-style --flags. |
-| [readline](https://github.com/chzyer/readline) | 1305 | 39 | 2015-09-20 | 3 weeks ago | Pure golang implementation that provides most features in GNU-Readline under MIT license. |
+| [mow.cli](https://github.com/jawher/mow.cli) | 590 | 19 | 2014-12-19 | 5 days ago | Go library for building CLI applications with sophisticated flag and argument parsing and validation. |
+| [pflag](https://github.com/spf13/pflag) | 624 | 24 | 2013-08-30 | 2 weeks ago | Drop-in replacement for Go's flag package, implementing POSIX/GNU-style --flags. |
+| [readline](https://github.com/chzyer/readline) | 1306 | 39 | 2015-09-20 | 3 weeks ago | Pure golang implementation that provides most features in GNU-Readline under MIT license. |
 | [sand](https://github.com/Zaba505/sand) | 2 | 1 | 2018-11-19 | 3 months ago | Simple API for creating interpreters and so much more. |
-| [sflags](https://github.com/octago/sflags) | 71 | 5 | 2016-12-04 | 3 weeks ago | Struct based flags generator for flag, urfave/cli, pflag, cobra, kingpin and other libraries. |
-| [strumt](https://github.com/antham/strumt) | 22 | 0 | 2017-06-20 | 6 hours ago | Library to create prompt chain. |
+| [sflags](https://github.com/octago/sflags) | 71 | 5 | 2016-12-04 | 4 weeks ago | Struct based flags generator for flag, urfave/cli, pflag, cobra, kingpin and other libraries. |
+| [strumt](https://github.com/antham/strumt) | 22 | 0 | 2017-06-20 | 1 day ago | Library to create prompt chain. |
 | [clif](https://github.com/ukautz/clif) | 95 | 2 | 2015-05-31 | 1 week ago | Small command line interface framework. |
-| [cli](https://github.com/urfave/cli) | 10068 | 271 | 2013-07-14 | 3 weeks ago | Simple, fast, and fun package for building command line apps in Go (formerly codegangsta/cli). |
+| [cli](https://github.com/urfave/cli) | 10074 | 271 | 2013-07-14 | 3 weeks ago | Simple, fast, and fun package for building command line apps in Go (formerly codegangsta/cli). |
 | [wlog](https://github.com/dixonwille/wlog) | 29 | 1 | 2016-04-14 | 1 year ago | Simple logging interface that supports cross-platform color and concurrency. |
 | [wmenu](https://github.com/dixonwille/wmenu) | 67 | 2 | 2016-04-20 | 1 week ago | Easy to use menu structure for cli applications that prompts users to make choices. |
 | [asciigraph](https://github.com/guptarohit/asciigraph) | 1019 | 23 | 2018-06-17 | 1 month ago | Go package to make lightweight ASCII line graph ╭┈╯ in command line apps with no other dependencies. |
-| [aurora](https://github.com/logrusorgru/aurora) | 426 | 5 | 2016-11-07 | 5 months ago | ANSI terminal colors that supports fmt.Printf/Sprintf. |
+| [aurora](https://github.com/logrusorgru/aurora) | 428 | 5 | 2016-11-07 | 5 months ago | ANSI terminal colors that supports fmt.Printf/Sprintf. |
 | [cfmt](https://github.com/mingrammer/cfmt) | 53 | 3 | 2018-03-16 | 2 months ago | Contextual fmt inspired by bootstrap color classes. |
 | [chalk](https://github.com/ttacon/chalk) | 286 | 11 | 2014-07-19 | 2 years ago | Intuitive package for prettifying terminal/console output. |
 | [color](https://github.com/fatih/color) | 2863 | 56 | 2014-02-17 | 4 months ago | Versatile package for colored terminal output. |
@@ -219,19 +218,19 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 | [go-ataman](https://github.com/workanator/go-ataman) | 8 | 2 | 2017-05-18 | 1 year ago | Go library for rendering ANSI colored text templates in terminals. |
 | [go-colorable](https://github.com/mattn/go-colorable) | 334 | 16 | 2014-07-30 | 1 week ago | Colorable writer for windows. |
 | [go-colortext](https://github.com/daviddengcn/go-colortext) | 188 | 9 | 2013-01-23 | 10 months ago | Go library for color output in terminals. |
-| [go-isatty](https://github.com/mattn/go-isatty) | 298 | 7 | 2014-04-01 | 4 days ago | isatty for golang. |
-| [go-prompt](https://github.com/c-bata/go-prompt) | 2078 | 35 | 2017-08-15 | 1 week ago | Library for building a powerful interactive prompt, inspired by [python-prompt-toolkit](https://github.com/jonathanslenders/python-prompt-toolkit). |
-| [gocui](https://github.com/jroimartin/gocui) | 3963 | 102 | 2014-01-04 | 1 week ago | Minimalist Go library aimed at creating Console User Interfaces. |
+| [go-isatty](https://github.com/mattn/go-isatty) | 298 | 7 | 2014-04-01 | 5 days ago | isatty for golang. |
+| [go-prompt](https://github.com/c-bata/go-prompt) | 2081 | 35 | 2017-08-15 | 1 week ago | Library for building a powerful interactive prompt, inspired by [python-prompt-toolkit](https://github.com/jonathanslenders/python-prompt-toolkit). |
+| [gocui](https://github.com/jroimartin/gocui) | 3966 | 102 | 2014-01-04 | 1 week ago | Minimalist Go library aimed at creating Console User Interfaces. |
 | [gommon](https://github.com/labstack/gommon) | 269 | 19 | 2015-03-13 | 1 month ago | Style terminal text. |
 | [color](https://github.com/gookit/color) | 114 | 3 | 2018-07-01 | 1 week ago | Terminal color rendering tool library, support 16 colors, 256 colors, RGB color rendering output, compatible with Windows. |
-| [mpb](https://github.com/vbauerster/mpb) | 419 | 8 | 2016-12-14 | 4 days ago | Multi progress bar for terminal applications. |
+| [mpb](https://github.com/vbauerster/mpb) | 419 | 8 | 2016-12-14 | 5 days ago | Multi progress bar for terminal applications. |
 | [progressbar](https://github.com/schollz/progressbar) | 493 | 13 | 2017-10-27 | 1 month ago | Basic thread-safe progress bar that works in every OS. |
 | [simpletable](https://github.com/alexeyco/simpletable) | 121 | 2 | 2017-03-29 | 1 week ago | Simple tables in terminal with Go. |
 | [tabular](https://github.com/InVisionApp/tabular) | 23 | 3 | 2018-04-24 | 9 months ago | Print ASCII tables from command line utilities without the need to pass large sets of data to the API. |
-| [termbox-go](https://github.com/nsf/termbox-go) | 3286 | 103 | 2012-01-13 | 2 weeks ago | Termbox is a library for creating cross-platform text-based interfaces. |
-| [termdash](https://github.com/mum4k/termdash) | 78 | 6 | 2018-03-24 | 2 days ago | Go terminal dashboard based on **termbox-go** and inspired by [termui](https://github.com/gizak/termui). |
+| [termbox-go](https://github.com/nsf/termbox-go) | 3289 | 103 | 2012-01-13 | 2 weeks ago | Termbox is a library for creating cross-platform text-based interfaces. |
+| [termdash](https://github.com/mum4k/termdash) | 81 | 6 | 2018-03-24 | 4 hours ago | Go terminal dashboard based on **termbox-go** and inspired by [termui](https://github.com/gizak/termui). |
 | [termtables](https://github.com/apcera/termtables) | 203 | 68 | 2012-12-06 | 1 year ago | Go port of the Ruby library [terminal-tables](https://github.com/tj/terminal-table) for simple ASCII table generation as well as providing markdown and HTML output. |
-| [termui](https://github.com/gizak/termui) | 8353 | 275 | 2015-02-03 | 17 hours ago | Go terminal dashboard based on **termbox-go** and inspired by [blessed-contrib](https://github.com/yaronn/blessed-contrib). |
+| [termui](https://github.com/gizak/termui) | 8358 | 275 | 2015-02-03 | 1 day ago | Go terminal dashboard based on **termbox-go** and inspired by [blessed-contrib](https://github.com/yaronn/blessed-contrib). |
 | [uilive](https://github.com/gosuri/uilive) | 723 | 11 | 2015-11-16 | 2 months ago | Library for updating terminal output in realtime. |
 | [uiprogress](https://github.com/gosuri/uiprogress) | 1228 | 27 | 2015-11-17 | 4 months ago | Flexible library to render progress bars in terminal applications. |
 | [uitable](https://github.com/gosuri/uitable) | 464 | 15 | 2015-11-14 | 1 year ago | Library to improve readability in terminal apps using tabular data. |
@@ -242,19 +241,19 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 
 | Go_repository    | Stars      | Watchers   | Created_at | Latest_commit | Description |
 | :--------- | ---------:| ---------:|:---------:|:---------:| ---------:|
-| [config](https://github.com/olebedev/config) | 191 | 8 | 2014-04-21 | 5 months ago | JSON or YAML configuration wrapper with environment variables and flags parsing. |
+| [config](https://github.com/olebedev/config) | 190 | 8 | 2014-04-21 | 5 months ago | JSON or YAML configuration wrapper with environment variables and flags parsing. |
 | [configure](https://github.com/paked/configure) | 43 | 3 | 2015-06-14 | 1 week ago | Provides configuration through multiple sources, including JSON, flags and environment variables. |
-| [confita](https://github.com/heetch/confita) | 208 | 24 | 2017-12-21 | 2 weeks ago | Load configuration in cascade from multiple backends into a struct. |
+| [confita](https://github.com/heetch/confita) | 208 | 25 | 2017-12-21 | 2 weeks ago | Load configuration in cascade from multiple backends into a struct. |
 | [conflate](https://github.com/the4thamigo-uk/conflate) | 3 | 0 | 2018-02-02 | 3 weeks ago | Library/tool to merge multiple JSON/YAML/TOML files from arbitrary URLs, validation against a JSON schema, and application of default values defined in the schema. |
-| [env](https://github.com/caarlos0/env) | 697 | 16 | 2015-07-28 | 1 week ago | Parse environment variables to Go structs (with defaults). |
+| [env](https://github.com/caarlos0/env) | 698 | 16 | 2015-07-28 | 16 hours ago | Parse environment variables to Go structs (with defaults). |
 | [envcfg](https://github.com/tomazk/envcfg) | 89 | 1 | 2014-11-29 | 1 year ago | Un-marshaling environment variables to Go structs. |
 | [envconf](https://github.com/ian-kent/envconf) | 7 | 1 | 2014-10-26 | 4 years ago | Configuration from environment. |
 | [envconfig](https://github.com/vrischmann/envconfig) | 136 | 4 | 2015-04-22 | 2 months ago | Read your configuration from environment variables. |
-| [envh](https://github.com/antham/envh) | 91 | 3 | 2017-01-12 | 18 hours ago | Helpers to manage environment variables. |
+| [envh](https://github.com/antham/envh) | 91 | 3 | 2017-01-12 | 1 day ago | Helpers to manage environment variables. |
 | [gcfg](https://github.com/go-gcfg/gcfg) | 102 | 4 | 2015-08-17 | 9 months ago | read INI-style configuration files into Go structs; supports user-defined types and subsections. |
-| [go-up](https://github.com/ufoscout/go-up) | 19 | 1 | 2018-02-18 | 5 hours ago | A simple configuration library with recursive placeholders resolution and no magic. |
+| [go-up](https://github.com/ufoscout/go-up) | 19 | 1 | 2018-02-18 | 1 day ago | A simple configuration library with recursive placeholders resolution and no magic. |
 | [goconfig](https://github.com/crgimenes/goconfig) | 91 | 11 | 2016-12-18 | 3 weeks ago | Parses a struct as input and populates the fields of this struct with parameters from command line, environment variables and configuration file. |
-| [godotenv](https://github.com/joho/godotenv) | 1742 | 29 | 2013-07-30 | 4 days ago | Go port of Ruby's dotenv library (Loads environment variables from `.env`). |
+| [godotenv](https://github.com/joho/godotenv) | 1745 | 29 | 2013-07-30 | 5 days ago | Go port of Ruby's dotenv library (Loads environment variables from `.env`). |
 | [gofigure](https://github.com/ian-kent/gofigure) | 56 | 6 | 2014-11-25 | 1 year ago | Go application configuration made easy. |
 | [gone](https://github.com/One-com/gone) | 24 | 7 | 2016-09-05 | 3 weeks ago | Modular JSON configuration. Keep you config structs along with the code they configure and delegate parsing to submodules without sacrificing full config serialization. |
 | [config](https://github.com/gookit/config) | 42 | 3 | 2018-07-07 | 1 month ago | application config manage(load,get,set). support JSON, YAML, TOML, INI, HCL. multi file load, data override merge. |
@@ -262,12 +261,12 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 | [ingo](https://github.com/schachmat/ingo) | 22 | 1 | 2016-02-08 | 1 year ago | Flags persisted in an ini-like config file. |
 | [ini](https://github.com/go-ini/ini) | 1325 | 62 | 2014-12-18 | 1 week ago | Go package to read and write INI files. |
 | [config](https://github.com/joshbetz/config) | 193 | 3 | 2017-04-03 | 1 year ago | Small configuration library for Go that parses environment variables, JSON files, and reloads automatically on SIGHUP. |
-| [envconfig](https://github.com/kelseyhightower/envconfig) | 2121 | 37 | 2013-11-07 | 1 week ago | Go library for managing configuration data from environment variables. |
+| [envconfig](https://github.com/kelseyhightower/envconfig) | 2121 | 37 | 2013-11-07 | 2 weeks ago | Go library for managing configuration data from environment variables. |
 | [mini](https://github.com/sasbury/mini) | 19 | 2 | 2015-04-30 | 2 months ago | Golang package for parsing ini-style configuration files. |
 | [sprbox](https://github.com/oblq/sprbox) | 3 | 2 | 2018-07-17 | 4 months ago | Build-environment aware toolbox factory and agnostic config parser (YAML, TOML, JSON and Environment vars). |
 | [store](https://github.com/tucnak/store) | 239 | 5 | 2015-10-04 | 1 year ago | Lightweight configuration manager for Go. |
-| [viper](https://github.com/spf13/viper) | 7654 | 165 | 2014-04-02 | 1 day ago | Go configuration with fangs. |
-| [xdg](https://github.com/OpenPeeDeeP/xdg) | 18 | 3 | 2017-07-20 | 1 week ago | Cross platform package that follows the [XDG Standard](https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html). |
+| [viper](https://github.com/spf13/viper) | 7657 | 165 | 2014-04-02 | 1 day ago | Go configuration with fangs. |
+| [xdg](https://github.com/OpenPeeDeeP/xdg) | 19 | 3 | 2017-07-20 | 1 week ago | Cross platform package that follows the [XDG Standard](https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html). |
 
 ## Continuous Integration
         
@@ -275,10 +274,10 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 
 | Go_repository    | Stars      | Watchers   | Created_at | Latest_commit | Description |
 | :--------- | ---------:| ---------:|:---------:|:---------:| ---------:|
-| [drone](https://github.com/drone/drone) | 17336 | 584 | 2014-02-07 | 1 day ago | Drone is a Continuous Integration platform built on Docker, written in Go. |
-| [duci](https://github.com/duck8823/duci) | 30 | 3 | 2018-04-01 | 9 hours ago | A simple ci server no needs domain specific languages. |
+| [drone](https://github.com/drone/drone) | 17344 | 584 | 2014-02-07 | 1 day ago | Drone is a Continuous Integration platform built on Docker, written in Go. |
+| [duci](https://github.com/duck8823/duci) | 30 | 3 | 2018-04-01 | 3 hours ago | A simple ci server no needs domain specific languages. |
 | [gomason](https://github.com/nikogura/gomason) | 20 | 0 | 2017-11-18 | 3 weeks ago | Test, Build, Sign, and Publish your go binaries from a clean workspace. |
-| [goveralls](https://github.com/mattn/goveralls) | 540 | 16 | 2013-04-17 | 3 weeks ago | Go integration for Coveralls.io continuous code coverage tracking system. |
+| [goveralls](https://github.com/mattn/goveralls) | 540 | 16 | 2013-04-17 | 4 weeks ago | Go integration for Coveralls.io continuous code coverage tracking system. |
 | [overalls](https://github.com/go-playground/overalls) | 94 | 4 | 2015-07-30 | 6 months ago | Multi-Package go project coverprofile for tools like goveralls. |
 | [roveralls](https://github.com/lawrencewoodman/roveralls) | 11 | 1 | 2016-06-26 | 1 year ago | Recursive coverage testing tool. |
 
@@ -297,130 +296,74 @@ go相关的开源项目列表，项目分类及GitHub上的开源项目数据完
 
 | Go_repository    | Stars      | Watchers   | Created_at | Latest_commit | Description |
 | :--------- | ---------:| ---------:|:---------:|:---------:| ---------:|
-| [algorithms](https://github.com/shady831213/algorithms) | 154 | 6 | 2018-01-31 | 1 month ago | Algorithms and data structures.CLRS study. |
+| [algorithms](https://github.com/shady831213/algorithms) | 155 | 6 | 2018-01-31 | 1 month ago | Algorithms and data structures.CLRS study. |
 | [binpacker](https://github.com/zhuangsirui/binpacker) | 110 | 10 | 2016-02-02 | 8 months ago | Binary packer and unpacker helps user build custom binary stream. |
 | [bit](https://github.com/yourbasic/bit) | 29 | 3 | 2017-05-04 | 11 months ago | Golang set data structure with bonus bit-twiddling functions. |
-| [bitset](https://github.com/willf/bitset) | 437 | 27 | 2011-05-11 | 1 day ago | Go package implementing bitsets. |
+| [bitset](https://github.com/willf/bitset) | 439 | 27 | 2011-05-11 | 2 days ago | Go package implementing bitsets. |
 | [bloom](https://github.com/zentures/bloom) | 125 | 8 | 2013-09-03 | 10 months ago | Bloom filters implemented in Go. |
 | [bloom](https://github.com/yourbasic/bloom) | 13 | 1 | 2017-05-07 | 1 year ago | Golang Bloom filter implementation. |
 | [BoomFilters](https://github.com/tylertreat/BoomFilters) | 1080 | 36 | 2015-02-06 | 4 months ago | Probabilistic data structures for processing continuous, unbounded streams. |
 | [concurrent-writer](https://github.com/free/concurrent-writer) | 15 | 4 | 2017-09-18 | 1 year ago | Highly concurrent drop-in replacement for `bufio.Writer`. |
 | [conjungo](https://github.com/InVisionApp/conjungo) | 57 | 14 | 2016-12-30 | 2 weeks ago | A small, powerful and flexible merge library. |
 | [count-min-log](https://github.com/seiflotfy/count-min-log) | 40 | 4 | 2015-08-17 | 2 years ago | Go implementation Count-Min-Log sketch: Approximately counting with approximate counters (Like Count-Min sketch but using less memory). |
-| [cuckoofilter](https://github.com/seiflotfy/cuckoofilter) | 443 | 17 | 2015-06-29 | 1 week ago | Cuckoo filter: a good alternative to a counting bloom filter implemented in Go. |
+| [cuckoofilter](https://github.com/seiflotfy/cuckoofilter) | 443 | 17 | 2015-06-29 | 14 hours ago | Cuckoo filter: a good alternative to a counting bloom filter implemented in Go. |
 | [deque](https://github.com/edwingeng/deque) | 1 | 1 | 2019-02-01 | 2 weeks ago | A highly optimized double-ended queue. |
 | [deque](https://github.com/gammazero/deque) | 32 | 4 | 2018-04-24 | 1 month ago | Fast ring-buffer deque (double-ended queue). |
 | [encoding](https://github.com/zentures/encoding) | 92 | 7 | 2013-09-21 | 1 year ago | Integer Compression Libraries for Go. |
-| [go-adaptive-radix-tree](https://github.com/plar/go-adaptive-radix-tree) | 62 | 5 | 2016-04-01 | 2 months ago | Go implementation of Adaptive Radix Tree. |
-| [go-datastructures](https://github.com/Workiva/go-datastructures) | 4776 | 292 | 2014-10-29 | 3 months ago | Collection of useful, performant, and thread-safe data structures. |
+| [go-adaptive-radix-tree](https://github.com/plar/go-adaptive-radix-tree) | 63 | 5 | 2016-04-01 | 2 months ago | Go implementation of Adaptive Radix Tree. |
+| [go-datastructures](https://github.com/Workiva/go-datastructures) | 4778 | 292 | 2014-10-29 | 3 months ago | Collection of useful, performant, and thread-safe data structures. |
 | [go-ef](https://github.com/amallia/go-ef) | 8 | 1 | 2017-09-22 | 1 year ago | A Go implementation of the Elias-Fano encoding. |
 | [go-geoindex](https://github.com/hailocab/go-geoindex) | 297 | 67 | 2015-01-22 | 1 year ago | In-memory geo index. |
 | [go-mcache](https://github.com/OrlovEvgeny/go-mcache) | 23 | 2 | 2018-04-15 | 3 months ago | Fast in-memory key:value store/cache library. Pointer caches. |
 | [go-rquad](https://github.com/arl/go-rquad) | 94 | 3 | 2016-09-13 | 8 months ago | Region quadtrees with efficient point location and neighbour finding. |
 | [goconcurrentqueue](https://github.com/enriquebris/goconcurrentqueue) | 2 | 1 | 2019-01-11 | 1 month ago | Concurrent FIFO queue. |
-| [gods](https://github.com/emirpasic/gods) | 5342 | 254 | 2015-03-04 | 1 month ago | Go Data Structures. Containers, Sets, Lists, Stacks, Maps, BidiMaps, Trees, HashSet etc. |
+| [gods](https://github.com/emirpasic/gods) | 5346 | 254 | 2015-03-04 | 12 hours ago | Go Data Structures. Containers, Sets, Lists, Stacks, Maps, BidiMaps, Trees, HashSet etc. |
 | [golang-set](https://github.com/deckarep/golang-set) | 975 | 27 | 2013-07-04 | 5 months ago | Thread-Safe and Non-Thread-Safe high-performance sets for Go. |
 | [goset](https://github.com/zoumo/goset) | 12 | 1 | 2017-08-25 | 1 year ago | A useful Set collection implementation for Go. |
 | [goskiplist](https://github.com/ryszard/goskiplist) | 178 | 12 | 2012-05-09 | 2 years ago | Skip list implementation in Go. |
-| [gota](https://github.com/go-gota/gota) | 734 | 57 | 2016-02-07 | 3 days ago | Implementation of dataframes, series, and data wrangling methods for Go. |
+| [gota](https://github.com/go-gota/gota) | 735 | 57 | 2016-02-07 | 4 days ago | Implementation of dataframes, series, and data wrangling methods for Go. |
 | [hide](https://github.com/emvi/hide) | 2 | 2 | 2019-01-16 | 1 week ago | ID type with marshalling to/from hash to prevent sending IDs to clients. |
 | [hilbert](https://github.com/google/hilbert) | 171 | 19 | 2015-08-06 | 3 months ago | Go package for mapping values to and from space-filling curves, such as Hilbert and Peano curves. |
 | [hyperloglog](https://github.com/axiomhq/hyperloglog) | 634 | 18 | 2017-06-18 | 2 months ago | HyperLogLog implementation with Sparse, LogLog-Beta bias correction and TailCut space reduction. |
 | [levenshtein](https://github.com/agext/levenshtein) | 25 | 1 | 2016-04-08 | 1 week ago | Levenshtein distance and similarity metrics with customizable edit costs and Winkler-like bonus for common prefix. |
-| [levenshtein](https://github.com/agnivade/levenshtein) | 42 | 3 | 2014-07-30 | 2 days ago | Implementation to calculate levenshtein distance in Go. |
+| [levenshtein](https://github.com/agnivade/levenshtein) | 42 | 3 | 2014-07-30 | 3 days ago | Implementation to calculate levenshtein distance in Go. |
 | [mafsa](https://github.com/smartystreets/mafsa) | 272 | 18 | 2014-11-08 | 2 years ago | MA-FSA implementation with Minimal Perfect Hashing. |
 | [merkletree](https://github.com/cbergoon/merkletree) | 119 | 4 | 2017-04-12 | 2 months ago | Implementation of a merkle tree providing an efficient and secure verification of the contents of data structures. |
 | [mspm](https://github.com/BlackRabbitt/mspm) | 4 | 3 | 2018-05-18 | 9 months ago | Multi-String Pattern Matching Algorithm for information retrieval. |
 | [null](https://github.com/emvi/null) | 2 | 2 | 2018-07-05 | 1 week ago | Nullable Go types that can be marshalled/unmarshalled to/from JSON. |
 | [pipeline](https://github.com/hyfather/pipeline) | 9 | 1 | 2018-04-25 | 6 months ago | An implementation of pipelines with fan-in and fan-out. |
 | [ring](https://github.com/TheTannerRyan/ring) | 83 | 1 | 2019-01-27 | 1 week ago | Go implementation of a high performance, thread safe bloom filter. |
-| [roaring](https://github.com/RoaringBitmap/roaring) | 564 | 34 | 2014-07-11 | 1 month ago | Go package implementing compressed bitsets. |
+| [roaring](https://github.com/RoaringBitmap/roaring) | 565 | 34 | 2014-07-11 | 1 month ago | Go package implementing compressed bitsets. |
 | [set](https://github.com/StudioSol/set) | 5 | 17 | 2018-07-21 | 4 months ago | Simple set data structure implementation in Go using LinkedHashMap. |
 | [skiplist](https://github.com/MauriceGit/skiplist) | 80 | 5 | 2018-06-24 | 2 months ago | Very fast Go Skiplist implementation. |
 | [skiplist](https://github.com/gansidui/skiplist) | 58 | 7 | 2014-11-19 | 4 years ago | Skiplist implementation in Go. |
 | [timedmap](https://github.com/zekroTJA/timedmap) | 0 | 1 | 2019-01-30 | 1 week ago | Map with expiring key-value pairs. |
-| [trie](https://github.com/derekparker/trie) | 358 | 20 | 2014-03-07 | 9 months ago | Trie implementation in Go. |
+| [trie](https://github.com/derekparker/trie) | 360 | 20 | 2014-03-07 | 9 months ago | Trie implementation in Go. |
 | [ttlcache](https://github.com/ReneKroon/ttlcache) | 78 | 7 | 2014-12-13 | 5 days ago | In-memory LRU string-interface{} map with expiration for golang. |
-| [bloom](https://github.com/willf/bloom) | 584 | 30 | 2011-05-21 | 1 day ago | Go package implementing Bloom filters. |
+| [bloom](https://github.com/willf/bloom) | 586 | 30 | 2011-05-21 | 2 days ago | Go package implementing Bloom filters. |
 
 ## Database
         
-*SQL query builder, libraries for building and using SQL.*
+*Databases implemented in Go.*
 
 | Go_repository    | Stars      | Watchers   | Created_at | Latest_commit | Description |
 | :--------- | ---------:| ---------:|:---------:|:---------:| ---------:|
-| [badger](https://github.com/dgraph-io/badger) | 5376 | 219 | 2017-01-26 | 7 hours ago | Fast key-value store in Go. |
-| [bigcache](https://github.com/allegro/bigcache) | 1878 | 64 | 2016-03-23 | 1 week ago | Efficient key/value cache for gigabytes of data. |
-| [bolt](https://github.com/boltdb/bolt) | 9487 | 337 | 2013-12-21 | 1 year ago | Low-level key/value database for Go. |
-| [buntdb](https://github.com/tidwall/buntdb) | 2262 | 93 | 2016-07-20 | 3 weeks ago | Fast, embeddable, in-memory key/value database for Go with custom indexing and spatial support. |
+| [badger](https://github.com/dgraph-io/badger) | 5378 | 219 | 2017-01-26 | 1 day ago | Fast key-value store in Go. |
+| [bigcache](https://github.com/allegro/bigcache) | 1879 | 64 | 2016-03-23 | 1 week ago | Efficient key/value cache for gigabytes of data. |
+| [bolt](https://github.com/boltdb/bolt) | 9491 | 338 | 2013-12-21 | 1 year ago | Low-level key/value database for Go. |
+| [buntdb](https://github.com/tidwall/buntdb) | 2262 | 93 | 2016-07-20 | 4 weeks ago | Fast, embeddable, in-memory key/value database for Go with custom indexing and spatial support. |
 | [cache2go](https://github.com/muesli/cache2go) | 812 | 57 | 2013-11-11 | 4 months ago | In-memory key:value cache which supports automatic invalidation based on timeouts. |
 | [clusteredBigCache](https://github.com/oaStuff/clusteredBigCache) | 25 | 5 | 2017-12-18 | 1 year ago | BigCache with clustering support and individual item expiration. |
-| [cockroach](https://github.com/cockroachdb/cockroach) | 15518 | 693 | 2014-02-06 | 9 hours ago | Scalable, Geo-Replicated, Transactional Datastore. |
+| [cockroach](https://github.com/cockroachdb/cockroach) | 15523 | 693 | 2014-02-06 | 7 hours ago | Scalable, Geo-Replicated, Transactional Datastore. |
 | [couchcache](https://github.com/codingsince1985/couchcache) | 39 | 3 | 2015-04-05 | 1 year ago | RESTful caching micro-service backed by Couchbase server. |
-| [CovenantSQL](https://github.com/CovenantSQL/CovenantSQL) | 493 | 45 | 2018-04-11 | 1 day ago | CovenantSQL is a SQL database on blockchain. |
-| [dgraph](https://github.com/dgraph-io/dgraph) | 8688 | 329 | 2015-08-25 | 11 hours ago | Scalable, Distributed, Low Latency, High Throughput Graph Database. |
-| [diskv](https://github.com/peterbourgon/diskv) | 695 | 29 | 2012-03-22 | 5 months ago | Home-grown disk-backed key-value store. |
+| [CovenantSQL](https://github.com/CovenantSQL/CovenantSQL) | 525 | 45 | 2018-04-11 | 2 days ago | CovenantSQL is a SQL database on blockchain. |
+| [dgraph](https://github.com/dgraph-io/dgraph) | 8702 | 329 | 2015-08-25 | 6 hours ago | Scalable, Distributed, Low Latency, High Throughput Graph Database. |
+| [diskv](https://github.com/peterbourgon/diskv) | 695 | 29 | 2012-03-22 | 6 months ago | Home-grown disk-backed key-value store. |
 | [eliasdb](https://github.com/krotik/eliasdb) | 503 | 23 | 2016-08-13 | 2 weeks ago | Dependency-free, transactional graph database with REST API, phrase search and SQL-like query language. |
-| [fastcache](https://github.com/VictoriaMetrics/fastcache) | 347 | 12 | 2018-11-23 | 5 days ago | fast thread-safe inmemory cache for big number of entries. Minimizes GC overhead. |
-| [gcache](https://github.com/bluele/gcache) | 664 | 29 | 2015-01-25 | 1 day ago | Cache library with support for expirable Cache, LFU, LRU and ARC. |
-| [go-cache](https://github.com/patrickmn/go-cache) | 2417 | 84 | 2012-01-02 | 3 days ago | In-memory key:value store/cache (similar to Memcached) library for Go, suitable for single-machine applications. |
-| [goleveldb](https://github.com/syndtr/goleveldb) | 2788 | 150 | 2013-01-23 | 3 days ago | Implementation of the [LevelDB](https://github.com/google/leveldb) key/value database in Go. |
-| [gorocksdb](https://github.com/kapitan-k/gorocksdb) | 6 | 1 | 2017-12-28 | 1 year ago | Gorocksdb is a wrapper for [RocksDB](https://rocksdb.org) written in Go. |
-| [groupcache](https://github.com/golang/groupcache) | 7094 | 443 | 2013-07-23 | 2 weeks ago | Groupcache is a caching and cache-filling library, intended as a replacement for memcached in many cases. |
-| [influxdb](https://github.com/influxdata/influxdb) | 15692 | 749 | 2013-09-26 | 1 hour ago | Scalable datastore for metrics, events, and real-time analytics. |
-| [ledisdb](https://github.com/siddontang/ledisdb) | 2886 | 184 | 2014-04-30 | 3 weeks ago | Ledisdb is a high performance NoSQL like Redis based on LevelDB. |
-| [levigo](https://github.com/jmhodges/levigo) | 345 | 24 | 2012-01-17 | 2 days ago | Levigo is a Go wrapper for LevelDB. |
-| [moss](https://github.com/couchbase/moss) | 682 | 79 | 2016-02-07 | 1 week ago | Moss is a simple LSM key-value storage engine written in 100% Go. |
-| [piladb](https://github.com/fern4lvarez/piladb) | 167 | 8 | 2015-09-09 | 10 months ago | Lightweight RESTful database engine based on stack data structures. |
-| [prometheus](https://github.com/prometheus/prometheus) | 22356 | 1004 | 2012-11-24 | 1 hour ago | Monitoring system and time series database. |
-| [pudge](https://github.com/recoilme/pudge) | 181 | 6 | 2018-11-20 | 3 days ago | Fast and simple  key/value store written using Go's standard library. |
-| [rqlite](https://github.com/rqlite/rqlite) | 4253 | 182 | 2014-08-23 | 3 days ago | The lightweight, distributed, relational database built on SQLite. |
-| [golang-scribble](https://github.com/nanobox-io/golang-scribble) | 32 | 3 | 2018-06-22 | 4 months ago | Tiny flat file JSON store. |
-| [slowpoke](https://github.com/recoilme/slowpoke) | 74 | 6 | 2018-02-19 | 2 months ago | Key-value store with persistence. |
-| [tempdb](https://github.com/rafaeljesus/tempdb) | 13 | 3 | 2017-03-18 | 1 year ago | Key-value store for temporary items. |
-| [tidb](https://github.com/pingcap/tidb) | 17534 | 1198 | 2015-09-06 | 2 hours ago | TiDB is a distributed SQL database. Inspired by the design of Google F1. |
-| [tiedot](https://github.com/HouzuoGuo/tiedot) | 2306 | 161 | 2013-05-26 | 1 month ago | Your NoSQL database powered by Golang. |
-| [vasto](https://github.com/chrislusf/vasto) | 120 | 16 | 2018-01-16 | 4 months ago | A distributed high-performance key-value store. On Disk. Eventual consistent. HA. Able to grow or shrink without service interruption. |
-| [darwin](https://github.com/GuiaBolso/darwin) | 77 | 2 | 2016-04-05 | 3 months ago | Database schema evolution library for Go. |
-| [go-fixtures](https://github.com/RichardKnop/go-fixtures) | 17 | 1 | 2015-12-24 | 4 months ago | Django style fixtures for Golang's excellent built-in database/sql library. |
-| [go-pg-migrations](https://github.com/robinjoseph08/go-pg-migrations) | 19 | 1 | 2018-08-11 | 2 months ago | A Go package to help write migrations with go-pg/pg. |
-| [goose](https://github.com/steinbacher/goose) | 103 | 4 | 2016-03-05 | 2 years ago | Database migration tool. You can manage your database's evolution by creating incremental SQL or Go scripts. |
-| [gormigrate](https://github.com/go-gormigrate/gormigrate) | 256 | 3 | 2016-08-31 | 3 weeks ago | Database schema migration helper for Gorm ORM. |
-| [migrate](https://github.com/golang-migrate/migrate) | 1691 | 37 | 2018-01-19 | 5 hours ago | Database migrations. CLI and Golang library. |
-| [pravasan](https://github.com/pravasan/pravasan) | 23 | 6 | 2015-01-04 | 2 months ago | Simple Migration tool - currently for MySQL but planning to soon support Postgres, SQLite, MongoDB, etc. |
-| [pop](https://github.com/gobuffalo/pop) | 585 | 24 | 2018-02-08 | 4 hours ago | Database migration, creation, ORM, etc... for MySQL, PostgreSQL, and SQLite. |
-| [sql-migrate](https://github.com/rubenv/sql-migrate) | 1243 | 29 | 2014-09-09 | 2 weeks ago | Database migration tool. Allows embedding migrations into the application using go-bindata. |
-| [chproxy](https://github.com/Vertamedia/chproxy) | 241 | 20 | 2017-09-18 | 3 weeks ago | HTTP proxy for ClickHouse database. |
-| [clickhouse-bulk](https://github.com/nikepan/clickhouse-bulk) | 97 | 6 | 2017-04-29 | 1 week ago | Collects small insterts and sends big requests to ClickHouse servers. |
-| [dbbench](https://github.com/sj14/dbbench) | 23 | 2 | 2018-11-24 | 4 weeks ago | Database benchmarking tool with support for several databases and scripts. |
-| [go-mysql](https://github.com/siddontang/go-mysql) | 1565 | 133 | 2014-02-21 | 2 days ago | Go toolset to handle MySQL protocol and replication. |
-| [go-mysql-elasticsearch](https://github.com/siddontang/go-mysql-elasticsearch) | 2032 | 150 | 2015-01-15 | 3 days ago | Sync your MySQL data into Elasticsearch automatically. |
-| [kingshard](https://github.com/flike/kingshard) | 4180 | 388 | 2015-07-04 | 1 week ago | kingshard is a high performance proxy for MySQL powered by Golang. |
-| [myreplication](https://github.com/2tvenom/myreplication) | 129 | 17 | 2015-02-05 | 4 months ago | MySql binary log replication listener. Supports statement and row based replication. |
-| [octillery](https://github.com/knocknote/octillery) | 42 | 14 | 2018-11-26 | 1 month ago | Go package for sharding databases ( Supports every ORM or raw SQL ). |
-| [orchestrator](https://github.com/github/orchestrator) | 2588 | 181 | 2016-11-30 | 8 hours ago | MySQL replication topology manager & visualizer. |
-| [pgweb](https://github.com/sosedoff/pgweb) | 5750 | 152 | 2014-10-09 | 4 days ago | Web-based PostgreSQL database browser. |
-| [prep](https://github.com/hexdigest/prep) | 22 | 2 | 2017-12-12 | 1 year ago | Use prepared SQL statements without changing your code. |
-| [prest](https://github.com/prest/prest) | 1963 | 82 | 2016-11-22 | 5 months ago | Serve a RESTful API from any PostgreSQL database. |
-| [rwdb](https://github.com/andizzle/rwdb) | 10 | 2 | 2017-10-04 | 1 year ago | rwdb provides read replica capability for multiple database servers setup. |
-| [vitess](https://github.com/vitessio/vitess) | 7601 | 464 | 2013-06-28 | 6 hours ago | vitess provides servers and tools which facilitate scaling of MySQL databases for large scale web services. |
-| [dotsql](https://github.com/gchaincl/dotsql) | 406 | 21 | 2014-11-20 | 4 months ago | Go library that helps you keep sql files in one place and use them with ease. |
-| [gendry](https://github.com/didi/gendry) | 572 | 46 | 2017-12-01 | 2 months ago | Non-invasive SQL builder and powerful data binder. |
-| [godbal](https://github.com/xujiajun/godbal) | 48 | 3 | 2018-02-28 | 1 month ago | Database Abstraction Layer (dbal) for go. Support SQL builder and get result easily. |
-| [goqu](https://github.com/doug-martin/goqu) | 491 | 25 | 2015-02-21 | 2 weeks ago | Idiomatic SQL builder and query library. |
-| [igor](https://github.com/galeone/igor) | 73 | 6 | 2016-03-10 | 8 months ago | Abstraction layer for PostgreSQL that supports advanced functionality and uses gorm-like syntax. |
-| [ormlite](https://github.com/pupizoid/ormlite) | 0 | 1 | 2018-06-28 | 2 weeks ago | Lightweight package containing some ORM-like features and helpers for sqlite databases. |
-| [ozzo-dbx](https://github.com/go-ozzo/ozzo-dbx) | 296 | 25 | 2015-12-11 | 6 months ago | Powerful data retrieval methods as well as DB-agnostic query building capabilities. |
-| [scaneo](https://github.com/variadico/scaneo) | 141 | 8 | 2015-04-30 | 11 months ago | Generate Go code to convert database rows into arbitrary structs. |
-| [sqrl](https://github.com/elgris/sqrl) | 140 | 5 | 2014-06-25 | 1 month ago | SQL query builder, fork of Squirrel with improved performance. |
-| [squirrel](https://github.com/Masterminds/squirrel) | 1931 | 32 | 2014-01-18 | 3 days ago | Go library that helps you build SQL queries. |
-| [xo](https://github.com/xo/xo) | 1944 | 70 | 2016-02-05 | 1 month ago | Generate idiomatic Go code for databases based on existing schema definitions or custom queries supporting PostgreSQL, MySQL, SQLite, Oracle, and Microsoft SQL Server. |
+| [fastcache](https://github.com/VictoriaMetrics/fastcache) | 348 | 12 | 2018-11-23 | 6 days ago | fast thread-safe inmemory cache for big number of entries. Minimizes GC overhead. |
+| [gcache](https://github.com/bluele/gcache) | 665 | 29 | 2015-01-25 | 2 days ago | Cache library with support for expirable Cache, LFU, LRU and ARC. |
 
 ## Database Drivers
-        
-*Libraries for connecting and operating databases.*
-
-### Relational Databases
         
 
 ## Date and Time
