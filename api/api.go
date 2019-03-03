@@ -175,8 +175,11 @@ func ParseReadmeFile(accessToken string, readmeFilePath string)  {
 					}
 					SaveAGI(tmpAGI)
 				} else {
-					UpdateAGIGithubInfo(tmpAGI, agi.Id)
+					tmpAGI.Id = agi.Id
+					UpdateAGIGithubInfo(tmpAGI)
 				}
+
+				SaveGRR(tmpAGI)
 				log.Print("请求完成。")
 			}
 		}

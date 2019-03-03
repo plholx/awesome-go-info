@@ -37,7 +37,7 @@ func UpdateAGIDescription(description string, id int64)  {
 	stmt.Exec(description, id)
 }
 //UpdateAGIGithubInfo 更新仓库github仓库相关信息
-func UpdateAGIGithubInfo(agi *AGI, id int64)  {
+func UpdateAGIGithubInfo(agi *AGI)  {
 	db := GetDB()
 	sqlStr := `update awesome_go_info set 
 				modify_time = CURRENT_TIMESTAMP,
@@ -63,7 +63,7 @@ func UpdateAGIGithubInfo(agi *AGI, id int64)  {
 	stmt.Exec(agi.RepoHtmlURL, agi.RepoDescription, agi.RepoPushedAt, agi.RepoHomepage, agi.RepoSize, 
 			agi.RepoForksCount, agi.RepoStargazersCount, agi.RepoSubscribersCount,
 			agi.RepoOpenIssuesCount, agi.RepoLicenseName, agi.RepoLicenseSpdxId,
-			agi.RepoLicenseURL, agi.Name, agi.Description, agi.Homepage, agi.ParentId, id)
+			agi.RepoLicenseURL, agi.Name, agi.Description, agi.Homepage, agi.ParentId, agi.Id)
 }
 //GetAGI 获取awesome_go_info表数据
 func GetAGI(name string, repo bool, category bool) (agi *AGI, err error) {
@@ -108,6 +108,21 @@ func SaveAGI(agi *AGI)  {
 	err := stmt.QueryRow(agi.ParentId, agi.RepoName, agi.RepoFullName, agi.RepoOwner, agi.RepoHtmlURL, agi.RepoDescription, agi.RepoCreatedAt, agi.RepoPushedAt, agi.RepoHomepage, agi.RepoSize, agi.RepoForksCount, agi.RepoStargazersCount, agi.RepoSubscribersCount, agi.RepoOpenIssuesCount, agi.RepoLicenseName, agi.RepoLicenseSpdxId, agi.RepoLicenseURL, agi.Repo, agi.Category, agi.Name, agi.Description, agi.Homepage, agi.CategoryHtmlId).Scan(&agi.Id)
 	if err != nil {
 		log.Println("插入仓库信息报错：", err)
+	}
+}
+//SaveGRR github_repo_record表插入数据
+func SaveGRR(agi *AGI)  {
+	db := GetDB()
+	sqlStr := `insert into github_repo_record 
+				(id, agi_id, repo_name, repo_full_name, repo_owner, repo_html_url, repo_description, repo_created_at, repo_pushed_at, repo_homepage, repo_size, repo_forks_count, repo_stargazers_count, repo_subscribers_count, repo_open_issues_count, repo_license_name, repo_license_spdx_id, repo_license_url) 
+				values 
+				(DEFAULT, $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) 
+				RETURNING id`
+	stmt, _ := db.Prepare(sqlStr)
+	defer stmt.Close()
+	err := stmt.QueryRow(agi.Id, agi.RepoName, agi.RepoFullName, agi.RepoOwner, agi.RepoHtmlURL, agi.RepoDescription, agi.RepoCreatedAt, agi.RepoPushedAt, agi.RepoHomepage, agi.RepoSize, agi.RepoForksCount, agi.RepoStargazersCount, agi.RepoSubscribersCount, agi.RepoOpenIssuesCount, agi.RepoLicenseName, agi.RepoLicenseSpdxId, agi.RepoLicenseURL).Scan(&agi.Id)
+	if err != nil {
+		log.Println("插入仓库记录信息报错：", err)
 	}
 }
 //GetAGITree 获取awesome_go_info信息树
