@@ -9,6 +9,7 @@ import (
 	"math"
 	"net/http"
 	"os"
+	"os/exec"
 	"regexp"
 	"strings"
 	"text/template"
@@ -24,6 +25,14 @@ const (
 
 	README_TEMPLATES_PATH = "tmpl/tmpl.md"
 	README_OUTEPUT_PATH = "README.md"
+
+	git = `git`
+	add = `add`
+	spot = `.`
+	commit = `commit`
+	m = `-m`
+	msg = `测试git命令`
+	push = `push`
 )
 
 var (
@@ -306,6 +315,26 @@ func GitHubAPIReqControl(accessToken string) (ok bool, err error) {
 		}
 	}
 	return
+}
+//UpdateReadme 更新项目中的README.md文件
+func UpdateReadme() {
+	out, err := exec.Command(git, add, spot).Output()
+	if err != nil {
+		log.Println(err)
+	}
+	log.Println(string(out))
+
+	out, err = exec.Command(git, commit, m, msg).Output()
+	if err != nil {
+		log.Println(err)
+	}
+	log.Println(string(out))
+
+	out, err = exec.Command(git, push).Output()
+	if err != nil {
+		log.Println(err)
+	}
+	log.Println(string(out))
 }
 
 type data struct {

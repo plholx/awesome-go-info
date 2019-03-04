@@ -3,20 +3,8 @@ package main
 import (
 	"flag"
 	"log"
-	"os/exec"
 
-	//"awesome-go-data/api"
-)
-
-// memory usage optimizations
-const (
-	git = `git`
-	add = `add`
-	spot = `.`
-	commit = `commit`
-	m = `-m`
-	msg = `测试git命令`
-	push = `push`
+	"awesome-go-data/api"
 )
 
 var accessToken = flag.String("t", "", "GitHub API access_token, 必须输入")
@@ -32,21 +20,6 @@ func main() {
 	//api.ParseReadmeFile(*accessToken, readmeFilePath)
 
 	//api.GenerateMd()
-	out, err := exec.Command(git, add, spot).Output()
-	if err != nil {
-		log.Println(err)
-	}
-	log.Println(string(out))
-
-	out, err = exec.Command(git, commit, m, msg).Output()
-	if err != nil {
-		log.Println(err)
-	}
-	log.Println(string(out))
-
-	out, err = exec.Command(git, push).Output()
-	if err != nil {
-		log.Println(err)
-	}
-	log.Println(string(out))
+	
+	api.UpdateReadme()
 }
