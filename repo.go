@@ -24,11 +24,11 @@ func main() {
 	api.User = *user
 	api.Password = *password
 	//获取avelino/awesome-go项目中最新的README.md文件
-	//readmeFilePath := api.DownloadReadmeFile()
+	readmeFilePath := api.DownloadReadmeFile()
 	//解析awesome-go中的README.md文件,并存入数据库中
-	//api.ParseReadmeFile(*accessToken, readmeFilePath)
+	api.ParseReadmeFile(*accessToken, readmeFilePath)
 
-	api.GenerateMd()
+	//api.GenerateMd()
 	
 	//api.UpdateReadme()
 }
