@@ -19,10 +19,12 @@ const (
 )
 
 var db *sql.DB
+var User string
+var Password string
 
 func GetDB() (*sql.DB) {
 	if db == nil {
-		connStr := "user=postgres password=1234 dbname=agd sslmode=disable"
+		connStr := fmt.Sprintf("host=localhost user=%s password=%s dbname=agd sslmode=disable", User, Password)
 		db, _ = sql.Open("postgres", connStr)
 	}
 	return db
