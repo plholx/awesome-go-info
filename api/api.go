@@ -193,6 +193,7 @@ func ParseReadmeFile(accessToken string, readmeFilePath string)  {
 			}
 		}
 	}
+	log.Printf("解析%s文件完毕", readmeFilePath)
 }
 
 

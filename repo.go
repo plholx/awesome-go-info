@@ -4,6 +4,7 @@ import (
 	"awesome-go-data/api"
 	"flag"
 	"log"
+	"os"
 )
 
 var accessToken = flag.String("t", "", "GitHub API access_token, 必须输入")
@@ -11,6 +12,8 @@ var user = flag.String("u", "", "数据库用户名, 必须输入")
 var password = flag.String("p", "", "数据库密码, 必须输入")
 
 func main() {
+	configLog()
+
 	flag.Parse() // Scans the arg list and sets up flags
 	if *accessToken == "" {
 		log.Fatal("GitHub API access_token为空")
@@ -31,4 +34,12 @@ func main() {
 	//api.GenerateMd()
 	
 	//api.UpdateReadme()
+}
+
+func configLog()  {
+	logFile, err := os.OpenFile("log/agd.log", os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0666)
+	if err != nil {
+		log.Fatal(err)
+	}
+	log.SetOutput(logFile)
 }
