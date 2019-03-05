@@ -5,3 +5,15 @@
 }
 
 从GitHub获取hidevopsio/hiboot/tree/master/pkg/app/cli仓库信息失败
+
+#中途解析出错，索引越界
+2019/03/05 10:35:01 684  开始请求仓库信息 jolestar/go-commons-pool
+2019/03/05 10:35:01 请求完成。
+panic: runtime error: index out of range
+
+goroutine 1 [running]:
+awesome-go-data/api.ParseReadmeFile(0x7fff2dc30733, 0x28, 0xc0000162a0, 0x23)
+	/usr/local/gospace/src/awesome-go-data/api/api.go:161 +0xf39
+main.main()
+	/usr/local/gospace/src/awesome-go-data/repo.go:29 +0xda
+exit status 2

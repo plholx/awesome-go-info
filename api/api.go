@@ -156,7 +156,7 @@ func ParseReadmeFile(accessToken string, readmeFilePath string)  {
 				githubRepoLink = subMatchs[3]
 				repoDescription = subMatchs[4]
 			}
-			if githubRepoLink != "" {
+			if githubRepoLink != "" && reGitHubURL.MatchString(githubRepoLink) {
 				subMatchs := reGitHubURL.FindStringSubmatch(githubRepoLink)
 				repoOwner, repoName := subMatchs[1], subMatchs[2]
 				name = repoOwner + "/" + repoName
