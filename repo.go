@@ -5,6 +5,7 @@ import (
 	"flag"
 	"log"
 	"os"
+	"time"
 )
 
 var accessToken = flag.String("t", "", "GitHub API access_token, 必须输入")
@@ -26,14 +27,32 @@ func main() {
 	}
 	api.User = *user
 	api.Password = *password
-	//获取avelino/awesome-go项目中最新的README.md文件
-	readmeFilePath := api.DownloadReadmeFile()
-	//解析awesome-go中的README.md文件,并存入数据库中
-	api.ParseReadmeFile(*accessToken, readmeFilePath)
 
-	//api.GenerateMd()
-	
-	//api.UpdateReadme()
+	execute()
+}
+
+func execute()  {
+	for {
+		log.Println("业务开始执行：", time.Now().Format("2006-01-02 15:04:05"))
+
+		//获取avelino/awesome-go项目中最新的README.md文件
+		readmeFilePath := api.DownloadReadmeFile()
+		//解析awesome-go中的README.md文件,并存入数据库中
+		api.ParseReadmeFile(*accessToken, readmeFilePath)
+		//生成README.md
+		api.GenerateMd()
+		//api.UpdateReadme()
+
+		log.Println("业务执行结束：", time.Now().Format("2006-01-02 15:04:05"))
+		log.Println("等待下次执行......")
+
+		curTime := time.Now()
+		nextTime := curTime.Add(time.Hour * 24)
+		nextTime = time.Date(nextTime.Year(), nextTime.Month(), nextTime.Day(), 0, 0, 0, 0, nextTime.Location())
+		//nextTime := curTime.Add(time.Second * 5)
+		timer := time.NewTimer(nextTime.Sub(curTime))
+		curTime = <- timer.C
+	}
 }
 
 func configLog()  {
