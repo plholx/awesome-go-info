@@ -158,6 +158,11 @@ func ParseReadmeFile(accessToken string, readmeFilePath string)  {
 			}
 			if githubRepoLink != "" && reGitHubURL.MatchString(githubRepoLink) {
 				subMatchs := reGitHubURL.FindStringSubmatch(githubRepoLink)
+				extraStr := subMatchs[3]
+				if len(extraStr) > 0 && strings.HasPrefix(extraStr, "/") {//非仓库地址
+					continue
+				}
+
 				repoOwner, repoName := subMatchs[1], subMatchs[2]
 				name = repoOwner + "/" + repoName
 				ok, err := GitHubAPIReqControl(accessToken)
@@ -182,10 +187,6 @@ func ParseReadmeFile(accessToken string, readmeFilePath string)  {
 				}
 
 				agi, e := GetAGI(name, true, false)
-				if len(subMatchs[3]) > 0 {
-					tmpAGI.Repo = false
-				}
-
 				if e != nil {
 					SaveAGI(tmpAGI)
 				} else {
