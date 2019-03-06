@@ -186,7 +186,8 @@ func ParseReadmeFile(accessToken string, readmeFilePath string)  {
 					tmpAGI.Description = repoDescription
 				}
 
-				agi, e := GetAGI(name, true, false)
+				//GitHub仓库地址中的特殊字符会自动去掉，导致README.md中的名字与库中的不一致，因此存储以GitHub接口返回的full_name为准
+				agi, e := GetAGI(tmpAGI.RepoFullName, true, false)
 				if e != nil {
 					SaveAGI(tmpAGI)
 				} else {
