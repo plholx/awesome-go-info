@@ -43,7 +43,7 @@ var (
 	reOnlyLink            = regexp.MustCompile(`(\s*)\* \[(.*)\]\((.+)\)$`)
 	reLinkWithDescription = regexp.MustCompile(`(\s*)\* \[(.*?)\]\((.+?)\) - (\S.*[\.\!])`)
 	reLittleCategory      = regexp.MustCompile(`(\s*)\* ([a-zA-Z\s]*)$`)
-	reGitHubURL           = regexp.MustCompile(`https://github.com/(.+?)/([a-zA-Z0-9_\-\.]+).*$`)
+	reGitHubURL           = regexp.MustCompile(`https://github.com/(.+?)/([a-zA-Z0-9_\-\.]+)(.*)$`)
 
 	reSpecialCharacters   = regexp.MustCompile(`[^a-zA-Z0-9_\-\.]+`)
 )
@@ -182,6 +182,10 @@ func ParseReadmeFile(accessToken string, readmeFilePath string)  {
 				}
 
 				agi, e := GetAGI(name, true, false)
+				if len(subMatchs[3]) > 0 {
+					tmpAGI.Repo = false
+				}
+
 				if e != nil {
 					SaveAGI(tmpAGI)
 				} else {
