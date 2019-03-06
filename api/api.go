@@ -177,11 +177,12 @@ func ParseReadmeFile(accessToken string, readmeFilePath string)  {
 					continue
 				}
 				tmpAGI.ParentId = linkCategoryId
+				if repoDescription != "" {
+					tmpAGI.Description = repoDescription
+				}
+
 				agi, e := GetAGI(name, true, false)
 				if e != nil {
-					if repoDescription != "" {
-						tmpAGI.Description = repoDescription
-					}
 					SaveAGI(tmpAGI)
 				} else {
 					tmpAGI.Id = agi.Id
