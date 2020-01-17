@@ -7,3 +7,4 @@ rfiles/
 .DS_Store
 *.log
 tmpl.md
+*.sh
