@@ -7,3 +7,5 @@ rfiles/
 .DS_Store
 *.log
 tmpl.md
+
+awesome-go/
